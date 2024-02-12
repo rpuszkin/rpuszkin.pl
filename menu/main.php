@@ -1,0 +1,1 @@
+    <section class="content" id="main">Zawartość głównej strony.</section>

@@ -1,0 +1,1 @@
+<section class="content" id="life">Ciekawe historie z życia.</section>

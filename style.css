@@ -1,0 +1,136 @@
+html {
+  box-sizing: border-box;
+}
+body {
+  padding: 0;
+  margin: 0;
+  font-family: roboto;
+  font-size: 18px;
+  color: #404040;
+  font-weight: 400;
+}
+strong {
+  font-weight: 900;
+}
+.weight-thin {
+  font-weight: 100;
+}
+.weight-light {
+  font-weight: 300;
+}
+.weight-regular {
+  font-weight: 400;
+}
+.weight-medium {
+  font-weight: 500;
+}
+.weight-bold {
+  font-weight: 700;
+}
+.weight-black {
+  font-weight: 900;
+}
+.container {
+  width: 100%;
+}
+strong {
+  font-weight: 900;
+}
+header {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  background-image: url(media/header-pc.jpg);
+  /* Height of headers photo must be divided (podzielić) by width of headers photo. Solution of this divided should be mindfully (pomnożyć) by 100vw. Solution is a height of header:*/
+  height: calc(100vw * 1.34375);
+  background-size: cover;
+}
+.btn-container {
+  margin: 0 auto;
+  width: calc(100% - 60px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 50vh;
+}
+.tax-btn {
+  border: 5px solid #ee7202;
+  border-radius: 9px;
+  transition-duration: 1s;
+  margin-bottom: 45px;
+}
+.tax-btn:hover {
+  background-color: #fff;
+}
+.header-btn {
+  width: fit-content;
+  height: fit-content;
+  text-decoration: none;
+  color: #fff;
+  border: 3px solid #fff;
+  padding: 15px;
+  margin-bottom: 45px;
+  transition-duration: 1s;
+}
+.header-btn:hover {
+  background-color: #fff;
+  color: #000;
+}
+header .container:nth-of-type(1) {
+  height: 100vh;
+  display: flex;
+  flex-direction: column-reverse;
+}
+header .container:nth-of-type(3) {
+  height: 100vh;
+}
+header .container:nth-of-type(2) {
+  height: calc(100% - 200vh);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+h1 {
+  font-size: 37px;
+  color: lightgrey;
+  font-weight: 700;
+  width: 100%;
+  background-color: rgba(64, 64, 64, 0.6);
+  margin-top: 60px;
+}
+nav {
+  color: darkgray;
+  min-width: 100%;
+  min-height: 50px;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  top: 0;
+  left: 0;
+  background-color: rgba(64, 64, 64, 0.65);
+  backdrop-filter: blur(10px);
+  -webkit-box-shadow: 8px 8px 24px 0px rgba(0, 0, 0, 1);
+  -moz-box-shadow: 8px 8px 24px 0px rgba(0, 0, 0, 1);
+  box-shadow: 8px 8px 24px 0px rgba(0, 0, 0, 1);
+}
+.content {
+  padding-top: 60px;
+  display: block;
+  height: 100vh;
+  width: 100vw;
+  background-color: #f1f1f1;
+}
+nav .container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+nav a {
+  text-decoration: none;
+  color: lightgrey;
+  display: flex;
+  height: 50px;
+  align-items: center;
+  white-space: nowrap;
+}
