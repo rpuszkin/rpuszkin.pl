@@ -9,7 +9,7 @@ body {
   color: #404040;
   font-weight: 400;
 }
-strong {
+h1 strong {
   font-weight: 900;
 }
 .weight-thin {
@@ -34,7 +34,7 @@ strong {
   width: 100%;
 }
 strong {
-  font-weight: 900;
+  font-weight: 700;
 }
 header {
   width: 100vw;
