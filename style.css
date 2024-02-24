@@ -164,6 +164,12 @@ nav i {
   width: 100vw;
   background-color: #f1f1f1;
 }
+#fundation {
+  border-left: 20px solid #00539f;
+}
+#tax {
+  border-left: 20px solid #ee7202;
+}
 .subpage-title {
   font-size: 36px;
   color: #404040;
