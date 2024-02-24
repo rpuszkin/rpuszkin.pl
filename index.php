@@ -40,14 +40,18 @@ $title = $main_title.' | wspomóż mnie | '.$subsub_title;
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><?php echo($title);?></title>
     <link rel="stylesheet" href="reset.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">  
+    <script
+      src="https://kit.fontawesome.com/939d05597b.js"
+      crossorigin="anonymous"
+    ></script>
     <link rel="stylesheet" href="style.css" />
   </head>
 <body>    
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <nav id="nav"><div class="container">
-    <a href="?menu=main&sub=main">strona&nbsp;główna<span class="weight-thin">(aktualności)</span></a>
+    <a href="?menu=main&sub=main">strona&nbsp;główna&nbsp;-&nbsp;<span class="weight-thin">aktualności</span></a>
     <a href="?menu=supportme&sub=supportme">wspomóż&nbsp;mnie</a>
+    <a href=""><i class="fa-solid fa-chevron-right"></i></a>
     <a href="?menu=supportme&sub=tax"><img src="media/menu-tax.png"/>&nbsp;podatku</a><a href="?menu=supportme&sub=fundation">przez&nbsp;<img src="media/menu-fundation.png"/>&nbsp;fundację</a>
     <a href="?menu=gallery&sub=gallery">galeria</a>
     <a href="?menu=aboutme&sub=aboutme">o&nbsp;mnie</a>
@@ -60,10 +64,12 @@ $title = $main_title.' | wspomóż mnie | '.$subsub_title;
 </div>
     <div class="container">
       <div class="btn-container"><a href="?menu=supportme&sub=tax"><img class="tax-btn" src="media/tax-btn.png" alt="Przekaż 1,5% podatku" /></a><a href="?menu=myhistory&sub=myhistory" class="header-btn">historia</a><a class="header-btn" href="?menu=myprogress&sub=myprogress">postępy</a></div>
-      <p><h1><strong>Robert Puszkin</strong> - <span class="weight-thin">Jedna sekunda</span>  i praca konsultanta zamieniła się w pracę nad sobą.</h1></p></div>
+      <p><h1><strong>Robert Puszkin</strong> - <span class="weight-thin">Jedna sekunda</span>  i praca konsultanta zamieniła się w pracę nad własnym ciałem..</h1></p>
+    <div id="loader"><img src="media/loader.gif" alt="" />Ładowanie...</div>
+    </div>
       <div class="container">
 </div>
-    <div></div>
+    <div></p>
   </header>
     <?php
 
@@ -109,11 +115,11 @@ function easeInOutQuad(t) {
  }
     requestAnimationFrame(scrollToTarget);
 }
+
 window.addEventListener('load', function() {
-  setTimeout(function() {
-    ScrollIt(<?php echo("'".$sub."'");?>, 6400);
-  }, 5000);
+  setTimeout(function() {ScrollIt(<?php echo("'".$sub."'");?>, 6400)}, 6000);
 });
+setTimeout(function() {document.getElementById('loader').style.display = 'none';}, 12400);
 </script>
 </body>
 </html>

@@ -1,2 +1,4 @@
+    <section class="content" id="gallery">
+    <h2><p class="subpage-title">galeria</p></h2>
 
-    <sectio class="content" id="gallery">nMoje fotosy i filmiki. W ubraniach oczywiscie... 
+    <p>Moje fotosy i filmiki. W ubraniach oczywiscie...</p>
