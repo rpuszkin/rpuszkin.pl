@@ -150,13 +150,15 @@ nav a {
 nav i {
   width: 13px;
 }
-
 .content {
   padding-top: 60px;
   display: block;
   height: 100vh;
-  width: calc(100vw - 150px);
-  padding-left: 150px;
+  width: calc(100vw - 50px - 20px);
+  padding-left: 50px;
+}
+.content-supportme p {
+  margin-left: 70px;
 }
 .content-supportme {
   padding: 0;
@@ -170,6 +172,7 @@ nav i {
 #tax {
   border-left: 20px solid #ee7202;
 }
+
 .subpage-title {
   font-size: 36px;
   color: #404040;
