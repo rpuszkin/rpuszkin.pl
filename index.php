@@ -51,20 +51,21 @@ $title = $main_title.' | wspomóż mnie | '.$subsub_title;
     <nav id="nav"><div class="container">
     <a href="?menu=main&sub=main">strona&nbsp;główna&nbsp;-&nbsp;<span class="weight-thin">aktualności</span></a>
     <a href="?menu=supportme&sub=supportme">wspomóż&nbsp;mnie</a>
-    <a href=""><i class="fa-solid fa-chevron-right"></i></a>
-    <a href="?menu=supportme&sub=tax"><img src="media/menu-tax.png"/>&nbsp;podatku</a><a href="?menu=supportme&sub=fundation">przez&nbsp;<img src="media/menu-fundation.png"/>&nbsp;fundację</a>
+    <label for="supportme-input"><a><i class="fa-solid fa-angle-right"></i></a></label>
+    <a href="?menu=supportme&sub=tax" class="supportme-more"><img src="media/menu-tax.png"/>&nbsp;podatku</a><a href="?menu=supportme&sub=fundation" class="supportme-more">przez&nbsp;<img src="media/menu-fundation.png"/>&nbsp;fundację</a>
     <a href="?menu=gallery&sub=gallery">galeria</a>
     <a href="?menu=aboutme&sub=aboutme">o&nbsp;mnie</a>
     <a href="?menu=myhistory&sub=myhistory">moja&nbsp;smutna&nbsp;hitoria</a>
     <a href="?menu=myprogress&sub=myprogress">moje&nbsp;postępy</a>
     <a href="?menu=life&sub=life">z&nbsp;życia&nbsp;wzięte</a>
-    <a href="?menu=myprojects&sub=myprojects">strefa&nbsp;projektów&nbsp;WWW</a>
+    <a href="?menu=myprojects&sub=myprojects">strefa&nbsp;projektóww WWW</a>
+    <input type="checkbox" id="supportme-input" />
     </div></nav>
     <header id="top">
 </div>
     <div class="container">
       <div class="btn-container"><a href="?menu=supportme&sub=tax"><img class="tax-btn" src="media/tax-btn.png" alt="Przekaż 1,5% podatku" /></a><a href="?menu=myhistory&sub=myhistory" class="header-btn">historia</a><a class="header-btn" href="?menu=myprogress&sub=myprogress">postępy</a></div>
-      <p><h1><strong>Robert Puszkin</strong> - <span class="weight-thin">Jedna sekunda</span>  i praca konsultanta zamieniła się w pracę nad własnym ciałem..</h1></p>
+      <p><h1><strong>Robert Puszkin</strong> - <span class="weight-thin">Jedna sekunda</span>  i praca konsultanta zamieniła się w pracę nad własnym ciałem...</h1></p>
     <div id="loader"><img src="media/loader.gif" alt="" />Ładowanie...</div>
     </div>
       <div class="container">
@@ -120,6 +121,27 @@ window.addEventListener('load', function() {
   setTimeout(function() {ScrollIt(<?php echo("'".$sub."'");?>, 6400)}, 6000);
 });
 setTimeout(function() {document.getElementById('loader').style.display = 'none';}, 12400);
+document.addEventListener('DOMContentLoaded', function() {
+      var checkbox = document.getElementById('supportme-input');
+      var links = document.querySelectorAll('.supportme-more');
+
+      // Ukryj linki na początku
+      links.forEach(function(link) {
+        link.style.display = 'none';
+      });
+
+      checkbox.addEventListener('change', function() {
+        if (checkbox.checked) {
+          links.forEach(function(link) {
+            link.style.display = 'flex';
+          });
+        } else {
+          links.forEach(function(link) {
+            link.style.display = 'none';
+          });
+        }
+      });
+    });
 </script>
 </body>
 </html>

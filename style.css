@@ -146,9 +146,15 @@ nav a {
   height: 50px;
   align-items: center;
   white-space: nowrap;
+  cursor: pointer;
 }
 nav i {
   width: 13px;
+  display: flex;
+  align-items: center;
+}
+#supportme-input {
+  display: none;
 }
 .content {
   padding-top: 60px;
