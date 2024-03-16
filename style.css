@@ -148,7 +148,7 @@ nav a {
   white-space: nowrap;
   cursor: pointer;
 }
-nav i {
+.fa-angle-right {
   width: 13px;
   display: flex;
   align-items: center;
