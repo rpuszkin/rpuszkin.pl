@@ -137,7 +137,7 @@ nav {
 nav .container {
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  gap: 48px;
 }
 nav a {
   text-decoration: none;
