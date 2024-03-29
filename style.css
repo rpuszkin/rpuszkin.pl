@@ -135,7 +135,6 @@ nav {
   box-shadow: 8px 8px 24px 0px rgba(0, 0, 0, 1);
 }
 nav .container {
-  width: 100%;
   display: flex;
   gap: 48px;
 }
