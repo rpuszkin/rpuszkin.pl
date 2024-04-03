@@ -45,6 +45,11 @@ header {
   height: calc(100vw * 1.34375);
   background-size: cover;
 }
+section,
+header {
+  min-width: 100vw;
+  max-width: 100vw;
+}
 h1 {
   font-size: 37px;
   color: lightgrey;
