@@ -45,7 +45,6 @@ header {
   height: calc(100vw * 1.34375);
   background-size: cover;
 }
-
 h1 {
   font-size: 37px;
   color: lightgrey;
@@ -54,7 +53,6 @@ h1 {
   background-color: rgba(64, 64, 64, 0.6);
   margin-top: 60px;
 }
-
 #loader {
   position: fixed;
   align-items: center;
@@ -111,7 +109,6 @@ header .container:nth-of-type(1) {
   display: flex;
   flex-direction: column-reverse;
 }
-
 header .container:nth-of-type(2) {
   height: calc(100% - 200vh);
   width: 100%;
@@ -119,7 +116,6 @@ header .container:nth-of-type(2) {
   justify-content: center;
   align-items: center;
 }
-
 nav {
   color: darkgray;
   min-width: 100%;
