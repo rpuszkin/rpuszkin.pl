@@ -174,11 +174,7 @@ nav a {
 #tax {
   border-left: 20px solid #ee7202;
 }
-section,
-header {
-  min-width: 100vw;
-  max-width: 100vw;
-}
+
 .subpage-title {
   font-size: 36px;
   color: #404040;
