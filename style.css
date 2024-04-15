@@ -155,6 +155,8 @@ nav a {
 }
 .content {
   padding-top: 60px;
+  width: calc(100% - 70px);
+  max-width: calc(100% - 70px);
   display: block;
   height: 100vh;
   padding-left: 50px;
