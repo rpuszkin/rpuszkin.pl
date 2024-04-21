@@ -65,7 +65,7 @@ $title = $main_title.' | wspomóż mnie | '.$subsub_title;
 </div>
     <div class="container">
       <div class="btn-container"><a href="?menu=supportme&sub=tax"><img class="tax-btn" src="media/tax-btn.png" alt="Przekaż 1,5% podatku" /></a><a href="?menu=myhistory&sub=myhistory" class="header-btn">historia</a><a class="header-btn" href="?menu=myprogress&sub=myprogress">postępy</a></div>
-      <p><h1><strong>Robert Puszkin</strong> - <span class="weight-thin">Jedna sekunda</span>  i praca konsultanta zamieniła się w pracę nad własnym ciałem...</h1></p>
+      <p><h1><strong>Robert Puszkin</strong> - <span class="weight-thin">Jedna sekunda</span>  i praca konsultanta zamieniła się w ciężką pracę nad sobą...</h1></p>
     <div id="loader"><img src="media/loader.gif" alt="" />Ładowanie...</div>
     </div>
       <div class="container">
