@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>rpuszkin.pl</title>
+    <script
+      src="https://kit.fontawesome.com/939d05597b.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+  href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700;900&display=swap"
+  rel="stylesheet"
+/>
+  </head>
+  <body>
+    <nav class="menu-nav">
+      <div class="container">
+        <!-- prettier-ignore -->
+        <ul class="menu-ul">
+          <li class="menu-li"><a href="?menu=main" onclick="scrollAndGo('?menu=main')" class="menu-link">strona&nbsp;główna&nbsp;-&nbsp;<span class="weight-thin">aktualności</span></a></li>
+          <li class="menu-li">
+            <a href="?menu=supportme" onclick="scrollAndGo('?menu=supportme')" class="menu-link">wesprzyj&nbsp;mnie</a>
+            
+            <label for="supportme-input" class="menu-link supportme-label">
+              <input type="checkbox" id="supportme-input" class="supportme-input" />
+              <i class="fa-solid fa-angle-down supportme-arrow"></i>
+              <div class="supportme-more"><span class="menu-link" onclick="scrollAndGo('?menu=supportme&sub=krs')">Przekaż <img  class="menu-icon" src="media/menu-tax.png" /> <span class="color-krs"> podatku</span></span>
+                <span class="menu-link" onclick="scrollAndGo('?menu=supportme&sub=foundation')">Przez <img class="menu-icon" src="media/menu-foundation.png"> <span class="color-foundation"> fundację</span></span>
+              </div>
+            </label>
+            </li>
+          </li>
+          <li class="menu-li"><a href="?menu=mygallery" onclick="scrollAndGo('?menu=mygallery')" class="menu-link"> galeria</a></li>
+          <li class="menu-li"><a href="?menu=aboutme" onclick="scrollAndGo('?menu=aboutme')" class="menu-link">o&nbsp;mnie</a></li>
+          <li class="menu-li"><a href="?menu=myhistory" onclick="scrollAndGo('?menu=myhistory')" class="menu-link">moja&nbsp;historia</a></li>
+          <li class="menu-li"><a href="?menu=myprogress" onclick="scrollAndGo('?menu=myprogress')" class="menu-link">moje&nbsp;postępy</a></li>
+          <li class="menu-li"><a href="?menu=reallife" onclick="scrollAndGo('?menu=reallife')" class="menu-link">z&nbsp;życia&nbsp;wzięte</a></li>
+          <li class="menu-li"><a href="?menu=irecommend" onclick="scrollAndGo('?menu=irecommend')" class="menu-link">warto&nbsp;polecić</a></li>
+          <li class="menu-li"><a href="?menu=mypojects" onclick="scrollAndGo('?menu=mypojects')" class="menu-link">strefa projektów WWW</a></li>
+        </ul>
+
+        
+      </div>
+    </nav>
+
+    <header id="top" class="header">
+      <div class="container">
+      <div class="btn-container"><a onclick="scrollAndGo('?menu=supportme&sub=krs')" class=""><img class="tax-btn" src="media/tax-btn.png" alt=" 1,5% podatku">
+        <a  onclick="scrollAndGo('?menu=myhistory&sub=myhistory')" class="header-btn">historia</a>
+        <a  onclick="scrollAndGo('?menu=myprogress&sub=myprogress')" class="header-btn ">postępy</a>
+      </div>
+      <h1 class="title-h1"><p><strong class="important-strong">Robert Puszkin</strong> - <span class="weight-thin">Jedna sekunda</span>  i praca konsultanta zamieniła się w pracę nad ciałem...</p></h1>
+<img src="media/loader.gif" class="scroll-loader"  id="scroll-loader"/>
+</div>
+    </div>
+    </header>
+    <main id="main-content"></main>
+    <footer class="footer">
+      <div class="container">
+      <ul class="footer-ul">
+        <li class="technology-li technology_html5">
+          <img src="media/tech-icons/html5.png" />
+          <span class="technology-name">HTML5</span>
+        </li>
+          <li class="technology-li technology_css3">
+            <img src="media/tech-icons/css3.png" />
+<span class="technology-name">CSS3</span>
+          </li>
+        </li>
+        <li class=" technology_js">
+          <img src="media/tech-icons/js.png" />
+          <span class="technology-name">JavaScript {ES6+}</span>
+        </li>
+        <li class="technology_github">
+          <img src="media/tech-icons/github.png" />
+          <span class="technology-name">GitHub</span>
+        </li>
+        <li class="credits">
+          ©&nbsp;2024&nbsp;<span translate="no">Puszkin&nbsp;Robert:</span>
+        <div class="contact">
+<a href="http://www.facebook.com/rpuszkin/" class="contact-icon"><i class="fa-brands fa-facebook contact-icon"></i></a>
+<a href="mailto:rpuszkin@gmail.com" class="contact-icon"><i class="fa-regular fa-envelope contact-icon"></i></a></span>
+        <a href="http://www.linkedin.com/in/robert-puszkin-927b2028b/"><i class="fa-brands fa-linkedin contact-icon"></i></a>
+
+        </li>
+      </ul>
+      </div>
+    </footer>
+    <script src="scroll.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>
