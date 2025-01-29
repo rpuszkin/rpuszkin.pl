@@ -19,36 +19,34 @@ function loadContent(menu, sub) {
   let url = new URL(window.location.href);
   let params = new URLSearchParams(url.search);
   menuURL = params.get("menu");
-  subURL = params.get("sub");
+  subURL = params.get("sub") || "";
   if (!menu && !sub && !menuURL && !subURL) {
     //tu krs
     menu = "main";
     sub = "main";
-  } else if (!sub && (subURL === "krs" || subURL === "foundation")) {
-    sub = subURL;
   }
-  if (
-    (menu && !valid_menu.includes(menu)) ||
-    (sub &&
-      (subURL !== "krs" || sub !== "krs") &&
-      (subURL !== "foundation" || sub !== "foundation") &&
-      (menu === "supportme" || menu === "supportme"))
+  if (menu && !valid_menu.includes(menu)) {
+    menu = "404";
+    sub = "404";
+  }
+  // prettier-ignore
+  else if (
+    (subURL === "krs" || subURL === "foundation") &&
+    (menuURL === "supportme" || menuURL === "supportme")
+  ) {
+    sub = subURL;
+  } else if (
+    !sub &&
+    subURL &&
+    (subURL !== "krs" || subURL !== "foundation") &&
+    (menuURL === "supportme" || menuURL === "supportme")
   ) {
     menu = "404";
     sub = "404";
-  } else if (!menu && valid_menu.includes(menuURL)) {
-    menu = menuURL;
-  } else if (
-    !sub &&
-    (subURL === "krs" ||
-      subURL === "foundation" ||
-      sub === "krs" ||
-      sub === "foundation") &&
-    (menu === "supportme" || (menuURL === "supportme" && (menuURL || menu)))
-  ) {
-    sub = subURL;
   }
-  //inne warunki na zmienne
+  if (!menu && valid_menu.includes(menuURL)) {
+    menu = menuURL;
+  }
   file = `menu/${menu}.html`;
   if (!sub && valid_menu.includes(menu)) {
     sub = menu;
