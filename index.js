@@ -19,27 +19,26 @@ function loadContent(menu, sub) {
   let url = new URL(window.location.href);
   let params = new URLSearchParams(url.search);
   menuURL = params.get("menu");
-  subURL = params.get("sub") || "";
+  subURL = params.get("sub");
   if (!menu && !sub && !menuURL && !subURL) {
     //tu krs
     menu = "main";
     sub = "main";
-  }
-  if (menu && !valid_menu.includes(menu)) {
+  } else if (menu && !valid_menu.includes(menu)) {
     menu = "404";
     sub = "404";
-  }
-  // prettier-ignore
-  else if (
+  } else if (
+    !sub &&
+    subURL &&
     (subURL === "krs" || subURL === "foundation") &&
     (menuURL === "supportme" || menuURL === "supportme")
   ) {
     sub = subURL;
   } else if (
-    !sub &&
-    subURL &&
-    (subURL !== "krs" || subURL !== "foundation") &&
-    (menuURL === "supportme" || menuURL === "supportme")
+    (sub && (sub !== "krs" || sub !== "foundation") && menu === "supportme") ||
+    (subURL &&
+      (subURL !== "krs" || subURL !== "foundation") &&
+      (menuURL === "supportme" || menuURL === "supportme"))
   ) {
     menu = "404";
     sub = "404";
