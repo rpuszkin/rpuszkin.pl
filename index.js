@@ -34,12 +34,7 @@ function loadContent(menu, sub) {
     (menuURL === "supportme" || menuURL === "supportme")
   ) {
     sub = subURL;
-  } else if (
-    (sub && (sub !== "krs" || sub !== "foundation") && menu === "supportme") ||
-    (subURL &&
-      (subURL !== "krs" || subURL !== "foundation") &&
-      (menuURL === "supportme" || menuURL === "supportme"))
-  ) {
+  } else if (!sub && subURL && (subURL !== "krs" || subURL !== "foundation")) {
     menu = "404";
     sub = "404";
   }
