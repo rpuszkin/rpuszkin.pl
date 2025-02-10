@@ -76,7 +76,46 @@ function loadContent(menu, sub) {
         alert(`Błąd: "${error.message}".`);
       });
   }
+  const subpageHtmlTitle = {
+    main: "strona główna",
+    supportme: "wspomóż mnie",
+    mygallery: "galeria",
+    aboutme: "o mnie",
+    myhistory: "moja historia",
+    myprogress: "moje postępy",
+    reallife: "z życia wzięte",
+    mypojects: "strefa projektów WWW",
+    irecommend: " mogę polecić",
+    404: "Błąd 404 - nie znaleziono",
+  };
+  document.title = "rpuszkin.pl" + " | " + subpageHtmlTitle[menu];
+  if (sub === "krs") {
+    document.title += " /  1,5% podatku";
+  } else if (sub === "foundation") {
+    document.title += " /  fundacja";
+  }
 
   loadFile(file);
   return "content loaded";
+}
+function scrollAndLoad(menuLoad, subLoad) {
+  const toLoad = () => Promise.resolve(loadContent(menuLoad, subLoad));
+
+  const scrollToTop = () => scrollIt("top", 5600);
+  const scrollToContent = () => scrollIt(section, 8300);
+  if (window.scrollY >= window.innerHeight) {
+    scrollToTop()
+      .then(() => {
+        return toLoad();
+      })
+      .then((content) => {
+        if (content === "content loaded") {
+          return scrollToContent();
+        }
+      });
+  } else {
+    toLoad().then(() => {
+      scrollToContent();
+    });
+  }
 }

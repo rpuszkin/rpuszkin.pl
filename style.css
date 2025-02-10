@@ -119,7 +119,7 @@ header .container:nth-of-type(2) {
 }
 .menu-li:nth-of-type(2) {
   display: flex;
-  gap: 15px;
+  gap: 5px;
 }
 .supportme-input {
   display: none;
