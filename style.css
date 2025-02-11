@@ -223,10 +223,11 @@ header .container:nth-of-type(3) {
   background-color: #fff;
 }
 .header-btn {
+  font-weight: 300;
   text-decoration: none;
   cursor: pointer;
   color: #fff;
-  border: 3px solid #fff;
+  border: 1px solid #fff;
   padding: 15px;
   transition-duration: 1s;
 }
