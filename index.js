@@ -29,12 +29,18 @@ function loadContent(menu, sub) {
     sub = "404";
   } else if (
     !sub &&
+    !menu &&
     subURL &&
     (subURL === "krs" || subURL === "foundation") &&
     (menuURL === "supportme" || menuURL === "supportme")
   ) {
     sub = subURL;
-  } else if (!sub && subURL && (subURL !== "krs" || subURL !== "foundation")) {
+  } else if (
+    !sub &&
+    !menu &&
+    subURL &&
+    (subURL !== "krs" || subURL !== "foundation")
+  ) {
     menu = "404";
     sub = "404";
   }
@@ -54,7 +60,7 @@ function loadContent(menu, sub) {
       .then((response) => {
         if (!response.ok) {
           if (response.status === 404) {
-            window.location.href = "?menu=404";
+            scrollAndLoad("404");
           } else {
             alert(
               `Wystąpił błąd o numerze ${response.status}. Opisz okoliczności wystąpienia błędu i razem z jego numerem, datą i godziną wystąpienia wyślij mi wiadomość. Dziękuję!`
@@ -78,7 +84,7 @@ function loadContent(menu, sub) {
   }
   const subpageHtmlTitle = {
     main: "strona główna",
-    supportme: "wspomóż mnie",
+    supportme: "wesprzyj mnie",
     mygallery: "galeria",
     aboutme: "o mnie",
     myhistory: "moja historia",
