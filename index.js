@@ -106,7 +106,13 @@ function loadContent(menu, sub) {
   } else if (sub === "foundation") {
     document.title += " /  fundacja";
   }
-
+  if (menu === "aboutme" || menu === "myhistory") {
+    const link = document.createElement("link");
+    link.href =
+      "https://fonts.googleapis.com/css2?family=Roboto+Serif:wght@400;700&display=swap";
+    link.rel = "stylesheet";
+    document.head.appendChild(link);
+  }
   loadFile(file);
   return "content loaded";
 }
