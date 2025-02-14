@@ -27,7 +27,7 @@ function loadContent(menu, sub) {
   menuURL = params.get("menu");
   subURL = params.get("sub");
   if (!menu && !sub && !menuURL && !subURL) {
-    //tu krs
+    //tu krs i ellsr tn retern
     return;
   } else if (menu && !valid_menu.includes(menu)) {
     menu = "404";
