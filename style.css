@@ -141,9 +141,9 @@ header .container:nth-of-type(2) {
 .supportme-more {
   padding: 0 5px;
   z-index: 999;
-  display: none;
-  overflow: hidden;
-  display: none;
+  opacity: 0;
+  visibility: hidden;
+  display: flex;
   flex-direction: column;
   position: absolute;
   top: 50px;
@@ -155,10 +155,11 @@ header .container:nth-of-type(2) {
   -moz-box-shadow: 8px -8px 24px 0px rgba(0, 0, 0, 1);
   box-shadow: 8px -8px 24px 0px rgba(0, 0, 0, 1);
   border-radius: 0 0 3% 3%;
+  transition: all 0.18s ease-in-out;
 }
 #supportme-input:checked ~ .supportme-more {
-  display: flex;
-  /*overflow: hidden;*/
+  opacity: 1;
+  visibility: visible;
   backdrop-filter: blur(2.5px);
   -webkit-backdrop-filter: blur(2.5px);
 }
