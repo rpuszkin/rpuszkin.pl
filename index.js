@@ -11,7 +11,7 @@ document.querySelectorAll("header a").forEach((link) => {
 });
 function loadContent(menu, sub) {
   const valid_menu = [
-    "main",
+    "news",
     "supportme",
     "mygallery",
     "aboutme",
@@ -88,7 +88,7 @@ function loadContent(menu, sub) {
       });
   }
   const subpageHtmlTitle = {
-    main: "strona główna",
+    news: "aktualności",
     supportme: "wesprzyj mnie",
     mygallery: "galeria",
     aboutme: "o mnie",
