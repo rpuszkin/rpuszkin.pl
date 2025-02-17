@@ -30,7 +30,7 @@ function loadContent(menu, sub) {
   if (!menu && !sub && !menuURL && !subURL) {
     //tu krs i else ten welcome
     console.log("pusto");
-    throw new Error("warning on top of page");
+    throw new Error("warning on top of page for user reaction");
     return;
     return;
   } else if (menu && !valid_menu.includes(menu)) {
