@@ -11,6 +11,7 @@ document.querySelectorAll("header a").forEach((link) => {
 });
 function loadContent(menu, sub) {
   const valid_menu = [
+    "welcome",
     "news",
     "supportme",
     "mygallery",
@@ -27,7 +28,10 @@ function loadContent(menu, sub) {
   menuURL = params.get("menu");
   subURL = params.get("sub");
   if (!menu && !sub && !menuURL && !subURL) {
-    //tu krs i else ten retern
+    //tu krs i else ten welcome
+    console.log("pusto");
+    scrollAndLoad("welcome");
+    return;
     return;
   } else if (menu && !valid_menu.includes(menu)) {
     menu = "404";
