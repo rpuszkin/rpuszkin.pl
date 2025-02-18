@@ -30,8 +30,6 @@ function loadContent(menu, sub) {
   if (!menu && !sub && !menuURL && !subURL) {
     console.log("pusto");
     throw new Error("warning on top of page for user reaction");
-    return;
-    return;
   } else if (menu && !valid_menu.includes(menu)) {
     menu = "404";
     sub = "404";

@@ -122,7 +122,7 @@ header .container:nth-of-type(2) {
 }
 .menu-li:nth-of-type(2) {
   display: flex;
-  gap: 5px;
+  gap: 10px;
 }
 .supportme-input {
   display: none;
