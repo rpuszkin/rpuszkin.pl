@@ -28,7 +28,6 @@ function loadContent(menu, sub) {
   menuURL = params.get("menu");
   subURL = params.get("sub");
   if (!menu && !sub && !menuURL && !subURL) {
-    //tu krs i else ten welcome
     console.log("pusto");
     throw new Error("warning on top of page for user reaction");
     return;
