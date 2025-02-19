@@ -11,7 +11,6 @@ document.querySelectorAll("header a").forEach((link) => {
 });
 function loadContent(menu, sub) {
   const valid_menu = [
-    "welcome",
     "news",
     "supportme",
     "mygallery",
@@ -102,9 +101,9 @@ function loadContent(menu, sub) {
   };
   document.title = "rpuszkin.pl" + " | " + subpageHtmlTitle[menu];
   if (sub === "krs") {
-    document.title += " ➔  1,5% podatku";
+    document.title += " →	  1,5% podatku";
   } else if (sub === "foundation") {
-    document.title += " ➔  fundacja";
+    document.title += " →	  fundacja";
   }
   if (menu === "aboutme" || menu === "myhistory") {
     const link = document.createElement("link");
