@@ -82,7 +82,7 @@ function loadContent(menu, sub) {
         alert(
           "Błąd podczas ładowania pliku:" +
             error +
-            "\n Opisz dokładnie okoliczności i szczegółóły błędu i napisz mi maila na rpuszkin@gmail.com. Dziękuję!"
+            "\n Opisz dokładnie okoliczności wystąpienia i szczegółóły błędu i napisz mi maila na rpuszkin@gmail.com. Dziękuję!"
         );
         alert(`Błąd: "${error.message}".`);
       });
