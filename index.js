@@ -79,7 +79,11 @@ function loadContent(menu, sub) {
         section = sub;
       })
       .catch((error) => {
-        console.error("Error, while loading file:", error);
+        alert(
+          "Błąd podczas ładowania pliku:" +
+            error +
+            "\n Opisz dokładnie okoliczności i szczegółóły błędu i napisz mi maila na rpuszkin@gmail.com. Dziękuję!"
+        );
         alert(`Błąd: "${error.message}".`);
       });
   }
