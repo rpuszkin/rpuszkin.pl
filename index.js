@@ -27,7 +27,6 @@ function loadContent(menu, sub) {
   menuURL = params.get("menu");
   subURL = params.get("sub");
   if (!menu && !sub && !menuURL && !subURL) {
-    console.log("pusto");
     throw new Error("warning on top of page for user reaction");
   } else if (menu && !valid_menu.includes(menu)) {
     menu = "404";
@@ -57,9 +56,6 @@ function loadContent(menu, sub) {
     sub = menu;
   }
   section = sub;
-  console.log("Plik: ", file);
-  console.log("Sekcja: ", section);
-
   function loadFile(url) {
     fetch(url)
       .then((response) => {
@@ -88,7 +84,7 @@ function loadContent(menu, sub) {
       });
   }
   const subpageHtmlTitle = {
-    news: "aktualności",
+    news: "nowości/wydarzenia",
     supportme: "wesprzyj mnie",
     mygallery: "galeria",
     aboutme: "o mnie",
@@ -113,6 +109,15 @@ function loadContent(menu, sub) {
     document.head.appendChild(link);
   }
   loadFile(file);
+  if (menu !== sub) {
+    if (menu !== "404") {
+      window.history.pushState({}, "", "?menu=" + menu + "&sub=" + sub);
+    }
+  } else {
+    if (menu !== "404") {
+      window.history.pushState({}, "", "?menu=" + menu);
+    }
+  }
   return "content loaded";
 }
 function scrollAndLoad(menuLoad, subLoad) {
@@ -136,3 +141,6 @@ function scrollAndLoad(menuLoad, subLoad) {
     });
   }
 }
+window.addEventListener("load", function () {
+  scrollAndLoad();
+});
