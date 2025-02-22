@@ -269,6 +269,9 @@ header .container:nth-of-type(3) {
   align-items: center;
   gap: 5px;
 }
+.supportme-data {
+  margin-top: 150px;
+}
 .color-krs {
   color: #ee7202;
 }
