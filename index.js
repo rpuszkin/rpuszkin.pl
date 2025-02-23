@@ -27,7 +27,7 @@ function loadContent(menu, sub) {
   menuURL = params.get("menu");
   subURL = params.get("sub");
   if (!menu && !sub && !menuURL && !subURL) {
-    throw new Error("warning on top of page for user reaction");
+    return;
   } else if (menu && !valid_menu.includes(menu)) {
     menu = "404";
     sub = "404";
@@ -128,7 +128,11 @@ function scrollAndLoad(menuLoad, subLoad) {
   const toLoad = () => Promise.resolve(loadContent(menuLoad, subLoad));
 
   const scrollToTop = () => scrollIt("top", 5600);
-  const scrollToContent = () => scrollIt(section, 8300);
+  const scrollToContent = () => {
+    if (section) {
+      scrollIt(section, 8300);
+    }
+  };
   if (window.scrollY >= window.innerHeight) {
     scrollToTop()
       .then(() => {
