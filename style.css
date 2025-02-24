@@ -11,9 +11,7 @@ body {
   color: #404040;
   font-weight: 400;
 }
-h1 strong {
-  font-weight: 900;
-}
+
 .weight-thin {
   font-weight: 100;
 }
@@ -196,6 +194,20 @@ header .container:nth-of-type(2) {
   font-weight: 700;
   width: 100%;
   background-color: rgba(64, 64, 64, 0.6);
+}
+.choose-topic {
+  opacity: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: red;
+  margin-top: 60px;
+  font-size: 25px;
+  padding-top: 30px;
+  padding-bottom: 15px;
+  gap: 10px;
+  background-color: rgba(64, 64, 64, 0.4);
 }
 header .container:nth-of-type(2) {
   height: calc(100% - 200vh);

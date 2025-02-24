@@ -27,6 +27,7 @@ function loadContent(menu, sub) {
   menuURL = params.get("menu");
   subURL = params.get("sub");
   if (!menu && !sub && !menuURL && !subURL) {
+    document.getElementById("choose-topic").style.opacity = "1";
     return;
   } else if (menu && !valid_menu.includes(menu)) {
     menu = "404";
@@ -125,6 +126,7 @@ function loadContent(menu, sub) {
   return "content loaded";
 }
 function scrollAndLoad(menuLoad, subLoad) {
+  document.getElementById("choose-topic").style.opacity = "0";
   const toLoad = () => Promise.resolve(loadContent(menuLoad, subLoad));
 
   const scrollToTop = () => scrollIt("top", 5600);
