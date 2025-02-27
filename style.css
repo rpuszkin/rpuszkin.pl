@@ -245,7 +245,7 @@ header .container:nth-of-type(3) {
   cursor: pointer;
   color: #fff;
   border: 1px solid #fff;
-  border-radius: 8px;
+  border-radius: 9px;
   padding: 15px;
   transition-duration: 1s;
 }
