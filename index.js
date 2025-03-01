@@ -115,11 +115,11 @@ function loadContent(menu, sub) {
   }
   loadFile(file);
   if (menu !== sub) {
-    if (menu !== "404") {
+    if (menu !== "404" && menu) {
       window.history.pushState({}, "", "?menu=" + menu + "&sub=" + sub);
     }
   } else {
-    if (menu !== "404") {
+    if (menu !== "404" && menu) {
       window.history.pushState({}, "", "?menu=" + menu);
     }
   }
