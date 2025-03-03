@@ -283,8 +283,8 @@ header .container:nth-of-type(3) {
   align-items: center;
   gap: 5px;
 }
-.supportme-data {
-  margin-top: 150px;
+.supportme-information {
+  margin-top: 40vh;
 }
 .color-krs {
   color: #ee7202;
