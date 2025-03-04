@@ -201,9 +201,9 @@ header .container:nth-of-type(2) {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  color: red;
+  color: gray;
   margin-top: 60px;
-  font-size: 25px;
+  font-size: 20px;
   padding-top: 30px;
   padding-bottom: 15px;
   gap: 10px;
