@@ -201,7 +201,8 @@ header .container:nth-of-type(2) {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  color: gray;
+  color: darkdimgray;
+  text-shadow: 0 0 4px lightgrey;
   margin-top: 60px;
   font-size: 20px;
   padding-top: 30px;
