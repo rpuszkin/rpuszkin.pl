@@ -168,7 +168,7 @@ header .container:nth-of-type(2) {
   margin: 5px;
 }
 .supportme-more .color-foundation {
-  text-shadow: 0 0 4px lightgrey;
+  text-shadow: -1px -1px 0 lightgrey;
 }
 .header {
   width: 100%;
@@ -202,7 +202,7 @@ header .container:nth-of-type(2) {
   align-items: center;
   flex-direction: column;
   color: darkdimgray;
-  text-shadow: 0 0 4px lightgrey;
+  text-shadow: -1px -1px 0 lightgrey;
   margin-top: 60px;
   font-size: 20px;
   padding-top: 30px;
