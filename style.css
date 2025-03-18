@@ -170,7 +170,7 @@ header .container:nth-of-type(2) {
 .supportme-more .color-foundation {
   text-shadow: -1px -1px 0 rgba(211, 211, 211, 0.5),
     1px -1px 0 rgba(211, 211, 211, 0.5), -1px 1px 0 rgba(211, 211, 211, 0.5),
-    1px 1px 0 lightgrey;
+    1px 1px 0 rgba(211, 211, 211, 0.5);
 }
 .header {
   width: 100%;
