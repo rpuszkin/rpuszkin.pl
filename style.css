@@ -168,7 +168,9 @@ header .container:nth-of-type(2) {
   margin: 5px;
 }
 .supportme-more .color-foundation {
-  text-shadow: -1px -1px 0 lightgrey;
+  text-shadow: -1px -1px 0 rgba(211, 211, 211, 0.5),
+    1px -1px 0 rgba(211, 211, 211, 0.5), -1px 1px 0 rgba(211, 211, 211, 0.5),
+    1px 1px 0 lightgrey;
 }
 .header {
   width: 100%;
@@ -202,7 +204,9 @@ header .container:nth-of-type(2) {
   align-items: center;
   flex-direction: column;
   color: darkdimgray;
-  text-shadow: -1px -1px 0 lightgrey;
+  text-shadow: -1px -1px 0 rgba(211, 211, 211, 0.5),
+    1px -1px 0 rgba(211, 211, 211, 0.5), -1px 1px 0 rgba(211, 211, 211, 0.5),
+    1px 1px 0 rgba(211, 211, 211, 0.5);
   margin-top: 60px;
   font-size: 20px;
   padding-top: 30px;
