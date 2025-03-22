@@ -19,7 +19,7 @@ function loadContent(menu, sub) {
     "myprogress",
     "reallife",
     "irecommend",
-    "mypojects",
+    "myprojects",
     "404",
   ];
   let url = new URL(window.location.href);
@@ -96,7 +96,7 @@ function loadContent(menu, sub) {
     myhistory: "moja historia",
     myprogress: "moje postępy",
     reallife: "z życia wzięte",
-    mypojects: "strefa projektów WWW",
+    myprojects: "strefa projektów WWW",
     irecommend: " mogę polecić",
     404: "Błąd 404 - nie znaleziono",
   };
