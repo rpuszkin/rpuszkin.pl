@@ -1,7 +1,18 @@
+loader = document.getElementById("scroll-loader");
+function showLoader() {
+  loader.style.opacity = "1";
+  loader.style.visibility = "visible";
+}
+function hideLoader() {
+  loader.style.opacity = "0";
+  loader.style.visibility = "hidden";
+}
 function scrollIt(targetId, duration) {
   return new Promise((resolve, reject) => {
     function attemptScroll(attemptsLeft) {
       setTimeout(() => {
+        showLoader();
+
         var target = document.getElementById(targetId);
 
         if (!target) {
@@ -47,5 +58,6 @@ function scrollIt(targetId, duration) {
     }
 
     attemptScroll(5);
+    hideLoader();
   });
 }
