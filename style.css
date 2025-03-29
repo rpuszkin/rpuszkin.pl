@@ -76,7 +76,7 @@ header .container:nth-of-type(2) {
   opacity: 0;
   visibility: hidden;
   width: 64px;
-  top: 60px;
+  top: 65px;
   left: 50vw;
   scale: 1.3;
   position: fixed;
