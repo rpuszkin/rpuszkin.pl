@@ -45,6 +45,7 @@ function scrollIt(targetId, duration) {
               requestAnimationFrame(scrollToTarget);
             } else {
               resolve();
+              hideLoader();
             }
           }
 
@@ -58,6 +59,5 @@ function scrollIt(targetId, duration) {
     }
 
     attemptScroll(5);
-    hideLoader();
   });
 }
