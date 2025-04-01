@@ -46,6 +46,7 @@ function scrollIt(targetId, duration) {
             } else {
               resolve();
               hideLoader();
+              console.log("Scrolling done");
             }
           }
 
