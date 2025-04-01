@@ -26,7 +26,7 @@ function loadContent(menu, sub) {
   let params = new URLSearchParams(url.search);
   menuURL = params.get("menu");
   subURL = params.get("sub");
-  if (!menu && !sub && !menuURL && !subURL) {
+  if (!menu && typeof sub === "undefined" && !menuURL && !subURL) {
     document.getElementById("choose-topic").style.opacity = "1";
     return;
   } else if (menu && !valid_menu.includes(menu)) {
