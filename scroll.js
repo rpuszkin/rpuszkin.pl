@@ -46,7 +46,9 @@ function scrollIt(targetId, duration) {
             } else {
               resolve();
               hideLoader();
-              console.log("Scrolling done");
+              if (scrollY > 0) {
+                contentView = Date.now();
+              }
             }
           }
 

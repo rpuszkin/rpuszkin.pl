@@ -2,6 +2,7 @@ let file;
 let section;
 let menuURL;
 let subURL;
+let contentView;
 
 document.querySelectorAll("nav a.menu-link").forEach((link) => {
   link.addEventListener("click", (event) => event.preventDefault());
@@ -126,6 +127,7 @@ function loadContent(menu, sub) {
   return "content loaded";
 }
 function scrollAndLoad(menuLoad, subLoad) {
+  console.log("minęło" + (Date.now() - contentView) / 1000 + " sekund");
   document.getElementById("choose-topic").style.opacity = "0";
   const toLoad = () => Promise.resolve(loadContent(menuLoad, subLoad));
 
