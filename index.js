@@ -127,7 +127,7 @@ function loadContent(menu, sub) {
   return "content loaded";
 }
 function scrollAndLoad(menuLoad, subLoad) {
-  console.log("minęło" + (Date.now() - contentView) / 1000 + " sekund");
+  console.log("minęło " + (Date.now() - contentView) / 1000 + " sekund");
   document.getElementById("choose-topic").style.opacity = "0";
   const toLoad = () => Promise.resolve(loadContent(menuLoad, subLoad));
 
