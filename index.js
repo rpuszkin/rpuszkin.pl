@@ -127,6 +127,12 @@ function loadContent(menu, sub) {
   return "content loaded";
 }
 function scrollAndLoad(menuLoad, subLoad) {
+  let urlToGo;
+  if (subLoad) {
+    urlToGo = "?menu=" + menuLoad + "&sub=" + subLoad;
+  } else {
+    urlToGo = "?menu=" + menuLoad;
+  }
   console.log("minęło " + (Date.now() - contentView) / 1000 + " sekund");
   document.getElementById("choose-topic").style.opacity = "0";
   const toLoad = () => Promise.resolve(loadContent(menuLoad, subLoad));
