@@ -309,7 +309,8 @@ header .container:nth-of-type(3) {
 }
 .hugeArticle .paragraph {
   margin: 15px 0;
-  margin-right: 28px;
+  margin-right: 50px;
+  text-align: justify;
   font-family: "Roboto Serif";
   font-size: 15px;
 }
