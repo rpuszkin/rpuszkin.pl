@@ -133,9 +133,11 @@ function scrollAndLoad(menuLoad, subLoad) {
   } else {
     urlToGo = "?menu=" + menuLoad;
   }
-  console.log(
-    "minęło " + (Date.now() - startContentWatching) / 1000 + " sekund"
-  );
+  if (scrollY > 0) {
+    console.log(
+      "minęło " + (Date.now() - startContentWatching) / 1000 + " sekund"
+    );
+  }
   document.getElementById("choose-topic").style.opacity = "0";
   const toLoad = () => Promise.resolve(loadContent(menuLoad, subLoad));
 
