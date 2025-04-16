@@ -47,7 +47,7 @@ function scrollIt(targetId, duration) {
               resolve();
               hideLoader();
               if (scrollY > 0) {
-                contentView = Date.now();
+                startContentWatching = Date.now();
               }
             }
           }
