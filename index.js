@@ -129,6 +129,7 @@ function loadContent(menu, sub) {
 }
 function scrollAndLoad(menuLoad, subLoad) {
   let urlToGo;
+  contentInVP = false;
   if (subLoad) {
     urlToGo = "?menu=" + menuLoad + "&sub=" + subLoad;
   } else {
