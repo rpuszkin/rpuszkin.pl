@@ -3,6 +3,7 @@ let section;
 let menuURL;
 let subURL;
 let startContentWatching;
+let contentInVP = false;
 
 document.querySelectorAll("nav a.menu-link").forEach((link) => {
   link.addEventListener("click", (event) => event.preventDefault());
