@@ -49,6 +49,8 @@ function scrollIt(targetId, duration) {
               if (scrollY > 0) {
                 startContentWatching = Date.now();
                 contentInVP = true;
+              } else if (scrollY === 0) {
+                contentInVP = false;
               }
             }
           }
