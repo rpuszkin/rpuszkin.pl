@@ -13,84 +13,194 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-    href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700;900&display=swap"
-    rel="stylesheet"
-/>
+      -
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700;900&display=swap"
+      -
+      rel="stylesheet"
+    />
   </head>
   <body>
     <nav class="menu-nav">
       <div class="container">
-        <!-- prettier-ignore -->
         <ul class="menu-ul">
-          <li class="menu-li"><a href="?menu=news" onclick="scrollAndLoad('news')" class="menu-link">nowości/wydarzenia</a></li>
           <li class="menu-li">
-            <a href="?menu=supportme" onclick="scrollAndLoad('supportme')" class="menu-link">wesprzyj&nbsp;mnie</a>
-            
+            <a
+              href="?menu=news"
+              onclick="scrollAndLoad('news')"
+              class="menu-link"
+            >
+              nowości/wydarzenia
+            </a>
+          </li>
+          <li class="menu-li">
+            <a
+              href="?menu=supportme"
+              onclick="scrollAndLoad('supportme')"
+              class="menu-link"
+            >
+              wesprzyj&nbsp;mnie
+            </a>
+
             <label for="supportme-input" class="menu-link supportme-label">
-              <input type="checkbox" id="supportme-input" class="supportme-input" />
+              <input
+                type="checkbox"
+                id="supportme-input"
+                class="supportme-input"
+              />
               <i class="fa-solid fa-angle-down supportme-arrow"></i>
-              <div class="supportme-more"><span class="menu-link" onclick="scrollAndLoad('supportme','krs')">Przekaż <img  class="menu-icon" src="media/menu-tax.png" /> <span class="color-krs"> podatku</span></span>
-                <span class="menu-link" onclick="scrollAndLoad('supportme','foundation')">Przez <img class="menu-icon" src="media/menu-foundation.png"> <span class="color-foundation"> fundację</span></span>
+              <div class="supportme-more">
+                <span
+                  class="menu-link"
+                  onclick="scrollAndLoad('supportme','krs')"
+                  >Przekaż
+                  <img class="menu-icon" src="media/menu-tax.png" /><span
+                    class="color-krs"
+                  >
+                    podatku</span
+                  ></span
+                >
+                <span
+                  class="menu-link"
+                  onclick="scrollAndLoad('supportme','foundation')"
+                  >Przez
+                  <img class="menu-icon" src="media/menu-foundation.png" />
+                  <span class="color-foundation"> fundację</span></span
+                >
               </div>
             </label>
           </li>
-          <li class="menu-li"><a href="?menu=mygallery" onclick="scrollAndLoad('mygallery')" class="menu-link"> galeria</a></li>
-          <li class="menu-li"><a href="?menu=aboutme" onclick="scrollAndLoad('aboutme')" class="menu-link">o&nbsp;mnie</a></li>
-          <li class="menu-li"><a href="?menu=myhistory" onclick="scrollAndLoad('myhistory')" class="menu-link">moja&nbsp;historia</a></li>
-          <li class="menu-li"><a href="?menu=myprogress" onclick="scrollAndLoad('myprogress')" class="menu-link">moje&nbsp;postępy</a></li>
-          <li class="menu-li"><a href="?menu=reallife" onclick="scrollAndLoad('reallife')" class="menu-link">z&nbsp;życia&nbsp;wzięte</a></li>
-          <li class="menu-li"><a href="?menu=irecommend" onclick="scrollAndLoad('irecommend')" class="menu-link">warto&nbsp;polecić</a></li>
-          <li class="menu-li"><a href="?menu=myprojects" onclick="scrollAndLoad('myprojects')" class="menu-link">strefa projektów WWW</a></li>
+          <li class="menu-li">
+            <a
+              href="?menu=mygallery"
+              onclick="scrollAndLoad('mygallery')"
+              class="menu-link"
+            >
+              galeria</a
+            >
+          </li>
+          <li class="menu-li">
+            <a
+              href="?menu=aboutme"
+              onclick="scrollAndLoad('aboutme')"
+              class="menu-link"
+              >o&nbsp;mnie</a
+            >
+          </li>
+          <li class="menu-li">
+            <a
+              href="?menu=myhistory"
+              onclick="scrollAndLoad('myhistory')"
+              class="menu-link"
+              >moja&nbsp;historia</a
+            >
+          </li>
+          <li class="menu-li">
+            <a
+              href="?menu=myprogress"
+              onclick="scrollAndLoad('myprogress')"
+              class="menu-link"
+              >moje&nbsp;postępy</a
+            >
+          </li>
+          <li class="menu-li">
+            <a
+              href="?menu=reallife"
+              onclick="scrollAndLoad('reallife')"
+              class="menu-link"
+              >z&nbsp;życia&nbsp;wzięte</a
+            >
+          </li>
+          <li class="menu-li">
+            <a
+              href="?menu=irecommend"
+              onclick="scrollAndLoad('irecommend')"
+              class="menu-link"
+              >warto&nbsp;polecić</a
+            >
+          </li>
+          <li class="menu-li">
+            <a
+              href="?menu=myprojects"
+              onclick="scrollAndLoad('myprojects')"
+              class="menu-link"
+              >strefa projektów WWW</a
+            >
+          </li>
         </ul>
-
-        
       </div>
     </nav>
 
     <header id="top" class="header">
       <div class="container">
-      <div class="btn-container"><a href="?menu=supportme&sub=krs" onclick="scrollAndLoad('supportme','krs')"><img class="tax-btn" src="media/tax-btn.png" alt=" 1,5% podatku" /></a>
-        <a href="?menu=myhistory" onclick="scrollAndLoad('myhistory')" class="header-btn">historia</a>
-        <a  href="?menu=myprogress" onclick="scrollAndLoad('myprogress')" class="header-btn">postępy</a>
+        <div class="btn-container">
+          <a
+            href="?menu=supportme&sub=krs"
+            onclick="scrollAndLoad('supportme','krs')"
+            ><img class="tax-btn" src="media/tax-btn.png" alt=" 1,5% podatku"
+          /></a>
+          <a
+            href="?menu=myhistory"
+            onclick="scrollAndLoad('myhistory')"
+            class="header-btn"
+            >historia</a
+          >
+          <a
+            href="?menu=myprogress"
+            onclick="scrollAndLoad('myprogress')"
+            class="header-btn"
+            >postępy</a
+          >
+        </div>
+        <h1 class="title-h1">
+          <strong class="important-strong">Robert Puszkin</strong> -
+          <span class="weight-thin">Jedna sekunda</span>&nbsp; i praca
+          konsultanta zamieniła się w pracę nad ciałem...
+        </h1>
+        <p class="choose-topic" id="choose-topic">
+          <span>↑↑</span>
+          <span>Wybierz interesujący Cię temat</span>
+          <span>↓↓</span>
+        </p>
+        <img src="media/loader.gif" class="scroll-loader" id="scroll-loader" />
       </div>
-      <h1 class="title-h1"><strong class="important-strong">Robert Puszkin</strong> - <span class="weight-thin">Jedna sekunda</span>  i praca konsultanta zamieniła się w pracę nad ciałem...</h1>
-<p class="choose-topic"id="choose-topic">
-  <span>↑↑</span>
-  <span>Wybierz interesujący Cię temat</span>
-  <span>↓↓</span>
-</p>
-      <img src="media/loader.gif" class="scroll-loader"  id="scroll-loader"/>
-    </div>
     </header>
     <main id="main-content"></main>
     <footer class="footer">
       <div class="container">
-      <ul class="footer-ul">
-        <li class="technology-li technology_html5">
-          <img src="media/tech-icons/html5.png" />
-          <span class="technology-name">HTML5</span>
-        </li>
+        <ul class="footer-ul">
+          <li class="technology-li technology_html5">
+            <img src="media/tech-icons/html5.png" />
+            <span class="technology-name">HTML5</span>
+          </li>
           <li class="technology-li technology_css3">
             <img src="media/tech-icons/css3.png" />
-<span class="technology-name">CSS3</span>
+            <span class="technology-name">CSS3</span>
           </li>
-        <li class=" technology_js technology-li">
-          <img src="media/tech-icons/js.png" />
-          <span class="technology-name">JavaScript {ES6+}</span>
-        </li>
-        <li class="technology_github technology-li">
-          <img src="media/tech-icons/github.png" />
-          <span class="technology-name">GitHub</span>
-        </li>
-        <li class="credits">
-          ©&nbsp;2024/2025&nbsp;<span translate="no">Puszkin&nbsp;Robert:</span>
-        <div class="contact">
-<a href="http://www.facebook.com/rpuszkin/" class="contact-icon"><i class="fa-brands fa-facebook contact-icon"></i></a>
-<a href="mailto:rpuszkin@gmail.com" class="contact-icon"><i class="fa-regular fa-envelope contact-icon"></i></a></span>
-        <a href="http://www.linkedin.com/in/robert-puszkin-927b2028b/"><i class="fa-brands fa-linkedin contact-icon"></i></a>
-
-        </li>
-      </ul>
+          <li class="technology_js technology-li">
+            <img src="media/tech-icons/js.png" />
+            <span class="technology-name">JavaScript {ES6+}</span>
+          </li>
+          <li class="technology_github technology-li">
+            <img src="media/tech-icons/github.png" />
+            <span class="technology-name">GitHub</span>
+          </li>
+          <li class="credits">
+            ©&nbsp;2024/2025&nbsp;<span translate="no"
+              >Puszkin&nbsp;Robert:</span
+            >
+            <div class="contact">
+              <a href="http://www.facebook.com/rpuszkin/" class="contact-icon"
+                ><i class="fa-brands fa-facebook contact-icon"></i
+              ></a>
+              <a href="mailto:rpuszkin@gmail.com" class="contact-icon"
+                ><i class="fa-regular fa-envelope contact-icon"></i
+              ></a>
+              <a href="http://www.linkedin.com/in/robert-puszkin-927b2028b/"
+                ><i class="fa-brands fa-linkedin contact-icon"></i
+              ></a>
+            </div>
+          </li>
+        </ul>
       </div>
     </footer>
     <script src="scroll.js"></script>
