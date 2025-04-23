@@ -134,10 +134,9 @@ function scrollAndLoad(menuLoad, subLoad) {
   } else {
     urlToGo = "?menu=" + menuLoad;
   }
-  if (scrollY > 0) {
-    console.log(
-      "minęło " + (Date.now() - startContentWatching) / 1000 + " sekund"
-    );
+  let secoundsOnContent = (Date.now() - startContentWatching) / 1000;
+  if (scrollY !== 0) {
+    console.log("minęło " + secoundsOnContent + " sekund");
   }
   document.getElementById("choose-topic").style.opacity = "0";
   const toLoad = () => Promise.resolve(loadContent(menuLoad, subLoad));
