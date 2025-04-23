@@ -135,7 +135,7 @@ function scrollAndLoad(menuLoad, subLoad) {
     urlToGo = "?menu=" + menuLoad;
   }
   let secoundsOnContent = (Date.now() - startContentWatching) / 1000;
-  if (scrollY !== 0) {
+  if (scrollY !== 0 && contentInVP) {
     console.log("minęło " + secoundsOnContent + " sekund");
   }
   document.getElementById("choose-topic").style.opacity = "0";
