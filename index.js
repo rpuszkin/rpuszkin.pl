@@ -135,8 +135,14 @@ function scrollAndLoad(menuLoad, subLoad) {
     urlToGo = "?menu=" + menuLoad;
   }
   let secoundsOnContent = (Date.now() - startContentWatching) / 1000;
-  if (scrollY !== 0 && contentInVP) {
-    console.log("minęło " + secoundsOnContent + " sekund");
+  if ((contentInVP && secoundsOnContent < 4) || !contentInVP) {
+    if (contentInVP && scrollY > 0) {
+      console.log(`oglądałeś treść tylko przez ${secoundsOnContent} sec
+    ${urlToGo}`);
+    } else {
+      console.log(`nie dotrwałeś treści 
+      ${urlToGo}`);
+    }
   }
   document.getElementById("choose-topic").style.opacity = "0";
   const toLoad = () => Promise.resolve(loadContent(menuLoad, subLoad));
