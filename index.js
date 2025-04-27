@@ -3,7 +3,7 @@ let section;
 let menuURL;
 let subURL;
 let startContentWatching;
-let contentInVP = false;
+wincontentInVP;
 
 document.querySelectorAll("nav a.menu-link").forEach((link) => {
   link.addEventListener("click", (event) => event.preventDefault());
@@ -136,12 +136,12 @@ function scrollAndLoad(menuLoad, subLoad) {
   }
   let secoundsOnContent = (Date.now() - startContentWatching) / 1000;
   if ((contentInVP && secoundsOnContent < 4) || !contentInVP) {
-    if (contentInVP && scrollY > 0) {
-      console.log(`oglądałeś treść tylko przez ${secoundsOnContent} sec
-    ${urlToGo}`);
-    } else {
-      console.log(`nie dotrwałeś treści 
+    if (contentInVP) {
+      console.log(`minęło zaledwie ${secoundsOnContent} sec
       ${urlToGo}`);
+    } else if (!contentInVP && scrollY >= window.innerHeight) {
+      console.log(`nie osiągnięto contentu w VP
+        ${urlToGo}`);
     }
   }
   document.getElementById("choose-topic").style.opacity = "0";
