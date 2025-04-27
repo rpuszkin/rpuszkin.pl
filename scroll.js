@@ -47,7 +47,7 @@ function scrollIt(targetId, duration) {
               resolve();
               hideLoader();
               if (scrollY > 0) {
-                startContentWatching = Date.now();
+                window.startContentWatching = Date.now();
                 contentInVP = true;
               } else if (scrollY === 0) {
                 contentInVP = false;

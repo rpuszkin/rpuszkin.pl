@@ -2,9 +2,7 @@ let file;
 let section;
 let menuURL;
 let subURL;
-let startContentWatching;
 let contentInVP;
-
 document.querySelectorAll("nav a.menu-link").forEach((link) => {
   link.addEventListener("click", (event) => event.preventDefault());
 });
@@ -134,7 +132,7 @@ function scrollAndLoad(menuLoad, subLoad) {
   } else {
     urlToGo = "?menu=" + menuLoad;
   }
-  let secoundsOnContent = (Date.now() - startContentWatching) / 1000;
+  let secoundsOnContent = (Date.now() - window.startContentWatching) / 1000;
   if ((contentInVP && secoundsOnContent < 4) || !contentInVP) {
     if (contentInVP) {
       console.log(`minęło zaledwie ${secoundsOnContent} sec
