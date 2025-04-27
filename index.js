@@ -2,7 +2,6 @@ let file;
 let section;
 let menuURL;
 let subURL;
-let contentInVP;
 document.querySelectorAll("nav a.menu-link").forEach((link) => {
   link.addEventListener("click", (event) => event.preventDefault());
 });
@@ -133,11 +132,11 @@ function scrollAndLoad(menuLoad, subLoad) {
     urlToGo = "?menu=" + menuLoad;
   }
   let secoundsOnContent = (Date.now() - window.startContentWatching) / 1000;
-  if ((contentInVP && secoundsOnContent < 4) || !contentInVP) {
-    if (contentInVP) {
+  if ((window.contentInVP && secoundsOnContent < 4) || !window.contentInVP) {
+    if (window.contentInVP) {
       console.log(`minęło zaledwie ${secoundsOnContent} sec
       ${urlToGo}`);
-    } else if (!contentInVP && scrollY >= window.innerHeight) {
+    } else if (!window.contentInVP && scrollY > 0) {
       console.log(`nie osiągnięto contentu w VP
         ${urlToGo}`);
     }
