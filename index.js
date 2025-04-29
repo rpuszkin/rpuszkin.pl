@@ -133,7 +133,7 @@ function scrollAndLoad(menuLoad, subLoad) {
       console.log("nie osiągnięto contentu w VP");
     }
   }
-  document.getElementById("choose-topic").style.display = "none";
+  document.getElementById("choose-topic").style.opacity = "0";
   const toLoad = () => Promise.resolve(loadContent(menuLoad, subLoad));
 
   const scrollToTop = () => scrollIt("top", 5600);
