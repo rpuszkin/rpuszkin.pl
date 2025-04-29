@@ -125,23 +125,15 @@ function loadContent(menu, sub) {
   return "content loaded";
 }
 function scrollAndLoad(menuLoad, subLoad) {
-  let urlToGo;
-  if (subLoad) {
-    urlToGo = "?menu=" + menuLoad + "&sub=" + subLoad;
-  } else {
-    urlToGo = "?menu=" + menuLoad;
-  }
   let secoundsOnContent = (Date.now() - window.startContentWatching) / 1000;
   if ((window.contentInVP && secoundsOnContent < 4) || !window.contentInVP) {
     if (window.contentInVP) {
-      console.log(`minęło zaledwie ${secoundsOnContent} sec
-      ${urlToGo}`);
+      console.log(`minęło zaledwie ${secoundsOnContent} sec`);
     } else if (!window.contentInVP && scrollY > 0) {
-      console.log(`nie osiągnięto contentu w VP
-        ${urlToGo}`);
+      console.log("nie osiągnięto contentu w VP");
     }
   }
-  document.getElementById("choose-topic").style.opacity = "0";
+  document.getElementById("choose-topic").style.display = "none";
   const toLoad = () => Promise.resolve(loadContent(menuLoad, subLoad));
 
   const scrollToTop = () => scrollIt("top", 5600);
