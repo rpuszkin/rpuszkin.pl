@@ -1,4 +1,4 @@
-loader = document.getElementById("scroll-loader");
+let loader = document.getElementById("scroll-loader");
 function showLoader() {
   loader.classList.remove("invisible");
 }
