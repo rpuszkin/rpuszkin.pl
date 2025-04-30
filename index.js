@@ -26,7 +26,7 @@ function loadContent(menu, sub) {
   menuURL = params.get("menu");
   subURL = params.get("sub");
   if (!menu && typeof sub === "undefined" && !menuURL && !subURL) {
-    document.getElementById("choose-topic").style.opacity = "1";
+    document.getElementById("choose-topic").classList.remove("invisible");
     return;
   } else if (menu && !valid_menu.includes(menu)) {
     menu = "404";
@@ -133,7 +133,7 @@ function scrollAndLoad(menuLoad, subLoad) {
       console.log("nie osiągnięto contentu w VP");
     }
   }
-  document.getElementById("choose-topic").style.opacity = "0";
+  document.getElementById("choose-topic").classList.add("invisible");
   const toLoad = () => Promise.resolve(loadContent(menuLoad, subLoad));
 
   const scrollToTop = () => scrollIt("top", 5600);
