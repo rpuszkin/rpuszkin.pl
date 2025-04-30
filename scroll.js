@@ -1,11 +1,9 @@
 loader = document.getElementById("scroll-loader");
 function showLoader() {
-  loader.style.opacity = "1";
-  loader.style.visibility = "visible";
+  loader.classList.remove("invisible");
 }
 function hideLoader() {
-  loader.style.opacity = "0";
-  loader.style.visibility = "hidden";
+  loader.classList.add("invisible");
 }
 function scrollIt(targetId, duration) {
   return new Promise((resolve, reject) => {
