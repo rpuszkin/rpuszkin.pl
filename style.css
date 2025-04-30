@@ -10,8 +10,8 @@ body {
   background: #e5e5e5;
   color: #404040;
   font-weight: 400;
+  transition: opacity 1s;
 }
-
 .weight-thin {
   font-weight: 100;
 }
@@ -374,4 +374,8 @@ header .container:nth-of-type(3) {
 }
 a.contact-icon {
   text-decoration: none;
+}
+.invisible {
+  opacity: 0;
+  pointer-events: none;
 }
