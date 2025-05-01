@@ -129,8 +129,18 @@ function scrollAndLoad(menuLoad, subLoad) {
   if ((window.contentInVP && secoundsOnContent < 4) || !window.contentInVP) {
     if (window.contentInVP) {
       console.log(`minęło zaledwie ${secoundsOnContent} sec`);
+      if (subLoad) {
+        console.log("menu: ", menuLoad, " sub: ", subLoad);
+      } else {
+        console.log("menu: ", menuLoad);
+      }
     } else if (!window.contentInVP && scrollY > 0) {
       console.log("nie osiągnięto contentu w VP");
+      if (subLoad) {
+        console.log("menu: ", menuLoad, " sub: ", subLoad);
+      } else {
+        console.log("menu: ", menuLoad);
+      }
     }
   }
   document.getElementById("choose-topic").classList.add("invisible");
