@@ -125,21 +125,43 @@ function loadContent(menu, sub) {
   return "content loaded";
 }
 function scrollAndLoad(menuLoad, subLoad) {
+  function loadSmoothly(smoothMenu, smoothSub) {
+    document.body.classList.add("invisible");
+    setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: "auto" });
+    }, 1000);
+
+    setTimeout(() => {
+      document.body.classList.remove("invisible");
+    }, 1000);
+    if (subLoad) {
+      setTimeout(() => scrollAndLoad(smoothMenu, smoothSub), 2000);
+    } else {
+      setTimeout(() => scrollAndLoad(smoothMenu), 1100);
+    }
+  }
   let secoundsOnContent = (Date.now() - window.startContentWatching) / 1000;
   if ((window.contentInVP && secoundsOnContent < 4) || !window.contentInVP) {
     if (window.contentInVP) {
-      console.log(`minęło zaledwie ${secoundsOnContent} sec`);
+      if (subLoad) {
+        loadSmoothly(menuLoad, subLoad);
+        return;
+      } else {
+        loadSmoothly(menuLoad);
+        return;
+      }
       if (subLoad) {
         console.log("menu: ", menuLoad, " sub: ", subLoad);
       } else {
         console.log("menu: ", menuLoad);
       }
-    } else if (!window.contentInVP && scrollY > 0) {
-      console.log("nie osiągnięto contentu w VP");
+    } else if (!window.contentInVP && scrollY !== 0) {
       if (subLoad) {
-        console.log("menu: ", menuLoad, " sub: ", subLoad);
+        loadSmoothly(menuLoad, subLoad);
+        return;
       } else {
-        console.log("menu: ", menuLoad);
+        loadSmoothly(menuLoad);
+        return;
       }
     }
   }
