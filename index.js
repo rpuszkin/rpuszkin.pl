@@ -1,4 +1,5 @@
 let file;
+let loadedSmoothly;
 let section;
 let menuURL;
 let subURL;
@@ -126,23 +127,27 @@ function loadContent(menu, sub) {
 }
 function scrollAndLoad(menuLoad, subLoad) {
   function loadSmoothly(smoothMenu, smoothSub) {
+    if (loadedSmoothly) return;
+    loadedSmoothly = true;
+
     document.body.classList.add("invisible");
-    setTimeout(() => {
-      window.scrollTo({ top: 0, behavior: "auto" });
-    }, 1000);
 
     setTimeout(() => {
-      document.body.classList.remove("invisible");
-    }, 1000);
-    if (subLoad) {
-      setTimeout(() => scrollAndLoad(smoothMenu, smoothSub), 2000);
-    } else {
-      setTimeout(() => scrollAndLoad(smoothMenu), 1100);
-    }
+      window.scrollTo({ top: 0, behavior: "auto" });
+
+      loadContent(smoothMenu, smoothSub);
+
+      setTimeout(() => {
+        document.body.classList.remove("invisible");
+      }, 400);
+    }, 500);
   }
+
   let secoundsOnContent = (Date.now() - window.startContentWatching) / 1000;
   if ((window.contentInVP && secoundsOnContent < 4) || !window.contentInVP) {
     if (window.contentInVP) {
+      loadedSmoothly = false;
+
       if (subLoad) {
         loadSmoothly(menuLoad, subLoad);
         return;
@@ -156,6 +161,7 @@ function scrollAndLoad(menuLoad, subLoad) {
         console.log("menu: ", menuLoad);
       }
     } else if (!window.contentInVP && scrollY !== 0) {
+      loadedSmoothly = false;
       if (subLoad) {
         loadSmoothly(menuLoad, subLoad);
         return;
