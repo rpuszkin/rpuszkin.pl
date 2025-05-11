@@ -129,28 +129,21 @@ function scrollAndLoad(menuLoad, subLoad) {
   function loadSmoothly(smoothMenu, smoothSub) {
     loadedSmoothly = true;
 
-    // Zacznij wygaszanie body (fade-out)
     document.body.classList.add("invisible");
 
-    // Po zakończeniu animacji znikania (1s)
     setTimeout(() => {
-      // Szybki scroll na górę
       scrollIt("top", 60).then(() => {
-        // Załaduj zawartość po scrollu
         loadContent(smoothMenu, smoothSub);
 
-        // Odczekaj, by dać czas na render nowej treści (np. 100ms)
         setTimeout(() => {
-          // Pokaż nową treść (fade-in)
           document.body.classList.remove("invisible");
 
-          // Jeśli jest podsekcja, scrolluj do niej dopiero po pokazaniu body
           if (section) {
             scrollIt(section, 9300);
           }
         }, 100);
       });
-    }, 1000); // Odczekaj na zakończenie CSS transition (opacity 1s)
+    }, 1000);
   }
 
   let secoundsOnContent = (Date.now() - window.startContentWatching) / 1000;
