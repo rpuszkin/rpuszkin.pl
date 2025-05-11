@@ -159,12 +159,9 @@ function scrollAndLoad(menuLoad, subLoad) {
         return;
       }
       if (subLoad) {
-        console.log("menu: ", menuLoad, " sub: ", subLoad);
       } else {
-        console.log("menu: ", menuLoad);
       }
     } else if (!window.contentInVP && window.scrollY !== 0) {
-      loadedSmoothly = false;
       if (subLoad) {
         loadSmoothly(menuLoad, subLoad);
         return;
