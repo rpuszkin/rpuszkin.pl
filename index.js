@@ -127,6 +127,7 @@ function loadContent(menu, sub) {
 }
 function scrollAndLoad(menuLoad, subLoad) {
   function loadSmoothly(smoothMenu, smoothSub) {
+    if (loadedSmoothly) return;
     loadedSmoothly = true;
 
     document.body.classList.add("invisible");
@@ -144,6 +145,7 @@ function scrollAndLoad(menuLoad, subLoad) {
         }, 100);
       });
     }, 1000);
+    setTimeout(() => {}, timeout);
   }
 
   let secoundsOnContent = (Date.now() - window.startContentWatching) / 1000;
@@ -161,7 +163,7 @@ function scrollAndLoad(menuLoad, subLoad) {
       if (subLoad) {
       } else {
       }
-    } else if (!window.contentInVP && window.scrollY !== 0) {
+    } else if (!window.contentInVP && scrollY !== 0) {
       if (subLoad) {
         loadSmoothly(menuLoad, subLoad);
         return;
@@ -180,7 +182,7 @@ function scrollAndLoad(menuLoad, subLoad) {
       scrollIt(section, 9300);
     }
   };
-  if (window.scrollY >= window.innerHeight) {
+  if (scrollY >= window.innerHeight) {
     scrollToTop()
       .then(() => {
         return toLoad();
