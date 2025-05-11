@@ -163,7 +163,7 @@ function scrollAndLoad(menuLoad, subLoad) {
       } else {
         console.log("menu: ", menuLoad);
       }
-    } else if (!window.contentInVP && scrollY !== 0) {
+    } else if (!window.contentInVP && window.scrollY !== 0) {
       loadedSmoothly = false;
       if (subLoad) {
         loadSmoothly(menuLoad, subLoad);
