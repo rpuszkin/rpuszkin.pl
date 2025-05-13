@@ -53,7 +53,9 @@ function scrollIt(targetId, duration) {
             } else {
               resolve();
               hideLoader();
-              if (window.scrolly !== 0) showScrollbar();
+              if (window.scrolly !== 0) {
+                showScrollbar();
+              }
               if (window.scrollY > 0) {
                 window.startContentWatching = Date.now();
                 window.contentInVP = true;
