@@ -1,16 +1,16 @@
 let loader = document.getElementById("scroll-loader");
-function showLoader() {
+ showLoader() = 
   loader.classList.remove("invisible");
-}
-function hideLoader() {
+
+ hideLoader() = 
   loader.classList.add("invisible");
-}
-function hideScrollbar() {
+
+ hideScrollbar() = 
   document.body.style.overflowY = "hidden";
-}
-function showScrollbar() {
+
+ showScrollbar() =
   document.body.style.overflowY = "auto";
-}
+
 function scrollIt(targetId, duration) {
   return new Promise((resolve, reject) => {
     function attemptScroll(attemptsLeft) {
