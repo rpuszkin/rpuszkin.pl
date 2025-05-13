@@ -5,11 +5,20 @@ function showLoader() {
 function hideLoader() {
   loader.classList.add("invisible");
 }
+function hideScrollbar() {
+  document.body.style.overflowY = "hidden";
+}
+function showScrollbar() {
+  document.body.style.overflowY = "auto";
+}
 function scrollIt(targetId, duration) {
   return new Promise((resolve, reject) => {
     function attemptScroll(attemptsLeft) {
       setTimeout(() => {
         showLoader();
+        if (window.scrolly !== 0) {
+          hideScrollbar();
+        }
 
         var target = document.getElementById(targetId);
 
@@ -44,12 +53,11 @@ function scrollIt(targetId, duration) {
             } else {
               resolve();
               hideLoader();
-              if (scrollY > 0) {
+              if (window.scrolly !== 0) showScrollbar();
+              if (window.scrollY > 0) {
                 window.startContentWatching = Date.now();
                 window.contentInVP = true;
-              } else if (window.scrollY === 0) {
-                window.contentInVP = false;
-              }
+              } else if (window.scrollY === 0) window.contentInVP = false;
             }
           }
 
