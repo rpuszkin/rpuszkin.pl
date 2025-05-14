@@ -16,7 +16,7 @@ function scrollIt(targetId, duration) {
     function attemptScroll(attemptsLeft) {
       setTimeout(() => {
         showLoader();
-        if (window.scrollY > 0) {
+        if (window.scrollY !== 0) {
           hideScrollbar();
         }
 
@@ -53,7 +53,7 @@ function scrollIt(targetId, duration) {
             } else {
               resolve();
               hideLoader();
-              if (window.scrolly !== 0) {
+              if (window.scrolly > 0) {
                 showScrollbar();
               }
               if (window.scrollY > 0) {
