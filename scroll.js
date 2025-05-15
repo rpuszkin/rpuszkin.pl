@@ -53,7 +53,7 @@ function scrollIt(targetId, duration) {
             } else {
               resolve();
               hideLoader();
-              if (window.scrolly !== 0 && window.scrollY > 0) {
+              if (wwindow.scrollY > 0) {
                 showScrollbar();
               }
               if (window.scrollY > 0) {
