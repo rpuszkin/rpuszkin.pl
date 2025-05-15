@@ -59,7 +59,10 @@ function scrollIt(targetId, duration) {
               if (window.scrollY > 0) {
                 window.startContentWatching = Date.now();
                 window.contentInVP = true;
-              } else if (window.scrollY === 0) window.contentInVP = false;
+              } else if (window.scrollY === 0) {
+                window.contentInVP = false;
+                window.startContentWatching = Date.now();
+              }
             }
           }
 
