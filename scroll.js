@@ -9,7 +9,7 @@ function hideScrollbar() {
   document.body.style.overflowY = "hidden";
 }
 function showScrollbar() {
-  document.body.style.overflowY = "auto";
+  document.body.style.overflowY = "scroll";
 }
 function scrollIt(targetId, duration) {
   return new Promise((resolve, reject) => {
@@ -53,7 +53,7 @@ function scrollIt(targetId, duration) {
             } else {
               resolve();
               hideLoader();
-              if (wwindow.scrollY > 0) {
+              if (window.scrollY > 0) {
                 showScrollbar();
               }
               if (window.scrollY > 0) {
