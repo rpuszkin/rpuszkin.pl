@@ -149,7 +149,7 @@ function scrollAndLoad(menuLoad, subLoad) {
   }
 
   let secoundsOnContent = (Date.now() - window.startContentWatching) / 1000;
-  if ((window.contentInVP && secoundsOnContent < 2) || !window.contentInVP) {
+  if ((window.contentInVP && secoundsOnContent < 3) || !window.contentInVP) {
     if (window.contentInVP) {
       loadedSmoothly = false;
 
