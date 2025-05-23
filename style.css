@@ -292,6 +292,11 @@ header .container:nth-of-type(3) {
 .color-foundation {
   color: #00539f;
 }
+
+.color-look_here {
+  color: OrangeRed;
+  text-shadow: none;
+}
 .error404-subtitle {
   margin-left: 50px;
   font-size: 36px;
