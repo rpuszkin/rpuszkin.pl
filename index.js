@@ -141,9 +141,7 @@ function scrollAndLoad(menuLoad, subLoad) {
         }, 100);
       });
     }, 1000);
-    setTimeout(() => {}, timeout);
   }
-
   let secoundsOnContent = (Date.now() - window.startContentWatching) / 1000;
   if ((window.contentInVP && secoundsOnContent < 3) || !window.contentInVP) {
     if (window.contentInVP) {
