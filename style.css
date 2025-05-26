@@ -222,7 +222,6 @@ header .container:nth-of-type(3) {
   margin: 0 auto;
   width: calc(100% - 80px);
   padding-bottom: 90px;
-  max-height: 55px;
   display: flex;
   justify-content: space-between;
   align-items: center;
