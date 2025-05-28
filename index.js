@@ -1,4 +1,5 @@
 let file;
+let loadedSmoothly;
 let section;
 let menuURL;
 let subURL;
@@ -126,6 +127,9 @@ function loadContent(menu, sub) {
 }
 function scrollAndLoad(menuLoad, subLoad) {
   function loadSmoothly(smoothMenu, smoothSub) {
+    if (loadedSmoothly) return;
+    loadedSmoothly = true;
+
     document.body.classList.add("invisible");
 
     setTimeout(() => {
@@ -145,6 +149,8 @@ function scrollAndLoad(menuLoad, subLoad) {
   let secoundsOnContent = (Date.now() - window.startContentWatching) / 1000;
   if ((window.contentInVP && secoundsOnContent < 3) || !window.contentInVP) {
     if (window.contentInVP) {
+      loadedSmoothly = false;
+
       if (subLoad) {
         loadSmoothly(menuLoad, subLoad);
         return;
