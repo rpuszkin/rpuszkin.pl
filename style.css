@@ -193,23 +193,7 @@ header .container:nth-of-type(2) {
   width: 100%;
   background-color: rgba(64, 64, 64, 0.6);
 }
-.choose-topic {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  color: dimgray;
-  text-shadow: -1px -1px 0 rgba(211, 211, 211, 0.5),
-    1px -1px 0 rgba(211, 211, 211, 0.5), -1px 1px 0 rgba(211, 211, 211, 0.5),
-    1px 1px 0 rgba(211, 211, 211, 0.5);
-  margin-top: 60px;
-  font-size: 20px;
-  padding-top: 30px;
-  padding-bottom: 15px;
-  gap: 10px;
-  background-color: rgba(64, 64, 64, 0.4);
-  transition-duration: 1s;
-}
+
 header .container:nth-of-type(2) {
   height: calc(100% - 200vh);
   display: flex;
