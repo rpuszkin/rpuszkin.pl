@@ -22,7 +22,8 @@ body {
 .weight-bold {
   font-weight: 700;
 }
-.title-h1 .important-strong {
+.title-h1 .important-strong,
+.subtitle .important-strong {
   font-weight: 900;
 }
 .decorstion-underline {

@@ -10,6 +10,7 @@ document.querySelectorAll("header a").forEach((link) => {
 });
 function loadContent(menu, sub) {
   const valid_menu = [
+    "main",
     "news",
     "supportme",
     "mygallery",
@@ -26,7 +27,7 @@ function loadContent(menu, sub) {
   menuURL = params.get("menu");
   subURL = params.get("sub");
   if (!menu && typeof sub === "undefined" && !menuURL && !subURL) {
-    return;
+    menu = "main";
   } else if (menu && !valid_menu.includes(menu)) {
     menu = "404";
     sub = "404";
@@ -104,7 +105,7 @@ function loadContent(menu, sub) {
   } else if (sub === "foundation") {
     document.title += " → fundacja";
   }
-  if (menu === "aboutme" || menu === "myhistory") {
+  if (menu === "aboutme" || menu === "myhistory" || menu === "main") {
     const link = document.createElement("link");
     link.href =
       "https://fonts.googleapis.com/css2?family=Roboto+Serif:wght@400;700&display=swap";
@@ -113,11 +114,11 @@ function loadContent(menu, sub) {
   }
   loadFile(file);
   if (menu !== sub) {
-    if (menu !== "404" && menu) {
+    if (menu !== "404" && menu && sub) {
       window.history.pushState({}, "", "?menu=" + menu + "&sub=" + sub);
     }
   } else {
-    if (menu !== "404" && menu) {
+    if (menu !== "404" && menu && menu !== "main") {
       window.history.pushState({}, "", "?menu=" + menu);
     }
   }
