@@ -96,7 +96,7 @@ function loadContent(menu, sub) {
     myhistory: "moja historia",
     myprogress: "moje postępy",
     reallife: "z życia wzięte",
-    myprojects: "strefa projektów WWW",
+    myprojects: "WWW",
     irecommend: " mogę polecić",
     404: "Błąd 404 - nie znaleziono",
   };
