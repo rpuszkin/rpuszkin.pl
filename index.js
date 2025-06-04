@@ -88,7 +88,7 @@ function loadContent(menu, sub) {
       });
   }
   const subpageHtmlTitle = {
-    main: "",
+    main: "rpuszkin.pl",
     news: "nowości/wydarzenia",
     supportme: "wesprzyj mnie",
     mygallery: "galeria",
