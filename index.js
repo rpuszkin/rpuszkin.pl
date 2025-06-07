@@ -26,7 +26,7 @@ function loadContent(menu, sub) {
   let params = new URLSearchParams(url.search);
   menuURL = params.get("menu");
   subURL = params.get("sub");
-  if (!menu && typeof sub === "undefined" && !menuURL && !subURL) {
+  if (!menu && !sub && !menuURL && !subURL) {
     menu = "main";
   } else if (menu && !valid_menu.includes(menu)) {
     menu = "404";
@@ -144,7 +144,7 @@ function scrollAndLoad(menuLoad, subLoad) {
     }, 1000);
   }
   let secoundsOnContent = (Date.now() - window.startContentWatching) / 1000;
-  if ((window.contentInVP && secoundsOnContent < 5.5) || !window.contentInVP) {
+  if ((window.contentInVP && secoundsOnContent < 7) || !window.contentInVP) {
     if (window.contentInVP) {
       if (subLoad) {
         loadSmoothly(menuLoad, subLoad);
