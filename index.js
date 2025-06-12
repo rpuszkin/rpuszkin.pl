@@ -169,10 +169,10 @@ function scrollAndLoad(menuLoad, subLoad) {
 
   const toLoad = () => Promise.resolve(loadContent(menuLoad, subLoad));
 
-  const scrollToTop = () => scrollIt("top", 3900);
+  const scrollToTop = () => scrollIt("top", 5500);
   const scrollToContent = () => {
     if (section) {
-      scrollIt(section, 4700);
+      scrollIt(section, 7500);
     }
   };
   if (scrollY >= window.innerHeight) {
