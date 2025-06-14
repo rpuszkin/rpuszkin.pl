@@ -122,8 +122,9 @@ body {
   width: 15px;
 }
 .supportme-label {
+  display: flex;
   position: relative;
-  width: 15px;
+  gap: 7px;
 }
 .fa-angle-down {
   transition: all 0.18s ease-in-out;
