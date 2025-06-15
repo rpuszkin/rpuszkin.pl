@@ -188,23 +188,6 @@ body {
   background-color: rgba(64, 64, 64, 0.6);
 }
 
-header .container:nth-of-type(2) {
-  height: calc(100% - 200vh);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-header .container:nth-of-type(3) {
-  height: 100vh;
-}
-.btn-container {
-  margin: 0 auto;
-  width: calc(100% - 80px);
-  padding-bottom: 90px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
 .tax-btn {
   cursor: pointer;
   border: 5px solid #ee7202;
@@ -212,24 +195,12 @@ header .container:nth-of-type(3) {
   text-decoration: none;
   border-radius: 9px;
   transition-duration: 1s;
+  margin-bottom: 65px;
 }
 .tax-btn:hover {
   background-color: #fff;
 }
-.header-btn {
-  font-weight: 300;
-  text-decoration: none;
-  color: #fff;
-  background: rgba(64, 64, 64, 0.3);
-  border: 1px solid #fff;
-  border-radius: 9px;
-  padding: 15px;
-  transition-duration: 1s;
-}
-.header-btn:hover {
-  background-color: #fff;
-  color: #000;
-}
+
 .content {
   width: calc(100% - 50px);
   min-height: 200vh;
