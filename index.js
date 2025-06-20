@@ -106,6 +106,8 @@ function loadContent(menu, sub) {
   } else if (sub === "foundation") {
     document.title += " → fundacja";
   }
+  console.log("Google Analytics: " + document.title);
+
   if (menu === "aboutme" || menu === "myhistory" || menu === "main") {
     const link = document.createElement("link");
     link.href =
