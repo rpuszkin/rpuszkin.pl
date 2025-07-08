@@ -195,10 +195,9 @@ body {
   text-decoration: none;
   border-radius: 9px;
   transition-duration: 1s;
-  margin-bottom: 65px;
 }
 .tax-btn:hover {
-  background-color: rgba(64, 64, 64, 0.33);
+  background-color: #ee7202;
 }
 
 .content {
