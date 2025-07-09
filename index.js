@@ -5,7 +5,7 @@ let subURL;
 document.querySelectorAll("nav a.menu-link").forEach((link) => {
   link.addEventListener("click", (event) => event.preventDefault());
 });
-document.querySelectorAll("header a").forEach((link) => {
+document.querySelectorAll("a.button-link").forEach((link) => {
   link.addEventListener("click", (event) => event.preventDefault());
 });
 function loadContent(menu, sub) {
