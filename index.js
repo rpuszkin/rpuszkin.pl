@@ -5,8 +5,11 @@ let subURL;
 document.querySelectorAll("nav a.menu-link").forEach((link) => {
   link.addEventListener("click", (event) => event.preventDefault());
 });
-document.querySelectorAll("a.button-link").forEach((link) => {
-  link.addEventListener("click", (event) => event.preventDefault());
+document.getElementById("main-content").addEventListener("click", (event) => {
+  const link = event.target.closest("a.button-link");
+  if (link) {
+    event.preventDefault();
+  }
 });
 function loadContent(menu, sub) {
   const valid_menu = [
@@ -114,6 +117,7 @@ function loadContent(menu, sub) {
     document.head.appendChild(link);
   }
   loadFile(file);
+
   if (menu !== sub) {
     if (menu !== "404" && menu && sub) {
       window.history.pushState({}, "", "?menu=" + menu + "&sub=" + sub);
