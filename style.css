@@ -99,11 +99,9 @@ body {
   color: lightgrey;
   display: flex;
   height: 50px;
-  justify-content: center;
   align-items: center;
   white-space: nowrap;
 }
-
 .footer-nav .menu-ul {
   display: flex;
   gap: 48px;
