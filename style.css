@@ -61,7 +61,6 @@ body {
   color: lightgrey;
   display: flex;
   height: 50px;
-  justify-content: center;
   align-items: center;
   white-space: nowrap;
   cursor: pointer;
