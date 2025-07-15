@@ -77,7 +77,6 @@ function loadContent(menu, sub) {
         const mainElement = document.getElementById("main-content");
         if (mainElement) {
           mainElement.innerHTML = html;
-        } else {
         }
         section = sub;
       })
