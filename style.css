@@ -231,6 +231,10 @@ body {
   gap: 5px;
 }
 .supportme-information {
+  margin-top: 20px;
+}
+.foundation-content .supportme-information:nth-of-type(1),
+.krs-content .supportme-information:nth-of-type(1) {
   margin-top: 40vh;
 }
 .color-krs {
