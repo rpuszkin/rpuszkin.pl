@@ -126,6 +126,9 @@ function loadContent(menu, sub) {
       window.history.pushState({}, "", "?menu=" + menu);
     }
   }
+  if (menu !== "404") {
+    console.log("Google Anallytics, " + document.title);
+  }
   return "content loaded";
 }
 function scrollAndLoad(menuLoad, subLoad) {
