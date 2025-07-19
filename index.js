@@ -91,18 +91,18 @@ function loadContent(menu, sub) {
   }
   const subpageHtmlTitle = {
     main: "",
-    news: "nowości/wydarzenia",
-    supportme: "wesprzyj mnie",
-    mygallery: "galeria",
-    aboutme: "o mnie",
-    myhistory: "moja historia",
-    myprogress: "moje postępy",
-    reallife: "z życia wzięte",
-    myprojects: "WWW",
-    irecommend: " mogę polecić",
-    404: "Błąd 404 - nie znaleziono",
+    news: " | nowości/wydarzenia",
+    supportme: " | wesprzyj mnie",
+    mygallery: " | galeria",
+    aboutme: " | o mnie",
+    myhistory: " | moja historia",
+    myprogress: " | moje postępy",
+    reallife: " | z życia wzięte",
+    myprojects: " | WWW",
+    irecommend: " | mogę polecić",
+    404: " | błąd 404 - nie znaleziono",
   };
-  document.title = "rpuszkin.pl" + " | " + subpageHtmlTitle[menu];
+  document.title = "rpuszkin.pl" + subpageHtmlTitle[menu];
   if (sub === "krs") {
     document.title += " →	1,5% podatku";
   } else if (sub === "foundation") {
