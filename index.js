@@ -133,7 +133,6 @@ function loadContent(menu, sub) {
 function scrollAndLoad(menuLoad, subLoad) {
   function loadSmoothly(smoothMenu, smoothSub) {
     document.body.classList.add("invisible");
-
     setTimeout(() => {
       scrollIt("top", 60).then(() => {
         loadContent(smoothMenu, smoothSub);
