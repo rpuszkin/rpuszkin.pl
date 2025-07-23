@@ -116,7 +116,6 @@ function loadContent(menu, sub) {
     document.head.appendChild(link);
   }
   loadFile(file);
-
   if (menu !== sub) {
     if (menu !== "404" && menu && sub) {
       window.history.pushState({}, "", "?menu=" + menu + "&sub=" + sub);
@@ -138,10 +137,8 @@ function scrollAndLoad(menuLoad, subLoad) {
     setTimeout(() => {
       scrollIt("top", 60).then(() => {
         loadContent(smoothMenu, smoothSub);
-
         setTimeout(() => {
           document.body.classList.remove("invisible");
-
           if (section) {
             scrollIt(section, 9300);
           }
@@ -172,9 +169,7 @@ function scrollAndLoad(menuLoad, subLoad) {
       }
     }
   }
-
   const toLoad = () => Promise.resolve(loadContent(menuLoad, subLoad));
-
   const scrollToTop = () => scrollIt("top", 6200);
   const scrollToContent = () => {
     if (section) {
