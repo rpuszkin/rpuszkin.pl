@@ -1,21 +1,16 @@
 let loader = document.getElementById("scroll-loader");
-
 function showLoader() {
   loader.classList.remove("invisible");
 }
-
 function hideLoader() {
   loader.classList.add("invisible");
 }
-
 function hideScrollbar() {
   document.body.style.overflowY = "hidden";
 }
-
 function showScrollbar() {
   document.body.style.overflowY = "scroll";
 }
-
 function scrollIt(targetId, duration) {
   return new Promise((resolve, reject) => {
     function attemptScroll(attemptsLeft) {
@@ -26,7 +21,6 @@ function scrollIt(targetId, duration) {
         }
         stopScrollNow = false;
         var target = document.getElementById(targetId);
-
         if (!target) {
           if (attemptsLeft > 0) {
             setTimeout(() => attemptScroll(attemptsLeft - 1), 100);
@@ -35,13 +29,11 @@ function scrollIt(targetId, duration) {
           reject("Target not found");
           return;
         }
-
         requestAnimationFrame(() => {
           var targetPosition =
             target.getBoundingClientRect().top + window.pageYOffset;
           var startPosition = window.pageYOffset;
           var startTime = null;
-
           function scrollToTarget(currentTime) {
             if (window.stopScrollNow) {
               resolve();
@@ -49,7 +41,6 @@ function scrollIt(targetId, duration) {
               showScrollbar();
               return;
             }
-
             if (startTime === null) startTime = currentTime;
             var timeElapsed = currentTime - startTime;
             var run = easeInOutQuad(Math.min(1, timeElapsed / duration));
@@ -59,7 +50,6 @@ function scrollIt(targetId, duration) {
               top: scrollPosition,
               behavior: "auto",
             });
-
             if (timeElapsed < duration) {
               requestAnimationFrame(scrollToTarget);
             } else {
@@ -77,16 +67,13 @@ function scrollIt(targetId, duration) {
               }
             }
           }
-
           requestAnimationFrame(scrollToTarget);
         });
       }, 50);
     }
-
     function easeInOutQuad(t) {
       return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
     }
-
     attemptScroll(5);
   });
 }
