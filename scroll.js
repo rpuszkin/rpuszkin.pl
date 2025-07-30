@@ -77,3 +77,7 @@ function scrollIt(targetId, duration) {
     attemptScroll(5);
   });
 }
+function skipScrolling() {
+  stopScrollNow = true;
+  scrollIt(section, 2000);
+}
