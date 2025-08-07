@@ -59,11 +59,9 @@ function scrollIt(targetId, duration) {
                 showScrollbar();
               }
               if (window.scrollY > 0) {
-                window.startContentWatching = Date.now();
                 window.contentInVP = true;
               } else if (window.scrollY === 0) {
                 window.contentInVP = false;
-                window.startContentWatching = Date.now();
               }
             }
           }
