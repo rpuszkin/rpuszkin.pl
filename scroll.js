@@ -1,8 +1,10 @@
 let loader = document.getElementById("scroll-loader");
 function showLoader() {
+  window.isScrolling = true;
   loader.classList.remove("invisible");
 }
 function hideLoader() {
+  window.isScrolling = false;
   loader.classList.add("invisible");
 }
 function hideScrollbar() {
