@@ -215,7 +215,7 @@ body {
 .autoHeight-content {
   min-height: auto;
 }
-.subtitle {
+.title {
   font-size: 36px;
   font-weight: 700;
   color: #404040;
@@ -239,7 +239,7 @@ body {
 .color-foundation {
   color: #00539f;
 }
-.error404-subtitle {
+.error404-title {
   margin-left: 50px;
   font-size: 36px;
   font-weight: 700;
