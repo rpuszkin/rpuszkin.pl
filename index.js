@@ -133,6 +133,9 @@ function loadContent(menu, sub) {
 }
 function scrollAndLoad(menuLoad, subLoad) {
   function loadSmoothly(smoothMenu, smoothSub) {
+    if (window.isScrolling) {
+      window.stopScrollNow = true;
+    }
     document.body.classList.add("invisible");
 
     setTimeout(() => {
