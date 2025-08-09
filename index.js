@@ -152,8 +152,7 @@ function scrollAndLoad(menuLoad, subLoad) {
       });
     }, 1000);
   }
-  let secoundsOnContent = (Date.now() - window.startContentWatching) / 1000;
-  if ((window.contentInVP && secoundsOnContent < 7) || !window.contentInVP) {
+  if (window.contentInVP || (!window.contentInVP && window.isScrolling)) {
     if (window.contentInVP) {
       if (subLoad) {
         loadSmoothly(menuLoad, subLoad);
