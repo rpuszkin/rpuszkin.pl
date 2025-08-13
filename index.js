@@ -133,9 +133,7 @@ function loadContent(menu, sub) {
 }
 function scrollAndLoad(menuLoad, subLoad) {
   function loadSmoothly(smoothMenu, smoothSub) {
-    if (window.isScrolling) {
-      window.stopScrollNow = true;
-    }
+    if (window.isScrolling) window.stopScrollNow = true;
     document.body.classList.add("invisible");
 
     setTimeout(() => {
@@ -177,7 +175,6 @@ function scrollAndLoad(menuLoad, subLoad) {
 
   const toLoad = () => Promise.resolve(loadContent(menuLoad, subLoad));
 
-  const scrollToTop = () => scrollIt("top", 6200);
   const scrollToContent = () => {
     if (section) {
       scrollIt(section, 7500);
