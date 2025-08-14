@@ -181,15 +181,11 @@ function scrollAndLoad(menuLoad, subLoad) {
     }
   };
   if (scrollY >= window.innerHeight) {
-    scrollToTop()
-      .then(() => {
-        return toLoad();
-      })
-      .then((content) => {
-        if (content === "content loaded") {
-          return scrollToContent();
-        }
-      });
+    toLoad().then((content) => {
+      if (content === "content loaded") {
+        return scrollToContent();
+      }
+    });
   } else {
     toLoad().then(() => {
       scrollToContent();
