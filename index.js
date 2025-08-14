@@ -180,7 +180,7 @@ function scrollAndLoad(menuLoad, subLoad) {
       scrollIt(section, 7500);
     }
   };
-  if (scrollY >= window.innerHeight) {
+  if (window.scrollY === 0) {
     toLoad().then((content) => {
       if (content === "content loaded") {
         return scrollToContent();
