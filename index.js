@@ -137,17 +137,16 @@ function scrollAndLoad(menuLoad, subLoad) {
     document.body.classList.add("invisible");
 
     setTimeout(() => {
-      scrollIt("top", 60).then(() => {
-        loadContent(smoothMenu, smoothSub);
+      document.getElementById("top").scrollIntoView();
+      loadContent(smoothMenu, smoothSub);
 
-        setTimeout(() => {
-          document.body.classList.remove("invisible");
+      setTimeout(() => {
+        document.body.classList.remove("invisible");
 
-          if (section) {
-            scrollIt(section, 9300);
-          }
-        }, 100);
-      });
+        if (section) {
+          scrollIt(section, 9300);
+        }
+      }, 100);
     }, 1000);
   }
   if (window.contentInVP || (!window.contentInVP && window.isScrolling)) {
