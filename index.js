@@ -11,7 +11,7 @@ document.getElementById("main-content").addEventListener("click", (event) => {
     event.preventDefault();
   }
 });
-function loadContent(menu, sub) {
+function loadContent(menu, sub, scrroll) {
   const valid_menu = [
     "main",
     "news",
@@ -153,7 +153,6 @@ function scrollAndLoad(menuLoad, subLoad) {
     if (window.contentInVP) {
       if (subLoad) {
         loadSmoothly(menuLoad, subLoad);
-        return;
       } else {
         loadSmoothly(menuLoad);
         return;
