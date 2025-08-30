@@ -65,8 +65,10 @@ function loadContent(menu, sub, scrroll) {
       .then((response) => {
         if (!response.ok) {
           if (response.status === 404) {
-            if (menu !== "404") scrollAndLoad("404");
-            else
+            if (menu !== "404") {
+              scrollAndLoad("404");
+              return;
+            } else
               alert(
                 "Wystąpił błąd 404R. Strona nie istnieje. Nie znaleziono też strony błędu. Opisz, PROSZĘ okoliczności wystąpienia błędu i razem z jego numerem, datą i godziną wystąpienia wyślij mi wiadomość na rpuszkin@gmil.com. DZIĘKUJĘ!"
               );
