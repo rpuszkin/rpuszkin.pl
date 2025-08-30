@@ -39,14 +39,15 @@ function loadContent(menu, sub, scrroll) {
     !menu &&
     subURL &&
     (subURL === "krs" || subURL === "foundation") &&
-    (menuURL === "supportme" || menuURL === "supportme")
+    menuURL === "supportme"
   ) {
     sub = subURL;
   } else if (
     !sub &&
     !menu &&
     subURL &&
-    (subURL !== "krs" || subURL !== "foundation")
+    subURL !== "krs" &&
+    subURL !== "foundation"
   ) {
     menu = "404";
     sub = "404";
@@ -69,6 +70,7 @@ function loadContent(menu, sub, scrroll) {
               alert(
                 "Wystąpił błąd 404R. Strona nie istnieje. Nie znaleziono też strony błędu. Opisz, PROSZĘ okoliczności wystąpienia błędu i razem z jego numerem, datą i godziną wystąpienia wyślij mi wiadomość na rpuszkin@gmil.com. DZIĘKUJĘ!"
               );
+            return Promise.reject(new Error("404"));
           } else {
             alert(
               `Wystąpił błąd o numerze ${response.status}. Opisz, PROSZĘ okoliczności wystąpienia błędu i razem z jego numerem, datą i godziną wystąpienia wyślij mi wiadomość na rpuszkin@gmil.com. DZIĘKUJĘ!`
