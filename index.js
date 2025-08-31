@@ -168,13 +168,11 @@ function scrollAndLoad(menuLoad, subLoad) {
       if (subLoad) {
       } else {
       }
-    } else if (!window.contentInVP && scrollY !== 0) {
+    } else if (!window.contentInVP && window.scrollY !== 0) {
       if (subLoad) {
         loadSmoothly(menuLoad, subLoad);
-        return;
-      } else {
-        loadSmoothly(menuLoad);
-        return;
+      } else if (window.screenY === 0) {
+        loadContent, (menuLoad, subLoad);
       }
     }
   }
