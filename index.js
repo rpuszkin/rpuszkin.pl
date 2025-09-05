@@ -171,7 +171,7 @@ function scrollAndLoad(menuLoad, subLoad) {
     } else if (!window.contentInVP && window.scrollY !== 0) {
       if (subLoad) {
         loadSmoothly(menuLoad, subLoad);
-      } else if (window.screenY === 0) {
+      } else if (window.scrollY === 0) {
         loadContent, (menuLoad, subLoad);
       }
     }
