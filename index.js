@@ -142,7 +142,7 @@ function loadContent(menu, sub, scrroll) {
 function scrollAndLoad(menuLoad, subLoad) {
   function loadSmoothly(smoothMenu, smoothSub) {
     if (window.isScrolling) window.stopScrollNow = true;
-    document.body.classList.add("invisible");
+    if (window.scrollY !== 0) document.body.classList.add("invisible");
 
     setTimeout(() => {
       document.getElementById("top").scrollIntoView();
@@ -158,24 +158,10 @@ function scrollAndLoad(menuLoad, subLoad) {
     }, 1000);
   }
   //transition to new content type choosing
-  if (window.contentInVP || (!window.contentInVP && window.isScrolling)) {
-    if (window.contentInVP) {
-      if (subLoad) {
-        loadSmoothly(menuLoad, subLoad);
-      } else {
-        loadSmoothly(menuLoad);
-        return;
-      }
-      if (subLoad) {
-      } else {
-      }
-    } else if (!window.contentInVP && window.scrollY !== 0) {
-      if (subLoad) {
-        loadSmoothly(menuLoad, subLoad);
-      } else if (window.scrollY === 0) {
-        loadContent, (menuLoad, subLoad);
-      }
-    }
+  if (window.scrollY === 0) loadContent(menuLoad, subLoad);
+  else if (window.contentInVP || window.isScrolling) {
+    loadSmoothly(menuLoad, subLoad);
+    return;
   }
 
   const toLoad = () => Promise.resolve(loadContent(menuLoad, subLoad));
