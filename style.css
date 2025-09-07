@@ -258,7 +258,7 @@ body {
 }
 .error404-img {
   display: flex;
-  height: 100vh;
+  width: 55vw;
   border-radius: 5%;
   margin: 15px auto;
 }
