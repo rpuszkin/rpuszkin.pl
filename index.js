@@ -157,6 +157,7 @@ function scrollAndLoad(menuLoad, subLoad) {
       }, 100);
     }, 1000);
   }
+  //transition to new content type
   if (window.contentInVP || (!window.contentInVP && window.isScrolling)) {
     if (window.contentInVP) {
       if (subLoad) {
