@@ -1,26 +1,23 @@
 let loader = document.getElementById("scroll-loader");
+const hideScrollbar = () => (document.body.style.overflowY = "hidden");
+const showScrollbar = () => (document.body.style.overflowY = "scroll");
 function showLoader() {
   window.isScrolling = true;
   loader.classList.remove("invisible");
+  hideScrollbar();
 }
 function hideLoader() {
   window.isScrolling = false;
   loader.classList.add("invisible");
+  showScrollbar();
 }
-function hideScrollbar() {
-  document.body.style.overflowY = "hidden";
-}
-function showScrollbar() {
-  document.body.style.overflowY = "scroll";
-}
+
 function scrollIt(targetId, duration) {
   return new Promise((resolve, reject) => {
     function attemptScroll(attemptsLeft) {
       setTimeout(() => {
         showLoader();
-        if (window.scrollY > 0) {
-          hideScrollbar();
-        }
+
         stopScrollNow = false;
         var target = document.getElementById(targetId);
         if (!target) {
@@ -40,7 +37,6 @@ function scrollIt(targetId, duration) {
             if (window.stopScrollNow) {
               resolve();
               hideLoader();
-              showScrollbar();
               return;
             }
             if (startTime === null) startTime = currentTime;
