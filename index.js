@@ -124,7 +124,6 @@ function loadContent(menu, sub, scrroll) {
     document.head.appendChild(link);
   }
   loadFile(file);
-
   if (menu !== sub) {
     if (menu !== "404" && menu && sub) {
       window.history.pushState({}, "", "?menu=" + menu + "&sub=" + sub);
@@ -134,23 +133,17 @@ function loadContent(menu, sub, scrroll) {
       window.history.pushState({}, "", "?menu=" + menu);
     }
   }
-  if (menu !== "404") {
-    console.log("Google Anallytics, " + document.title);
-  }
   return "content loaded";
 }
 function scrollAndLoad(menuLoad, subLoad) {
   function loadSmoothly(smoothMenu, smoothSub) {
     if (window.isScrolling) window.stopScrollNow = true;
     if (window.scrollY !== 0) document.body.classList.add("invisible");
-
     setTimeout(() => {
       document.getElementById("top").scrollIntoView();
       loadContent(smoothMenu, smoothSub);
-
       setTimeout(() => {
         document.body.classList.remove("invisible");
-
         if (section) {
           scrollIt(section, 9300);
         }
@@ -163,9 +156,7 @@ function scrollAndLoad(menuLoad, subLoad) {
     loadSmoothly(menuLoad, subLoad);
     return;
   }
-
   const toLoad = () => Promise.resolve(loadContent(menuLoad, subLoad));
-
   const scrollToContent = () => {
     if (section) {
       scrollIt(section, 7500);
