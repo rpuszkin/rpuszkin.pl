@@ -137,9 +137,9 @@ function loadContent(menu, sub, scrroll) {
 }
 function scrollAndLoad(menuLoad, subLoad) {
   function loadSmoothly(smoothMenu, smoothSub) {
-    if (window.isScrolling) window.stopScrollNow = true;
     if (window.scrollY !== 0) document.body.classList.add("invisible");
     setTimeout(() => {
+      if (window.isScrolling) window.stopScrollNow = true;
       document.getElementById("top").scrollIntoView();
       loadContent(smoothMenu, smoothSub);
       setTimeout(() => {
