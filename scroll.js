@@ -54,9 +54,6 @@ function scrollIt(targetId, duration) {
               resolve();
               hideLoader();
               if (window.scrollY > 0) {
-                showScrollbar();
-              }
-              if (window.scrollY > 0) {
                 window.contentInVP = true;
               } else if (window.scrollY === 0) {
                 window.contentInVP = false;
