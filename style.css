@@ -164,7 +164,7 @@ body {
 .header {
   width: 100%;
   height: calc(100vw * 1.34375);
-  background-image: url(media/header-pc.jpg);
+  background-image: url(media/header-pc.webp);
   /* Height of headers photo must be divided (podzielić) by width of headers photo. Solution of this divided should be mindfully (pomnożyć) by 100vw. Solution is a height of header:*/
   background-size: cover;
   background-repeat: no-repeat;
