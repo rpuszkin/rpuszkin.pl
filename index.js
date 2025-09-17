@@ -152,7 +152,7 @@ function scrollAndLoad(menuLoad, subLoad) {
   }
   //transition to new content type choosing
   if (window.scrollY === 0) loadContent(menuLoad, subLoad);
-  else if (window.contentInVP || window.isScrolling) {
+  else if (!window.contentInVP || window.isScrolling) {
     loadSmoothly(menuLoad, subLoad);
     return;
   }
