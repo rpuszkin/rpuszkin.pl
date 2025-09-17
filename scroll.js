@@ -10,18 +10,6 @@ function hideLoader() {
   window.isScrolling = false;
   loader.classList.add("invisible");
   showScrollbar();
-  const anlyticsAndScolled = () => {
-    if (
-      document.getElementById("main-content").getBoundingClientRect().top < 1
-    ) {
-      window.hasAutoScrolled = true;
-      console.log(`Google Analytics:
-      tytuł: ${document.title}
-      URL: ${window.location.href}
-      `);
-    }
-  };
-  return anlyticsAndScolled();
 }
 
 function scrollIt(targetId, duration) {
@@ -65,6 +53,11 @@ function scrollIt(targetId, duration) {
             } else {
               resolve();
               hideLoader();
+              if (window.scrollY > 0) {
+                window.contentInVP = true;
+              } else if (window.scrollY === 0) {
+                window.contentInVP = false;
+              }
             }
           }
           requestAnimationFrame(scrollToTarget);
