@@ -140,7 +140,7 @@ function scrollAndLoad(menuLoad, subLoad) {
     if (window.scrollY !== 0) document.body.classList.add("invisible");
     setTimeout(() => {
       if (window.isScrolling) window.stopScrollNow = true;
-      document.getElementById("top").scrollTo(0, 0);
+      scrollTo(0, 0);
       loadContent(smoothMenu, smoothSub);
       setTimeout(() => {
         document.body.classList.remove("invisible");
