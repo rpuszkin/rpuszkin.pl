@@ -11,7 +11,7 @@ document.getElementById("main-content").addEventListener("click", (event) => {
     event.preventDefault();
   }
 });
-function loadContent(menu, sub, scrroll) {
+function loadContent(menu, sub) {
   const valid_menu = [
     "main",
     "news",
