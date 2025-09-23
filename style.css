@@ -71,6 +71,8 @@ body {
   top: 50vh;
   scale: 1.3;
   position: fixed;
+  user-select: none;
+  pointer-events: none;
   transition: all 0.25s ease-in-out;
 }
 .menu-ul {
