@@ -136,7 +136,7 @@ function loadContent(menu, sub) {
   return "content loaded";
 }
 function scrollAndLoad(menuLoad, subLoad) {
-  function loadSmoothly(smoothMenu, smoothSub) {
+  function smoothAndScroll(smoothMenu, smoothSub) {
     if (window.scrollY !== 0) document.body.classList.add("invisible");
     setTimeout(() => {
       if (window.isScrolling) window.stopScrollNow = true;
@@ -153,7 +153,7 @@ function scrollAndLoad(menuLoad, subLoad) {
   //transition to new content type choosing
   if (window.scrollY === 0) loadContent(menuLoad, subLoad);
   else if (window.hasAutoScrolled || window.isScrolling) {
-    loadSmoothly(menuLoad, subLoad);
+    smoothAndScroll(menuLoad, subLoad);
     return;
   }
   const toLoad = () => Promise.resolve(loadContent(menuLoad, subLoad));
