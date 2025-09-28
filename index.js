@@ -66,7 +66,7 @@ function loadContent(menu, sub) {
         if (!response.ok) {
           if (response.status === 404) {
             if (menu !== "404") {
-              scrollAndLoad("404");
+              loadWithEffect("404");
               return;
             } else
               alert(
@@ -135,7 +135,7 @@ function loadContent(menu, sub) {
   }
   return "content loaded";
 }
-function scrollAndLoad(menuLoad, subLoad) {
+function loadWithEffect(menuLoad, subLoad) {
   function smoothAndScroll(smoothMenu, smoothSub) {
     if (window.scrollY !== 0) document.body.classList.add("invisible");
     setTimeout(() => {
@@ -175,5 +175,5 @@ function scrollAndLoad(menuLoad, subLoad) {
   }
 }
 window.addEventListener("load", function () {
-  scrollAndLoad();
+  loadWithEffect();
 });
