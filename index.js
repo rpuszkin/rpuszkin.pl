@@ -133,7 +133,7 @@ function loadContent(menu, sub) {
       window.history.pushState({}, "", "?menu=" + menu);
     }
   }
-  return "content loaded";
+  return scrollIt(section, 7500);
 }
 function loadWithEffect(menuLoad, subLoad) {
   function smoothAndScroll(smoothMenu, smoothSub) {
@@ -144,34 +144,14 @@ function loadWithEffect(menuLoad, subLoad) {
       loadContent(smoothMenu, smoothSub);
       setTimeout(() => {
         document.body.classList.remove("invisible");
-        if (section) {
-          scrollIt(section, 9300);
-        }
       }, 100);
     }, 1000);
   }
-  //transition to new content type choosing
+  //type of transition to new content type choosing
   if (window.scrollY === 0) loadContent(menuLoad, subLoad);
   else if (window.hasAutoScrolled || window.isScrolling) {
     smoothAndScroll(menuLoad, subLoad);
     return;
-  }
-  const toLoad = () => Promise.resolve(loadContent(menuLoad, subLoad));
-  const scrollToContent = () => {
-    if (section) {
-      scrollIt(section, 7500);
-    }
-  };
-  if (window.scrollY === 0) {
-    toLoad().then((content) => {
-      if (content === "content loaded") {
-        return scrollToContent();
-      }
-    });
-  } else {
-    toLoad().then(() => {
-      scrollToContent();
-    });
   }
 }
 window.addEventListener("load", function () {
