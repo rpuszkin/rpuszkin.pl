@@ -11,7 +11,7 @@ document.getElementById("main-content").addEventListener("click", (event) => {
     event.preventDefault();
   }
 });
-function loadContent(menu, sub) {
+function loadContent(menu, sub, noScroll) {
   const valid_menu = [
     "main",
     "news",
@@ -133,7 +133,8 @@ function loadContent(menu, sub) {
       window.history.pushState({}, "", "?menu=" + menu);
     }
   }
-  return scrollIt(section, 7500);
+  if (noScroll === "noscroll") return true;
+  else return scrollIt(section, 7500);
 }
 function loadWithEffect(menuLoad, subLoad) {
   function smoothAndScroll(smoothMenu, smoothSub) {
