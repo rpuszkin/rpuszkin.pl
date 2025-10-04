@@ -142,9 +142,7 @@ function loadWithEffect(menuLoad, subLoad) {
       if (window.isScrolling) window.stopScrollNow = true;
       scrollTo(0, 0);
       loadContent(smoothMenu, smoothSub);
-      setTimeout(() => {
-        document.body.classList.remove("invisible");
-      }, 100);
+      document.body.classList.remove("invisible");
     }, 1000);
   }
   //type of transition to new content type choosing
