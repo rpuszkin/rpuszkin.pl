@@ -66,7 +66,7 @@ function loadContent(menu, sub, noScroll) {
         if (!response.ok) {
           if (response.status === 404) {
             if (menu !== "404") {
-              loadWithEffect("404");
+              loadWithEffect(404);
               return;
             } else
               alert(
