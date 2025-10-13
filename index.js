@@ -1,5 +1,6 @@
 let file;
 let section;
+let sectionElement;
 let menuURL;
 let subURL;
 document.querySelectorAll("nav a.menu-link").forEach((link) => {
