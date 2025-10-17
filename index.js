@@ -147,13 +147,33 @@ function loadWithEffect(menuLoad, subLoad) {
       document.body.classList.remove("invisible");
     }, 1000);
   }
+  function loadSmoothly(smoothMenu, smoothSub) {
+    document.body.classList.add("invisible");
+    setTimeout(() => {
+      if (window.isScrolling) {
+        window.stopScrollNow = true;
+        setTimeout(() => {
+          stopScrollNow = false;
+        }, 400);
+      }
+      if (!smoothSub && smoothMenu)
+        loadContent(smoothMenu, smoothMenu, "noscroll");
+      else if (smoothSub && smoothMenu)
+        loadContent(smoothMenu, smoothSub, "noscroll");
+      setTimeout(() => {
+        sectionElement = document.getElementById(section);
+      }, 320);
+      setTimeout(() => window.scrollTo(0, sectionElement.offsetTop), 350);
+    }, 1000);
+    setTimeout(() => document.body.classList.remove("invisible"), 1350);
+  }
   //type of transition to new content type choosing
   if (window.scrollY === 0) loadContent(menuLoad, subLoad);
-  else if (window.hasAutoScrolled || window.isScrolling) {
-    smoothAndScroll(menuLoad, subLoad);
-    return;
-  }
+  else if (window.hasAutoScrolled || window.isScrolling)
+    loadSmoothly(menuLoad, subLoad);
+  else smoothAndScroll(menuLoad, subLoad);
 }
+
 window.addEventListener("load", function () {
   loadWithEffect();
 });
