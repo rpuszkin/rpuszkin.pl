@@ -165,7 +165,7 @@ function loadWithEffect(menuLoad, subLoad) {
       }, 320);
       setTimeout(() => window.scrollTo(0, sectionElement.offsetTop), 350);
     }, 1000);
-    setTimeout(() => document.body.classList.remove("invisible"), 1350);
+    setTimeout(() => document.body.classList.remove("invisible"), 2100);
   }
   //type of transition to new content type choosing
   if (window.scrollY === 0) loadContent(menuLoad, subLoad);
