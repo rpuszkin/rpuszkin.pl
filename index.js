@@ -169,7 +169,7 @@ function loadWithEffect(menuLoad, subLoad) {
     }, 1000);
     setTimeout(
       () => fade.forEach((el) => el.classList.remove("invisible")),
-      2100
+      2300
     );
   }
   //type of transition to new content type choosing
