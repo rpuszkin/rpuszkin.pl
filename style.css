@@ -11,7 +11,6 @@ body {
   background: #e5e5e5;
   color: #404040;
   font-weight: 400;
-  transition: opacity 1s;
 }
 .weight-thin {
   font-weight: 100;
@@ -164,6 +163,7 @@ body {
     1px 1px 0 rgba(211, 211, 211, 0.5);
 }
 .header {
+  transition: opacity 1s;
   width: 100%;
   height: calc(100vw * 1.34375);
   background-image: url(media/header-pc.webp);
@@ -198,7 +198,9 @@ body {
 .tax-btn:hover {
   background-color: #ee7202;
 }
-
+.main {
+  transition: opacity 1s;
+}
 .content {
   width: calc(100% - 50px);
   min-height: 200vh;
