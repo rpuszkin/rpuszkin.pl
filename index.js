@@ -138,17 +138,19 @@ function loadContent(menu, sub, noScroll) {
   else return scrollIt(section, 7500);
 }
 function loadWithEffect(menuLoad, subLoad) {
+  const fade = document.querySelectorAll(".main, .header");
   function smoothAndScroll(smoothMenu, smoothSub) {
-    if (window.scrollY !== 0) document.body.classList.add("invisible");
+    if (window.scrollY !== 0)
+      fade.forEach((el) => el.classList.add("invisible"));
     setTimeout(() => {
       if (window.isScrolling) window.stopScrollNow = true;
       scrollTo(0, 0);
       loadContent(smoothMenu, smoothSub);
-      document.body.classList.remove("invisible");
+      fade.forEach((el) => el.classList.remove("invisible"));
     }, 1000);
   }
   function loadSmoothly(smoothMenu, smoothSub) {
-    document.body.classList.add("invisible");
+    fade.forEach((el) => el.classList.add("invisible"));
     setTimeout(() => {
       if (window.isScrolling) {
         window.stopScrollNow = true;
@@ -165,7 +167,10 @@ function loadWithEffect(menuLoad, subLoad) {
       }, 320);
       setTimeout(() => window.scrollTo(0, sectionElement.offsetTop), 350);
     }, 1000);
-    setTimeout(() => document.body.classList.remove("invisible"), 2100);
+    setTimeout(
+      () => fade.forEach((el) => el.classList.remove("invisible")),
+      2100
+    );
   }
   //type of transition to new content type choosing
   if (window.scrollY === 0) loadContent(menuLoad, subLoad);
