@@ -171,10 +171,11 @@ function loadWithEffect(menuLoad, subLoad) {
       () => fade.forEach((el) => el.classList.remove("invisible")),
       2300
     );
+    window.hasAutoScrolled = true;
   }
   //type of transition to new content type choosing
   if (window.scrollY === 0) loadContent(menuLoad, subLoad);
-  else if (window.hasAutoScrolled || window.isScrolling)
+  else if (window.hasAutoScrolled || window.isScrolling || menuLoad === 404)
     loadSmoothly(menuLoad, subLoad);
   else smoothAndScroll(menuLoad, subLoad);
 }
