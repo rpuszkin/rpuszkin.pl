@@ -211,6 +211,13 @@ body {
   color: #404040;
   margin-bottom: 70px;
 }
+.content .subtitle {
+  text-align: center;
+  font-size: 28px;
+  font-weight: 600;
+  color: #404040;
+  margin: 15px 0;
+}
 .supportme-subtitle {
   margin-top: 10px;
   display: flex;
