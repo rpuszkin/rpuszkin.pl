@@ -172,21 +172,6 @@ body {
   background-repeat: no-repeat;
   background-position: center;
 }
-.header .container:nth-of-type(1) {
-  height: 100vh;
-  display: flex;
-  flex-direction: column-reverse;
-}
-.title-h1 {
-  text-align: center;
-  margin: auto;
-  font-size: 37px;
-  color: lightgrey;
-  font-weight: 700;
-  width: 100%;
-  background-color: rgba(64, 64, 64, 0.6);
-}
-
 .tax-btn {
   cursor: pointer;
   border: 5px solid #ee7202;
