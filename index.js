@@ -62,7 +62,7 @@ function loadContent(menu, sub, noScroll) {
   }
   section = sub;
   function loadFile(url) {
-    fetch(url)
+    return fetch(url)
       .then((response) => {
         if (!response.ok) {
           if (response.status === 404) {
@@ -134,7 +134,7 @@ function loadContent(menu, sub, noScroll) {
       window.history.pushState({}, "", "?menu=" + menu);
     }
   }
-  if (noScroll === "noscroll") return true;
+  if (noScroll === "noscroll") return loadFile(file);
   else return scrollIt(section, 7500);
 }
 function loadWithEffect(menuLoad, subLoad) {
