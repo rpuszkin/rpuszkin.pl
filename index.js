@@ -134,7 +134,7 @@ function loadContent(menu, sub, noScroll) {
     }
   }
   if (noScroll === "noscroll") return loadFile(file);
-  else return loadFile(file).then(scrollIt(section, 7500));
+  else return loadFile(file).then(() => scrollIt(section, 7500));
 }
 function loadWithEffect(menuLoad, subLoad) {
   const fade = document.querySelectorAll(".main, .header");
