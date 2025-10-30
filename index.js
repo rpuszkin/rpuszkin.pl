@@ -142,7 +142,6 @@ function loadWithEffect(menuLoad, subLoad) {
     if (window.scrollY !== 0)
       fade.forEach((el) => el.classList.add("invisible"));
     setTimeout(() => {
-      if (window.isScrolling) window.stopScrollNow = true;
       scrollTo(0, 0);
       loadContent(smoothMenu, smoothSub);
       fade.forEach((el) => el.classList.remove("invisible"));
