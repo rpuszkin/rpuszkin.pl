@@ -137,18 +137,18 @@ function loadContent(menu, sub, noScroll) {
   else return loadFile(file).then(() => scrollIt(section, 7500));
 }
 function loadWithEffect(menuLoad, subLoad) {
-  const fade = document.querySelectorAll(".main, .header");
+  const fadeElements = document.querySelectorAll(".main, .header");
   function smoothAndScroll(smoothMenu, smoothSub) {
     if (window.scrollY !== 0)
-      fade.forEach((el) => el.classList.add("invisible"));
+      fadeElements.forEach((el) => el.classList.add("invisible"));
     setTimeout(() => {
       scrollTo(0, 0);
       loadContent(smoothMenu, smoothSub);
-      fade.forEach((el) => el.classList.remove("invisible"));
+      fadeElements.forEach((el) => el.classList.remove("invisible"));
     }, 1000);
   }
   function loadSmoothly(smoothMenu, smoothSub) {
-    fade.forEach((el) => el.classList.add("invisible"));
+    fadeElements.forEach((el) => el.classList.add("invisible"));
     setTimeout(() => {
       if (window.isScrolling) {
         window.stopScrollNow = true;
@@ -166,7 +166,7 @@ function loadWithEffect(menuLoad, subLoad) {
       setTimeout(() => window.scrollTo(0, sectionElement.offsetTop), 350);
     }, 1000);
     setTimeout(
-      () => fade.forEach((el) => el.classList.remove("invisible")),
+      () => fadeElements.forEach((el) => el.classList.remove("invisible")),
       2300
     );
   }
