@@ -138,6 +138,51 @@ function loadContent(menu, sub, noScroll) {
 }
 function loadWithEffect(menuLoad, subLoad) {
   const fadeElements = document.querySelectorAll(".main, .header");
+  function waitForTransitions(elements, { timeout = 700 } = {}) {
+    return new Promise((resolve) => {
+      const els = Array.from(elements);
+      if (els.length === 0) return resolve();
+      let remaining = els.length;
+      let finished = false;
+
+      function tryResolve() {
+        if (finished) return;
+        remaining--;
+        if (remaining <= 0) {
+          finished = true;
+          resolve();
+        }
+      }
+
+      els.forEach((el) => {
+        const duration = parseFloat(getComputedStyle(el).transitionDuration);
+        if (!duration) return tryResolve();
+        el.addEventListener(
+          "transitionend",
+          (e) => {
+            if (e.target === el) tryResolve();
+          },
+          { once: true }
+        );
+      });
+
+      setTimeout(() => {
+        if (!finished) {
+          finished = true;
+          resolve();
+        }
+      }, timeout);
+    });
+  }
+  function fadeOut(elements) {
+    elements.forEach((el) => el.classList.add("invisible"));
+    return waitForTransitions(elements);
+  }
+  function fadeIn(elements) {
+    elements.forEach((el) => el.classList.remove("invisible"));
+    return waitForTransitions(elements);
+  }
+
   function smoothAndScroll(smoothMenu, smoothSub) {
     if (window.scrollY !== 0)
       fadeElements.forEach((el) => el.classList.add("invisible"));
