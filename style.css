@@ -64,11 +64,9 @@ body {
   cursor: pointer;
 }
 .scroll-loader {
-  width: 64px;
-  top: 65px;
+  width: 80px;
   left: 50vw;
   top: 50vh;
-  scale: 1.3;
   position: fixed;
   user-select: none;
   pointer-events: none;
