@@ -18,6 +18,9 @@ body {
 .weight-regular {
   font-weight: 400;
 }
+weight-medium {
+  font-weight: 500;
+}
 .weight-bold {
   font-weight: 700;
 }
