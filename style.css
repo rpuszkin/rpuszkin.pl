@@ -36,12 +36,6 @@ weight-medium {
 .container {
   width: 100%;
 }
-.header .container:nth-of-type(1) {
-  height: 100vh;
-  display: flex;
-  flex-direction: column-reverse;
-}
-
 .menu-nav {
   min-width: 100%;
   min-height: 50px;
@@ -203,9 +197,7 @@ weight-medium {
   border-left: 20px solid #00539f;
   min-height: calc(100vh - 60px);
 }
-.autoHeight-content {
-  min-height: auto;
-}
+
 .title {
   font-size: 36px;
   font-weight: 700;
