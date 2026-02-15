@@ -69,15 +69,6 @@ weight-medium {
   pointer-events: none;
   transition: all 0.35s ease-in-out;
 }
-.smooth-loader {
-  width: 80px;
-  left: 50vw;
-  top: 50vh;
-  position: fixed;
-  user-select: none;
-  pointer-events: none;
-  transition: all ease-in-out;
-}
 .menu-ul {
   display: flex;
   gap: 36px;
