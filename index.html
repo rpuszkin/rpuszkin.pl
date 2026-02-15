@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pl">
   <head>
     <meta charset="UTF-8" />
@@ -45,7 +45,7 @@
               <div class="supportme-more">
                 <span
                   class="menu-link"
-                  onclick="loadWithEffect('supportme','krs')"
+                  onclick="loadWithEffect('supportme', 'krs')"
                   >Przekaż
                   <img class="menu-icon" src="media/menu-krs.webp" /><span
                     class="color-krs"
@@ -55,10 +55,10 @@
                 >
                 <span
                   class="menu-link"
-                  onclick="loadWithEffect('supportme','foundation')"
+                  onclick="loadWithEffect('supportme', 'foundation')"
                   >Przez
                   <img class="menu-icon" src="media/menu-foundation.webp" />
-                  <span class="color-foundation"> fundację</span></span
+                  <span class="color-foundation">fundację</span></span
                 >
               </div>
             </label>
@@ -124,15 +124,9 @@
       </div>
     </nav>
 
-    <header id="top" class="header">
-      <div class="container">
-        <img
-          src="media/loader.webp"
-          class="scroll-loader invisible"
-          id="scroll-loader"
-        />
-      </div>
-    </header>
+    <header id="top" class="header"></header>
+    <img src="media/loader.webp" class="loader invisible" id="loader" />
+
     <main id="main-content" class="main"></main>
     <footer class="footer">
       <div class="container">
@@ -170,6 +164,7 @@
         </ul>
       </div>
     </footer>
+    <script src="URL.js"></script>
     <script src="index.js"></script>
     <script src="scroll.js"></script>
   </body>
