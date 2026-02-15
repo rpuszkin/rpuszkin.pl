@@ -1,43 +1,42 @@
-let loader = document.getElementById("scroll-loader");
-const hideScrollbar = () => (document.body.style.overflowY = "hidden");
-const showScrollbar = () => (document.body.style.overflowY = "scroll");
-function showLoader() {
-  window.isScrolling = true;
-  loader.classList.remove("invisible");
-  hideScrollbar();
-}
-function hideLoader() {
-  window.isScrolling = false;
-  loader.classList.add("invisible");
-  showScrollbar();
-  const anlyticsAndScolled = () => {
-    if (
-      document.getElementById("main-content").getBoundingClientRect().top < 1
-    ) {
-      window.hasAutoScrolled = true;
-      console.log(`Google Analytics:
+function ga_script() {
+  console.log(`Google Analytics:
       tytuł: ${document.title}
       URL: ${window.location.href}
       `);
-    }
-  };
-  return anlyticsAndScolled();
 }
-
 function scrollIt(targetId, duration) {
+  const loader = document.getElementById("loader");
+  const hideScrollbar = () => (document.body.style.overflowY = "hidden");
+  const showScrollbar = () => (document.body.style.overflowY = "scroll");
+  const showScrollLoader = () => {
+    window.isScrolling = true;
+    loader.classList.remove("invisible");
+    hideScrollbar();
+  };
+  const hideScrollLoader = () => {
+    window.isScrolling = false;
+    loader.classList.add("invisible");
+    showScrollbar();
+    return;
+  };
   return new Promise((resolve, reject) => {
     function attemptScroll(attemptsLeft) {
       setTimeout(() => {
-        showLoader();
+        showScrollLoader();
 
         stopScrollNow = false;
         var target = document.getElementById(targetId);
+
         if (!target) {
           if (attemptsLeft > 0) {
             setTimeout(() => attemptScroll(attemptsLeft - 1), 100);
             return;
           }
-          reject("Target not found");
+          reject(
+            "scrollIt: Target sekcja docelowa: " +
+              targetId +
+              " nie została znaleziona",
+          );
           return;
         }
         requestAnimationFrame(() => {
@@ -48,7 +47,7 @@ function scrollIt(targetId, duration) {
           function scrollToTarget(currentTime) {
             if (window.stopScrollNow) {
               resolve();
-              hideLoader();
+              hideScrollLoader();
               return;
             }
             if (startTime === null) startTime = currentTime;
@@ -64,7 +63,7 @@ function scrollIt(targetId, duration) {
               requestAnimationFrame(scrollToTarget);
             } else {
               resolve();
-              hideLoader();
+              hideScrollLoader();
             }
           }
           requestAnimationFrame(scrollToTarget);
@@ -77,7 +76,11 @@ function scrollIt(targetId, duration) {
     attemptScroll(5);
   });
 }
+
 function skipScrolling() {
-  stopScrollNow = true;
-  scrollIt(section, 2000);
+  window.stopScrollNow = true;
+  setTimeout(() => {
+    stopScrollNow = false;
+  }, 400);
+  scrollIt(window.subOk, 2000);
 }
