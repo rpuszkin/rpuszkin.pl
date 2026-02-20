@@ -18,24 +18,22 @@ function updateUrlParams() {
   const subURL = params.get("sub");
   if (!menuURL && !subURL) {
     window.menuOk = "home";
-    window.subOk = "home";
+    window.subOk = window.menuOk;
     return;
-  } else if (menuURL && valid_menu.includes(menuURL)) window.menuOk = menuURL;
+  } if (menuURL && valid_menu.includes(menuURL)) window.menuOk = menuURL;
   else {
     window.menuOk = "404";
     window.subOk = "404";
     return;
   }
-  if (!subURL && window.menuOk) {
+  if (!subURL) {
     window.subOk = window.menuOk;
   } else if (
-    valid_menu.includes(subURL) ||
-    subURL === "krs" ||
-    subURL === "foundation"
+    (subURL === "krs" || subURL === "foundation") && menuURL==='supportme'
   ) {
     window.subOk = subURL;
   } else if (subURL) {
     window.menuOk = "404";
-    window.subOk = "404";
+    window.subOk = window.menuOk;
   }
 }
