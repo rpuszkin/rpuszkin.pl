@@ -1,8 +1,3 @@
-let file;
-let section;
-let sectionElement;
-let menuURL;
-let subURL;
 document.querySelectorAll("nav a.menu-link").forEach((link) => {
   link.addEventListener("click", (event) => event.preventDefault());
 });
@@ -12,131 +7,129 @@ document.getElementById("main-content").addEventListener("click", (event) => {
     event.preventDefault();
   }
 });
-function loadContent(menu, sub, noScroll) {
-  const valid_menu = [
-    "main",
-    "news",
-    "supportme",
-    "mygallery",
-    "aboutme",
-    "myhistory",
-    "myprogress",
-    "reallife",
-    "irecommend",
-    "myprojects",
-    "404",
-  ];
-  let url = new URL(window.location.href);
-  let params = new URLSearchParams(url.search);
-  menuURL = params.get("menu");
-  subURL = params.get("sub");
-  if (!menu && !sub && !menuURL && !subURL) {
-    menu = "main";
-  } else if (menu && !valid_menu.includes(menu)) {
-    menu = "404";
-    sub = "404";
-  } else if (
-    !sub &&
-    !menu &&
-    subURL &&
-    (subURL === "krs" || subURL === "foundation") &&
-    menuURL === "supportme"
-  ) {
-    sub = subURL;
-  } else if (
-    !sub &&
-    !menu &&
-    subURL &&
-    subURL !== "krs" &&
-    subURL !== "foundation"
-  ) {
-    menu = "404";
-    sub = "404";
+
+function loadContent(menuLoad, subLoad, contentPop) {
+  let file;
+  let doubleLoad = false;
+  window.previousMenu = window.menuOk;
+  window.previousSub = window.subOk;
+  window.menuOk = null;
+  window.subOk = null;
+
+  if ((!menuLoad && !subLoad) || contentPop === "pop") updateUrlParams();
+  else {
+    if (menuLoad) window.menuOk = menuLoad;
+    if (subLoad) window.subOk = subLoad;
+    if (menuLoad && !subLoad) window.subOk = menuLoad;
   }
-  if (!menu && valid_menu.includes(menuURL)) {
-    menu = menuURL;
-  }
-  file = `menu/${menu}.html`;
-  if (!sub && valid_menu.includes(menu)) {
-    sub = menu;
-  }
-  section = sub;
+  if (window.menuOk) file = `menu/${window.menuOk}.html`;
+  else
+    throw new Error(
+      "loadContent(): menuOk nie jest zdefiniowane. Nie można załadować pliku.",
+    );
+  if (
+    window.menuOk === window.previousMenu &&
+    window.subOk === window.previousSub
+  )
+    doubleLoad = true;
   function loadFile(url) {
     return fetch(url)
       .then((response) => {
         if (!response.ok) {
           if (response.status === 404) {
-            if (menu !== "404") {
-              loadWithEffect(404);
-              return;
+            if (window.menuOk !== "404") {
+              return Promise.reject("follback404");
             } else
-              alert(
-                "Wystąpił błąd 404R. Strona nie istnieje. Nie znaleziono też strony błędu. Opisz, PROSZĘ okoliczności wystąpienia błędu i razem z jego numerem, datą i godziną wystąpienia wyślij mi wiadomość na rpuszkin@gmil.com. DZIĘKUJĘ!"
+              return Promise.reject(
+                "loadFile(): Błąd 404CR - strona nie została znaleziona, nie znaleziono również strony błędu.",
               );
-            return Promise.reject(new Error("404"));
           } else {
-            alert(
-              `Wystąpił błąd o numerze ${response.status}. Opisz, PROSZĘ okoliczności wystąpienia błędu i razem z jego numerem, datą i godziną wystąpienia wyślij mi wiadomość na rpuszkin@gmil.com. DZIĘKUJĘ!`
+            throw new Error(
+              `loadfile():Wystąpił błąd o numerze ${response.status}. Nie można załadować pliku.`,
             );
           }
         }
         return response.text();
       })
       .then((html) => {
+        subOk;
         const mainElement = document.getElementById("main-content");
         if (mainElement) {
           mainElement.innerHTML = html;
         }
-        section = sub;
       })
       .catch((error) => {
-        alert(
-          "Błąd podczas ładowania pliku:" +
-            error +
-            "\n Opisz dokładnie okoliczności wystąpienia i szczegółóły błędu i napisz mi maila na rpuszkin@gmail.com. Dziękuję!"
-        );
-        alert(`Błąd: "${error.message}".`);
+        if (error === "follback404")
+          return loadWithEffect("404", null, "noscroll");
+        else
+          throw new Error(
+            "loadFile(): Błąd podczas ładowania pliku | " + error,
+          );
       });
   }
-  const subpageHtmlTitle = {
-    main: "",
-    news: " | nowości/wydarzenia",
-    supportme: " | wesprzyj mnie",
-    mygallery: " | galeria",
-    aboutme: " | o mnie",
-    myhistory: " | moja historia",
-    myprogress: " | moje postępy",
-    reallife: " | z życia wzięte",
-    myprojects: " | WWW",
-    irecommend: " | mogę polecić",
-    404: " | błąd 404 - nie znaleziono",
-  };
-  document.title = "rpuszkin.pl" + subpageHtmlTitle[menu];
-  if (sub === "krs") {
-    document.title += " →	1,5% podatku";
-  } else if (sub === "foundation") {
-    document.title += " → fundacja";
-  }
-  if (menu === "aboutme" || menu === "myhistory" || menu === "main") {
+  if (
+    window.menuOk === "aboutme" ||
+    window.menuOk === "myhistory" ||
+    window.menuOk === "home" ||
+    window.menuOk === "myprojects" ||
+    window.menuOk === "home" ||
+    window.menuOk === "reallife"
+  ) {
     const link = document.createElement("link");
     link.href =
       "https://fonts.googleapis.com/css2?family=Roboto+Serif:wght@400;700&display=swap";
     link.rel = "stylesheet";
     document.head.appendChild(link);
   }
-  if (menu !== sub) {
-    if (menu !== "404" && menu && sub) {
-      window.history.pushState({}, "", "?menu=" + menu + "&sub=" + sub);
-    }
-  } else {
-    if (menu !== "404" && menu && menu !== "main") {
-      window.history.pushState({}, "", "?menu=" + menu);
+  function setTite() {
+    const subpageHtmlTitle = {
+      home: "",
+      news: " | nowości/wydarzenia",
+      supportme: " | wesprzyj mnie",
+      mygallery: " | galeria",
+      aboutme: " | o mnie",
+      myhistory: " | moja historia",
+      myprogress: " | moje postępy",
+      reallife: " | z życia wzięte",
+      myprojects: " | WWW",
+      irecommend: " | mogę polecić",
+      404: " | błąd 404 - nie znaleziono",
+    };
+    document.title = "rpuszkin.pl" + subpageHtmlTitle[window.menuOk];
+    if (window.subOk === "krs") {
+      document.title += " →	1,5% podatku";
+    } else if (window.subOk === "foundation") {
+      document.title += " → fundacja";
     }
   }
-  if (noScroll === "noscroll") return loadFile(file);
-  else return loadFile(file).then(() => scrollIt(section, 7500));
+  function setUrlState(nopush) {
+    let newUrl;
+    if (window.subOk && window.subOk !== window.menuOk)
+      newUrl = `?menu=${window.menuOk}&sub=${window.subOk}`;
+    else newUrl = "?menu=" + window.menuOk;
+
+    if (!nopush) {
+      if (window.subOk) window.history.pushState({}, "", newUrl);
+      else window.history.pushState({}, "", newUrl);
+    }
+  }
+  setTite();
+  if (
+    contentPop === "pop" ||
+    window.menuOk === "404" ||
+    window.menuOk === "home" ||
+    doubleLoad === true
+  )
+    setUrlState(true);
+  else setUrlState();
+  if (contentPop === "noscroll") return loadFile(file).then(ga_script);
+  if (contentPop === "pop") return loadFile(file);
+  else
+    return loadFile(file).then(() =>
+      scrollIt(window.subOk, 7500).then(ga_script),
+    );
 }
-function loadWithEffect(menuLoad, subLoad) {
+function loadWithEffect(menuEffect, subEffect, popEffect) {
   const fadeElements = document.querySelectorAll(".main, .header");
   function waitForTransitions(elements, { timeout = 700 } = {}) {
     return new Promise((resolve) => {
@@ -162,7 +155,7 @@ function loadWithEffect(menuLoad, subLoad) {
           (e) => {
             if (e.target === el) tryResolve();
           },
-          { once: true }
+          { once: true },
         );
       });
 
@@ -183,45 +176,62 @@ function loadWithEffect(menuLoad, subLoad) {
     return waitForTransitions(elements);
   }
 
-  function smoothAndScroll(smoothMenu, smoothSub) {
-    if (window.scrollY !== 0)
-      fadeElements.forEach((el) => el.classList.add("invisible"));
-    setTimeout(() => {
-      scrollTo(0, 0);
-      loadContent(smoothMenu, smoothSub);
-      fadeElements.forEach((el) => el.classList.remove("invisible"));
-    }, 1000);
-  }
-  function loadSmoothly(smoothMenu, smoothSub) {
-    fadeElements.forEach((el) => el.classList.add("invisible"));
-    setTimeout(() => {
-      if (window.isScrolling) {
-        window.stopScrollNow = true;
-        setTimeout(() => {
-          stopScrollNow = false;
-        }, 400);
-      }
-      if (!smoothSub && smoothMenu)
-        loadContent(smoothMenu, smoothMenu, "noscroll");
-      else if (smoothSub && smoothMenu)
-        loadContent(smoothMenu, smoothSub, "noscroll");
-      setTimeout(() => {
-        sectionElement = document.getElementById(section);
-      }, 320);
-      setTimeout(() => window.scrollTo(0, sectionElement.offsetTop), 350);
-    }, 1000);
-    setTimeout(
-      () => fadeElements.forEach((el) => el.classList.remove("invisible")),
-      2300
-    );
-  }
-  //type of transition to new content type choosing
-  if (window.scrollY === 0) loadContent(menuLoad, subLoad);
-  else if (window.hasAutoScrolled || window.isScrolling || menuLoad === 404)
-    loadSmoothly(menuLoad, subLoad);
-  else smoothAndScroll(menuLoad, subLoad);
-}
+  function loadSmoothly(smoothMenu, smoothSub, smoothPop) {
+    function stopScrolling(delay = 400) {
+      return new Promise((resolve) => {
+        if (window.isScrolling) {
+          window.stopScrollNow = true;
+          setTimeout(() => {
+            window.stopScrollNow = false;
+            resolve();
+          }, delay);
+        } else resolve();
+      });
+    }
+    let noscrollOrPop;
+    if (smoothPop === "pop") noscrollOrPop = "pop";
+    else noscrollOrPop = "noscroll";
 
+    function jumpToTarget() {
+      let targetSection;
+      targetSection = document.getElementById(window.subOk);
+      return new Promise((resolve, reject) => {
+        if (targetSection) {
+          if (!window.blokJump) window.scrollTo(0, targetSection.offsetTop);
+          window.blokJump = false;
+          function checkTop() {
+            const rect = targetSection.getBoundingClientRect();
+            if (Math.abs(rect.top) < 10) resolve();
+            else requestAnimationFrame(checkTop);
+          }
+          requestAnimationFrame(checkTop);
+        } else {
+          reject(
+            "jumpToSection(): element o id " + window.subOk + " nie istnieje!",
+          );
+        }
+      });
+    }
+
+    return new Promise((resolve, reject) => {
+      fadeOut(fadeElements)
+        .then(() => stopScrolling())
+        .then(() => loadContent(smoothMenu, smoothSub, noscrollOrPop))
+        .then(() => jumpToTarget())
+        .then(() => fadeIn(fadeElements))
+        .then(() => resolve());
+    });
+  }
+  //chooicing type of transition to new content
+  if (window.scrollY === 0 && popEffect !== "pop")
+    return loadContent(menuEffect, subEffect, popEffect);
+  else if (window.scrollY === 0)
+    return loadContent(menuEffect, subEffect, popEffect);
+  else return loadSmoothly(menuEffect, subEffect, popEffect);
+}
+window.addEventListener("popstate", (event) => {
+  loadWithEffect(null, null, "pop");
+});
 window.addEventListener("load", function () {
   loadWithEffect();
 });
