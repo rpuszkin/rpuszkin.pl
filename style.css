@@ -175,6 +175,15 @@ weight-medium {
   justify-content: space-between;
   align-items: center;
 }
+.btn-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+.btn-container:nth-of-type(2) {
+  margin-right: 40px;
+}
 .krs-btn {
   cursor: pointer;
   border: 5px solid #ee7202;
@@ -187,7 +196,6 @@ weight-medium {
   background-color: #ee7202;
 }
 .foundation-btn {
-  margin-right: 40px;
   padding: 8px 5px;
   cursor: pointer;
   display: flex;
