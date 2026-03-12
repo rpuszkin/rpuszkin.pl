@@ -24,7 +24,7 @@ function scrollIt(targetId, duration) {
       setTimeout(() => {
         showScrollLoader();
 
-        stopScrollNow = false;
+        window.stopScrollNow = false;
         var target = document.getElementById(targetId);
 
         if (!target) {
@@ -80,7 +80,7 @@ function scrollIt(targetId, duration) {
 function skipScrolling() {
   window.stopScrollNow = true;
   setTimeout(() => {
-    stopScrollNow = false;
+    window.stopScrollNow = false;
   }, 400);
   scrollIt(window.subOk, 2000);
 }
