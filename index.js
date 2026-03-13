@@ -38,7 +38,7 @@ function loadContent(menuLoad, subLoad, contentPop) {
         if (!response.ok) {
           if (response.status === 404) {
             if (window.menuOk !== "404") {
-              return Promise.reject("follback404");
+              return Promise.reject("fallback404");
             } else
               return Promise.reject(
                 "loadFile(): Błąd 404CR - strona nie została znaleziona, nie znaleziono również strony błędu.",
@@ -52,14 +52,13 @@ function loadContent(menuLoad, subLoad, contentPop) {
         return response.text();
       })
       .then((html) => {
-        subOk;
         const mainElement = document.getElementById("main-content");
         if (mainElement) {
           mainElement.innerHTML = html;
         }
       })
       .catch((error) => {
-        if (error === "follback404")
+        if (error === "fallback404")
           return loadWithEffect("404", null, "noscroll");
         else
           throw new Error(
@@ -70,7 +69,6 @@ function loadContent(menuLoad, subLoad, contentPop) {
   if (
     window.menuOk === "aboutme" ||
     window.menuOk === "myhistory" ||
-    window.menuOk === "home" ||
     window.menuOk === "myprojects" ||
     window.menuOk === "home" ||
     window.menuOk === "reallife"
@@ -81,7 +79,7 @@ function loadContent(menuLoad, subLoad, contentPop) {
     link.rel = "stylesheet";
     document.head.appendChild(link);
   }
-  function setTite() {
+  function setTitle() {
     const subpageHtmlTitle = {
       home: "",
       news: " | nowości/wydarzenia",
@@ -113,7 +111,7 @@ function loadContent(menuLoad, subLoad, contentPop) {
       else window.history.pushState({}, "", newUrl);
     }
   }
-  setTite();
+  setTitle();
   if (
     contentPop === "pop" ||
     window.menuOk === "404" ||
@@ -222,7 +220,7 @@ function loadWithEffect(menuEffect, subEffect, popEffect) {
         .then(() => resolve());
     });
   }
-  //chooicing type of transition to new content
+  //choosing type of transition to new content
   if (window.scrollY === 0 && popEffect !== "pop")
     return loadContent(menuEffect, subEffect, popEffect);
   else if (window.scrollY === 0)
