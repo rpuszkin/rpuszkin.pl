@@ -228,7 +228,7 @@ function loadWithEffect(menuEffect, subEffect, popEffect) {
   else return loadSmoothly(menuEffect, subEffect, popEffect);
 }
 window.addEventListener("popstate", (event) => {
-  loadWithEffect(null, null, "pop");
+  loadWithEffect(null, null, "pop").then(ga_script);
 });
 window.addEventListener("load", function () {
   loadWithEffect();
