@@ -58,8 +58,7 @@ function loadContent(menuLoad, subLoad, contentPop) {
         }
       })
       .catch((error) => {
-        if (error === "fallback404")
-          return loadWithEffect("404", null, "noscroll");
+        if (error === "fallback404") return goTo("404", null, "noscroll");
         else
           throw new Error(
             "loadFile(): Błąd podczas ładowania pliku | " + error,
@@ -127,7 +126,7 @@ function loadContent(menuLoad, subLoad, contentPop) {
       scrollIt(window.subOk, 7500).then(ga_script),
     );
 }
-function loadWithEffect(menuEffect, subEffect, popEffect) {
+function goTo(menuEffect, subEffect, popEffect) {
   const fadeElements = document.querySelectorAll(".main, .header");
   function waitForTransitions(elements, { timeout = 700 } = {}) {
     return new Promise((resolve) => {
@@ -228,8 +227,8 @@ function loadWithEffect(menuEffect, subEffect, popEffect) {
   else return loadSmoothly(menuEffect, subEffect, popEffect);
 }
 window.addEventListener("popstate", (event) => {
-  loadWithEffect(null, null, "pop").then(ga_script);
+  goTo(null, null, "pop").then(ga_script);
 });
 window.addEventListener("load", function () {
-  loadWithEffect();
+  goTo();
 });
