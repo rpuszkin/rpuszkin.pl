@@ -32,7 +32,6 @@ function loadContent(menuLoad, subLoad, contentPop) {
     window.subOk === window.previousSub
   )
     doubleLoad = true;
-  nopush = true;
   function loadFile(url) {
     return fetch(url)
       .then((response) => {
@@ -106,7 +105,7 @@ function loadContent(menuLoad, subLoad, contentPop) {
       newUrl = `?menu=${window.menuOk}&sub=${window.subOk}`;
     else newUrl = "?menu=" + window.menuOk;
 
-    if (!nopush) {
+    if (!nopush && !doubleLoad) {
       if (window.subOk) window.history.pushState({}, "", newUrl);
       else window.history.pushState({}, "", newUrl);
     }
