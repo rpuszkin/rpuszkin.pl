@@ -32,6 +32,7 @@ function loadContent(menuLoad, subLoad, contentPop) {
     window.subOk === window.previousSub
   )
     doubleLoad = true;
+  nopush = true;
   function loadFile(url) {
     return fetch(url)
       .then((response) => {
