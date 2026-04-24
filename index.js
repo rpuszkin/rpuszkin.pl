@@ -126,7 +126,7 @@ function loadContent(menuLoad, subLoad, contentPop) {
       scrollIt(window.subOk, 7500).then(ga_script),
     );
 }
-function goTo(menuEffect, subEffect, popEffect) {
+function goTo(menuGo, subGo, popGo) {
   const fadeElements = document.querySelectorAll(".main, .header");
   function waitForTransitions(elements, { timeout = 700 } = {}) {
     return new Promise((resolve) => {
@@ -220,11 +220,10 @@ function goTo(menuEffect, subEffect, popEffect) {
     });
   }
   //choosing type of transition to new content
-  if (window.scrollY === 0 && popEffect !== "pop")
-    return loadContent(menuEffect, subEffect, popEffect);
-  else if (window.scrollY === 0)
-    return loadContent(menuEffect, subEffect, popEffect);
-  else return loadSmoothly(menuEffect, subEffect, popEffect);
+  if (window.scrollY === 0 && popGo !== "pop")
+    return loadContent(menuGo, subGo, popGo);
+  else if (window.scrollY === 0) return loadContent(menuGo, subGo, popGo);
+  else return loadSmoothly(menuGo, subGo, popGo);
 }
 window.addEventListener("popstate", (event) => {
   goTo(null, null, "pop").then(ga_script);
