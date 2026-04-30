@@ -22,7 +22,7 @@ function loadContent(menuLoad, subLoad, contentPop) {
     if (subLoad) window.subOk = subLoad;
     if (menuLoad && !subLoad) window.subOk = menuLoad;
   }
-  if (window.menuOk) file = `menu/${window.menuOk}.html`;
+  if (window.menuOk) file = `/menu/${window.menuOk}.html`;
   else
     throw new Error(
       "loadContent(): menuOk nie jest zdefiniowane. Nie można załadować pliku.",
