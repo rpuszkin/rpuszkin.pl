@@ -12,15 +12,17 @@ function updateUrlParams() {
     "myprojects",
     "404",
   ];
-  const url = new URL(window.location);
-  const params = new URLSearchParams(url.search);
-  const menuURL = params.get("menu");
-  const subURL = params.get("sub");
+  const path = window.location.pathname;
+  const pathSegments = path.split("/");
+  const menuURL = pathSegments.length > 0 ? pathSegments[1] : null;
+  const subURL = pathSegments.length > 1 ? pathSegments[2] : null;
+
   if (!menuURL && !subURL) {
     window.menuOk = "home";
     window.subOk = window.menuOk;
     return;
-  } if (menuURL && valid_menu.includes(menuURL)) window.menuOk = menuURL;
+  }
+  if (menuURL && valid_menu.includes(menuURL)) window.menuOk = menuURL;
   else {
     window.menuOk = "404";
     window.subOk = "404";
@@ -29,7 +31,8 @@ function updateUrlParams() {
   if (!subURL) {
     window.subOk = window.menuOk;
   } else if (
-    (subURL === "krs" || subURL === "foundation") && menuURL==='supportme'
+    (subURL === "krs" || subURL === "foundation") &&
+    menuURL === "supportme"
   ) {
     window.subOk = subURL;
   } else if (subURL) {
