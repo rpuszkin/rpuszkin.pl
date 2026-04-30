@@ -58,7 +58,7 @@ function loadContent(menuLoad, subLoad, contentPop) {
         }
       })
       .catch((error) => {
-        if (error === "fallback404") return goTo("404", null, "noscroll");
+        if (error === "fallback404") return goTo("404");
         else
           throw new Error(
             "loadFile(): Błąd podczas ładowania pliku | " + error,
