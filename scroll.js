@@ -1,7 +1,8 @@
 function ga_script() {
   console.log(`Google Analytics:
       tytuł: ${document.title}
-      URL od ?: ${window.location.search}
+      URL:
+       ${window.location.href}
       `);
 }
 function scrollIt(targetId, duration) {
