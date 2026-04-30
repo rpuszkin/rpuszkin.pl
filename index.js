@@ -102,8 +102,8 @@ function loadContent(menuLoad, subLoad, contentPop) {
   function setUrlState(nopush) {
     let newUrl;
     if (window.subOk && window.subOk !== window.menuOk)
-      newUrl = `?menu=${window.menuOk}&sub=${window.subOk}`;
-    else newUrl = "?menu=" + window.menuOk;
+      newUrl = `/${window.menuOk}/${window.subOk}`;
+    else newUrl = `/${window.menuOk}`;
 
     if (!nopush && !doubleLoad) {
       if (window.subOk) window.history.pushState({}, "", newUrl);
