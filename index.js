@@ -225,6 +225,13 @@ function goTo(menuGo, subGo, popGo) {
   else if (window.scrollY === 0) return loadContent(menuGo, subGo, popGo);
   else return loadSmoothly(menuGo, subGo, popGo);
 }
+
+function showHideSupportmeMore() {
+  const supportmeCheckbox = document.getElementById("supportme-checkbox");
+  if (supportmeCheckbox) {
+    supportmeCheckbox.checked = !supportmeCheckbox.checked;
+  }
+}
 window.addEventListener("popstate", (event) => {
   goTo(null, null, "pop").then(ga_script);
 });
