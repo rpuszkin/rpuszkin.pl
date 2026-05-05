@@ -29,17 +29,19 @@
             </a>
           </li>
           <li class="menu-li">
-            <label for="supportme-input" class="menu-link supportme-label">
-              wesprzyj&nbsp;mnie
-
+            <div
+              class="supportme-label menu-link"
+              onclick="showHideSupportmeMore()"
+            >
               <input
                 type="checkbox"
-                id="supportme-input"
-                class="supportme-input"
+                id="supportme-checkbox"
+                class="supportme-checkbox"
               />
+              <a href="/supportme" class="menu-link"> wesprzyj&nbsp;mnie</a>
               <i class="fa-solid fa-angle-down supportme-arrow"></i>
               <div class="supportme-more">
-                <span
+                <a
                   class="menu-link"
                   onclick="goTo('supportme', 'krs')"
                   href="/supportme/krs"
@@ -48,18 +50,18 @@
                     class="color-krs"
                   >
                     podatku</span
-                  ></span
+                  ></a
                 >
-                <span
+                <a
                   class="menu-link"
                   onclick="goTo('supportme', 'foundation')"
                   href="/supportme/foundation"
                   >przez
                   <img class="menu-icon" src="/media/menu-foundation.webp" />
-                  <span class="color-foundation">fundację</span></span
+                  <span class="color-foundation">fundację</span></a
                 >
               </div>
-            </label>
+            </div>
           </li>
           <li class="menu-li">
             <a href="mygallery" onclick="goTo('mygallery')" class="menu-link">
