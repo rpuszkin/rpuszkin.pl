@@ -55,6 +55,7 @@ weight-medium {
   text-decoration: none;
   color: lightgrey;
   display: flex;
+  gap: 7px;
   height: 50px;
   align-items: center;
   white-space: nowrap;
@@ -108,7 +109,7 @@ weight-medium {
   justify-content: center;
   gap: 10px;
 }
-.supportme-input {
+.supportme-checkbox {
   display: none;
 }
 .supportme-arrow {
@@ -122,7 +123,7 @@ weight-medium {
 .fa-angle-down {
   transition: all 0.18s ease-in-out;
 }
-#supportme-input:checked ~ .fa-angle-down {
+#supportme-checkbox:checked ~ .fa-angle-down {
   transition: all 0.18s ease-in-out;
   transform: rotate(180deg);
 }
@@ -145,13 +146,11 @@ weight-medium {
   border-radius: 0 0 5px 5px;
   transition: all 0.18s ease-in-out;
 }
-#supportme-input:checked ~ .supportme-more {
+#supportme-checkbox:checked ~ .supportme-more {
   opacity: 1;
   pointer-events: all;
 }
-.supportme-more .menu-icon {
-  margin: 5px;
-}
+
 .supportme-more .color-foundation {
   text-shadow:
     -1px -1px 0 rgba(211, 211, 211, 0.5),
