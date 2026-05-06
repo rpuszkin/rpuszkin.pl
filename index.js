@@ -78,7 +78,6 @@ function loadContent(menuLoad, subLoad, contentPop) {
       "https://fonts.googleapis.com/css2?family=Roboto+Serif:wght@400;700&display=swap";
     link.rel = "stylesheet";
     document.head.appendChild(link);
-    console.log("szeryf dodany");
   }
   function setTitle() {
     const subpageHtmlTitle = {
