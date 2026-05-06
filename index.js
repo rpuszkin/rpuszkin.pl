@@ -66,17 +66,19 @@ function loadContent(menuLoad, subLoad, contentPop) {
       });
   }
   if (
-    window.menuOk === "aboutme" ||
-    window.menuOk === "myhistory" ||
-    window.menuOk === "myprojects" ||
-    window.menuOk === "home" ||
-    window.menuOk === "reallife"
+    (window.menuOk === "aboutme" ||
+      window.menuOk === "myhistory" ||
+      window.menuOk === "myprojects" ||
+      window.menuOk === "home" ||
+      window.menuOk === "reallife") &&
+    !document.fonts.check("1em 'Roboto Serif'")
   ) {
     const link = document.createElement("link");
     link.href =
       "https://fonts.googleapis.com/css2?family=Roboto+Serif:wght@400;700&display=swap";
     link.rel = "stylesheet";
     document.head.appendChild(link);
+    console.log("szeryf dodany");
   }
   function setTitle() {
     const subpageHtmlTitle = {
