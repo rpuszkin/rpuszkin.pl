@@ -129,7 +129,7 @@ function loadContent(menuLoad, subLoad, contentPop) {
 }
 function goTo(menuGo, subGo, popGo) {
   const supportmeCheckbox = document.getElementById("supportme-checkbox");
-  if (supportmeCheckbox.checked && !subGo) supportmeCheckbox.checked = false;
+  if (supportmeCheckbox.checked) supportmeCheckbox.checked = false;
   const fadeElements = document.querySelectorAll(".main, .header");
   function waitForTransitions(elements, { timeout = 700 } = {}) {
     return new Promise((resolve) => {
