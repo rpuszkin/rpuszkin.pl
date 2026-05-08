@@ -33,34 +33,8 @@
               class="supportme-label menu-link"
               onclick="showHideSupportmeMore()"
             >
-              <input
-                type="checkbox"
-                id="supportme-checkbox"
-                class="supportme-checkbox"
-              />
               <a href="/supportme" class="menu-link"> wesprzyj&nbsp;mnie</a>
               <i class="fa-solid fa-angle-down supportme-arrow"></i>
-              <div class="supportme-more">
-                <a
-                  class="menu-link"
-                  onclick="goTo('supportme', 'krs')"
-                  href="/supportme/krs"
-                  >Przekaż
-                  <img class="menu-icon" src="/media/menu-krs.webp" /><span
-                    class="color-krs"
-                  >
-                    podatku</span
-                  ></a
-                >
-                <a
-                  class="menu-link"
-                  onclick="goTo('supportme', 'foundation')"
-                  href="/supportme/foundation"
-                  >przez
-                  <img class="menu-icon" src="/media/menu-foundation.webp" />
-                  <span class="color-foundation">fundację</span></a
-                >
-              </div>
             </div>
           </li>
           <li class="menu-li">
@@ -102,6 +76,31 @@
             >
           </li>
         </ul>
+      </div>
+      <input
+        type="checkbox"
+        id="supportme-checkbox"
+        class="supportme-checkbox"
+      />
+      <div class="supportme-more">
+        <a
+          class="menu-link"
+          onclick="goTo('supportme', 'krs')"
+          href="/supportme/krs"
+          >Przekaż <img class="menu-icon" src="/media/menu-krs.webp" /><span
+            class="color-krs"
+          >
+            podatku</span
+          ></a
+        >
+        <a
+          class="menu-link"
+          onclick="goTo('supportme', 'foundation')"
+          href="/supportme/foundation"
+          >przez
+          <img class="menu-icon" src="/media/menu-foundation.webp" />
+          <span class="color-foundation">fundację</span></a
+        >
       </div>
     </nav>
 
