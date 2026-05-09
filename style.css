@@ -115,11 +115,6 @@ weight-medium {
 .supportme-arrow {
   width: 15px;
 }
-.supportme-label {
-  display: flex;
-  position: relative;
-  gap: 7px;
-}
 .fa-angle-down {
   transition: all 0.18s ease-in-out;
 }
