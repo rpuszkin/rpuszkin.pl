@@ -50,12 +50,11 @@ weight-medium {
   -moz-box-shadow: 8px 8px 24px 0px rgba(0, 0, 0, 1);
   box-shadow: 8px 8px 24px 0px rgba(0, 0, 0, 1);
 }
-
 .menu-link {
   text-decoration: none;
   color: lightgrey;
   display: flex;
-  gap: 7px;
+  gap: 10px;
   height: 50px;
   align-items: center;
   white-space: nowrap;
@@ -103,11 +102,6 @@ weight-medium {
   display: flex;
   gap: 48px;
   margin-left: 24px;
-}
-.menu-li:nth-of-type(2) {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
 }
 .supportme-checkbox {
   display: none;
