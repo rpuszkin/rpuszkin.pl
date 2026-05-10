@@ -277,7 +277,7 @@ nav:has(#supportme-checkbox:checked) .supportme-arrow {
 }
 .article-image {
   width: 55vw;
-  border-radius: 5%;
+  border-radius: 62px;
 }
 .error404-text {
   width: 65%;
