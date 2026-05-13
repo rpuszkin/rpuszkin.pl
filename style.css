@@ -218,26 +218,41 @@ nav:has(#supportme-checkbox:checked) .supportme-arrow {
   border-left: 20px solid #00539f;
   min-height: calc(100vh - 60px);
 }
-.title {
+.title-h1 {
   font-size: 36px;
   font-weight: 700;
   color: #404040;
   margin-bottom: 70px;
 }
-.content .subtitle {
+.article-h2 {
   text-align: center;
   font-size: 28px;
   font-weight: 900;
-  color: #404040;
-  margin: 15px 0;
+  margin: 50px 0;
 }
-.supportme-subtitle {
+
+.supportme-supportme-h2 {
   margin-top: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 5px;
   margin-bottom: 40vh;
+}
+.article-h3_solo {
+  text-align: center;
+  font-weight: 700;
+  margin: 15px 0;
+}
+.article-h3_group {
+  text-align: center;
+  font-weight: 700;
+  margin: 30px 0;
+}
+.article-h4 {
+  text-align: center;
+  font-weight: 500;
+  margin: 15px 0;
 }
 .supportme-information {
   margin-top: 20px;
