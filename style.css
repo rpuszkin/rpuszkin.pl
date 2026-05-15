@@ -198,6 +198,7 @@ nav:has(#supportme-checkbox:checked) .supportme-arrow {
 }
 .foundation-btn:hover {
   background-color: #00539f;
+  color: #e5e5e5;
 }
 .main {
   transition: opacity 1s;
@@ -231,9 +232,10 @@ nav:has(#supportme-checkbox:checked) .supportme-arrow {
   margin: 50px 0;
 }
 
-.supportme-supportme-h2 {
+.supportme-h3 {
   margin-top: 10px;
   display: flex;
+  gap: 5px;
   align-items: center;
   justify-content: center;
   gap: 5px;
