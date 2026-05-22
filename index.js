@@ -2,7 +2,7 @@ document.querySelectorAll("nav a.menu-link").forEach((link) => {
   link.addEventListener("click", (event) => event.preventDefault());
 });
 document.getElementById("main-content").addEventListener("click", (event) => {
-  const link = event.target.closest("a.button-link");
+  const link = event.target.closest("a.click-prevent");
   if (link) {
     event.preventDefault();
   }
