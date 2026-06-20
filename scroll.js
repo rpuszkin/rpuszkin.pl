@@ -78,7 +78,7 @@ function scrollIt(targetId, duration) {
   });
 }
 
-function sipScrolling() {
+function skipScrolling() {
   window.stopScrollNow = true;
   setTimeout(() => {
     window.stopScrollNow = false;
