@@ -8,7 +8,7 @@ document.getElementById("main-content").addEventListener("click", (event) => {
   }
 });
 
-function loadContent(menuLoad, subLoad, contentPop) {
+function loadContent(contentMenu, contentSub, contentPop) {
   let file;
   let doubleLoad = false;
   window.previousMenu = window.menuOk;
@@ -16,11 +16,11 @@ function loadContent(menuLoad, subLoad, contentPop) {
   window.menuOk = null;
   window.subOk = null;
 
-  if ((!menuLoad && !subLoad) || contentPop === "pop") updateUrlParams();
+  if ((!contentMenu && !contentSub) || contentPop === "pop") updateUrlParams();
   else {
-    if (menuLoad) window.menuOk = menuLoad;
-    if (subLoad) window.subOk = subLoad;
-    if (menuLoad && !subLoad) window.subOk = menuLoad;
+    if (contentMenu) window.menuOk = contentMenu;
+    if (contentSub) window.subOk = contentSub;
+    if (contentMenu && !contentSub) window.subOk = contentMenu;
   }
   if (window.menuOk) file = `/menu/${window.menuOk}.html`;
   else
