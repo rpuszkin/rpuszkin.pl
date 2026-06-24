@@ -6,7 +6,7 @@ body {
   padding: 0;
   padding-bottom: 60px;
   margin: 0;
-  font-family: roboto;
+  font-family: Roboto;
   font-size: 18px;
   background: #e5e5e5;
   color: #404040;
@@ -18,7 +18,7 @@ body {
 .weight-regular {
   font-weight: 400;
 }
-weight-medium {
+.weight-medium {
   font-weight: 500;
 }
 .weight-bold {
@@ -27,7 +27,7 @@ weight-medium {
 .important-strong {
   font-weight: 900;
 }
-.decorstion-underline {
+.decoration-underline {
   text-decoration: underline;
 }
 .style-italic {
@@ -59,6 +59,22 @@ weight-medium {
   align-items: center;
   white-space: nowrap;
   cursor: pointer;
+}
+.skip-animation-btn {
+  height: 44px;
+  width: 100px;
+  display: flex;
+  font-size: 30px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 22px;
+  position: fixed;
+  left: calc(50vw - 50px);
+  top: 60px;
+  z-index: 9999;
+  background-color: rgba(255, 255, 255, 0.86);
+  cursor: pointer;
+  transition: all 0.4s ease-in-out;
 }
 .loader {
   width: 80px;
@@ -225,13 +241,40 @@ nav:has(#supportme-checkbox:checked) .supportme-arrow {
   color: #404040;
   margin-bottom: 70px;
 }
-.article-h2 {
+.myhistory-h2,
+.myprojects-h2,
+.supportme-h2 {
   text-align: center;
   font-size: 28px;
   font-weight: 900;
   margin: 50px 0;
 }
 
+.myhistory-h2_solo {
+  text-align: center;
+  font-weight: 700;
+  font-size: 22px;
+  margin: 15px 0;
+}
+.myhistory-h3_group {
+  text-align: center;
+  font-weight: 700;
+  font-size: 24px;
+  margin: 30px 0;
+}
+.myhistory-h4 {
+  font-weight: 500;
+  font-size: 20px;
+  margin: 15px 0;
+}
+.myhistory-h5 {
+  text-align: center;
+  font-weight: 500;
+  font-size: 18px;
+  font-style: italic;
+  opacity: 0.9;
+  margin: 15px 0;
+}
 .supportme-h3 {
   margin-top: 10px;
   display: flex;
@@ -240,21 +283,6 @@ nav:has(#supportme-checkbox:checked) .supportme-arrow {
   justify-content: center;
   gap: 5px;
   margin-bottom: 40vh;
-}
-.article-h3_solo {
-  text-align: center;
-  font-weight: 700;
-  margin: 15px 0;
-}
-.article-h3_group {
-  text-align: center;
-  font-weight: 700;
-  margin: 30px 0;
-}
-.article-h4 {
-  text-align: center;
-  font-weight: 500;
-  margin: 15px 0;
 }
 .supportme-information {
   margin-top: 20px;
@@ -285,7 +313,7 @@ nav:has(#supportme-checkbox:checked) .supportme-arrow {
 .error404-img {
   display: flex;
   width: 55vw;
-  border-radius: 5%;
+  border-radius: 3vw;
   margin: 15px auto;
 }
 .error404-content {
@@ -294,7 +322,7 @@ nav:has(#supportme-checkbox:checked) .supportme-arrow {
 }
 .article-photo {
   width: 55vw;
-  border-radius: 62px;
+  border-radius: 3vw;
 }
 .error404-text {
   width: 65%;
