@@ -197,8 +197,7 @@ function goTo(menuGo, subGo, popGo) {
       targetSection = document.getElementById(window.subOk);
       return new Promise((resolve, reject) => {
         if (targetSection) {
-          if (!window.blokJump) window.scrollTo(0, targetSection.offsetTop);
-          window.blokJump = false;
+          window.scrollTo(0, targetSection.offsetTop);
           function checkTop() {
             const rect = targetSection.getBoundingClientRect();
             if (Math.abs(rect.top) < 10) resolve();
