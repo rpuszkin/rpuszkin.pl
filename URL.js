@@ -1,4 +1,12 @@
 function updateUrlParams() {
+  console.log("updateUrlParams(): Aktualizacja parametrów URL");
+  if (!window.appState)
+    window.appState = {
+      menuOk: null,
+      subOk: null,
+      previousMenu: null,
+      previousSub: null,
+    };
   const valid_menu = [
     "home",
     "news",
@@ -18,25 +26,25 @@ function updateUrlParams() {
   const subURL = pathSegments.length > 1 ? pathSegments[2] : null;
 
   if (!menuURL && !subURL) {
-    window.menuOk = "home";
-    window.subOk = window.menuOk;
+    window.appState.menuOk = "home";
+    window.appState.subOk = window.appState.menuOk;
     return;
   }
-  if (menuURL && valid_menu.includes(menuURL)) window.menuOk = menuURL;
+  if (menuURL && valid_menu.includes(menuURL)) window.appState.menuOk = menuURL;
   else {
-    window.menuOk = "404";
-    window.subOk = "404";
+    window.appState.menuOk = "404";
+    window.appState.subOk = "404";
     return;
   }
   if (!subURL) {
-    window.subOk = window.menuOk;
+    window.appState.subOk = window.appState.menuOk;
   } else if (
     (subURL === "krs" || subURL === "foundation") &&
     menuURL === "supportme"
   ) {
-    window.subOk = subURL;
+    window.appState.subOk = subURL;
   } else if (subURL) {
-    window.menuOk = "404";
-    window.subOk = window.menuOk;
+    window.appState.menuOk = "404";
+    window.appState.subOk = window.appState.menuOk;
   }
 }
