@@ -1,5 +1,4 @@
 function updateUrlParams() {
-  console.log("updateUrlParams(): Aktualizacja parametrów URL");
   if (!window.appState)
     window.appState = {
       menuOk: null,
