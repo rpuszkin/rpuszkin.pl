@@ -39,7 +39,7 @@
             </a>
           </li>
           <li>
-            <a href="mygallery" onclick="goTo('mygallery')" class="menu-link">
+            <a href="/mygallery" onclick="goTo('mygallery')" class="menu-link">
               galeria</a
             >
           </li>
@@ -49,10 +49,7 @@
             >
           </li>
           <li>
-            <a
-              href="?menu=myhistory"
-              onclick="goTo('myhistory')"
-              class="menu-link"
+            <a href="?/myhistory" onclick="goTo('myhistory')" class="menu-link"
               >moja&nbsp;historia</a
             >
           </li>
@@ -104,6 +101,13 @@
         >
       </div>
     </nav>
+    <div
+      class="skip-animation-btn invisible"
+      id="skip-animation-btn"
+      onclick="skipScrolling()"
+    >
+      <i class="fa-solid fa-arrows-down-to-line"></i>
+    </div>
 
     <header id="top" class="header"></header>
     <img src="/media/loader.webp" class="loader invisible" id="loader" />
