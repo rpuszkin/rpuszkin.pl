@@ -23,10 +23,14 @@ function loadContent(contentMenu, contentSub, contentPop) {
     if (contentMenu && !contentSub) window.appState.subOk = contentMenu;
   }
   if (window.appState.menuOk) file = `/menu/${window.appState.menuOk}.html`;
-  else
+  else {
     throw new Error(
-      "loadContent(): menuOk nie jest zdefiniowane. Nie można załadować pliku.",
+      "loadContent(): menuOk nie jest ustawione. Nie można załadować pliku.",
     );
+    alert(
+      "loadContent(): menuOk nie jest ustawione. Nie można załadować pliku.",
+    );
+  }
   if (
     window.appState.menuOk === window.appState.previousMenu &&
     window.appState.subOk === window.appState.previousSub
