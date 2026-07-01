@@ -7,17 +7,22 @@ function ga_script() {
 }
 function scrollIt(targetId, duration) {
   const loader = document.getElementById("loader");
-  const hideScrollbar = () => (document.body.style.overflowY = "hidden");
+  const skipAnimationBtn = document.getElementById("skip-animation-btn");
+  const hideScrollbar = () => {
+    document.body.style.overflowY = "hidden";
+  };
   const showScrollbar = () => (document.body.style.overflowY = "scroll");
   const showScrollLoader = () => {
     window.isScrolling = true;
     loader.classList.remove("invisible");
+    skipAnimationBtn.classList.remove("invisible");
     hideScrollbar();
   };
   const hideScrollLoader = () => {
     window.isScrolling = false;
     loader.classList.add("invisible");
-    showScrollbar();
+    skipAnimationBtn.classList.add("invisible");
+    if (duration < 2000) showScrollbar();
     return;
   };
   return new Promise((resolve, reject) => {
@@ -83,5 +88,5 @@ function skipScrolling() {
   setTimeout(() => {
     window.stopScrollNow = false;
   }, 400);
-  scrollIt(window.subOk, 2000);
+  scrollIt(window.appState.subOk, 1250);
 }
