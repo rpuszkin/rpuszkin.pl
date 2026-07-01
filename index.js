@@ -11,25 +11,25 @@ document.getElementById("main-content").addEventListener("click", (event) => {
 function loadContent(contentMenu, contentSub, contentPop) {
   let file;
   let doubleLoad = false;
-  window.previousMenu = window.menuOk;
-  window.previousSub = window.subOk;
-  window.menuOk = null;
-  window.subOk = null;
+  window.appState.previousMenu = window.appState.menuOk;
+  window.appState.previousSub = window.appState.subOk;
+  window.appState.menuOk = null;
+  window.appState.subOk = null;
 
   if ((!contentMenu && !contentSub) || contentPop === "pop") updateUrlParams();
   else {
-    if (contentMenu) window.menuOk = contentMenu;
-    if (contentSub) window.subOk = contentSub;
-    if (contentMenu && !contentSub) window.subOk = contentMenu;
+    if (contentMenu) window.appState.menuOk = contentMenu;
+    if (contentSub) window.appState.subOk = contentSub;
+    if (contentMenu && !contentSub) window.appState.subOk = contentMenu;
   }
-  if (window.menuOk) file = `/menu/${window.menuOk}.html`;
+  if (window.appState.menuOk) file = `/menu/${window.appState.menuOk}.html`;
   else
     throw new Error(
       "loadContent(): menuOk nie jest zdefiniowane. Nie można załadować pliku.",
     );
   if (
-    window.menuOk === window.previousMenu &&
-    window.subOk === window.previousSub
+    window.appState.menuOk === window.appState.previousMenu &&
+    window.appState.subOk === window.appState.previousSub
   )
     doubleLoad = true;
   function loadFile(url) {
@@ -37,7 +37,7 @@ function loadContent(contentMenu, contentSub, contentPop) {
       .then((response) => {
         if (!response.ok) {
           if (response.status === 404) {
-            if (window.menuOk !== "404") {
+            if (window.appState.menuOk !== "404") {
               return Promise.reject("fallback404");
             } else
               return Promise.reject(
@@ -66,11 +66,11 @@ function loadContent(contentMenu, contentSub, contentPop) {
       });
   }
   if (
-    (window.menuOk === "aboutme" ||
-      window.menuOk === "myhistory" ||
-      window.menuOk === "myprojects" ||
-      window.menuOk === "home" ||
-      window.menuOk === "reallife") &&
+    (window.appState.menuOk === "aboutme" ||
+      window.appState.menuOk === "myhistory" ||
+      window.appState.menuOk === "myprojects" ||
+      window.appState.menuOk === "home" ||
+      window.appState.menuOk === "reallife") &&
     !document.fonts.check("1em 'Roboto Serif'")
   ) {
     const link = document.createElement("link");
@@ -93,29 +93,32 @@ function loadContent(contentMenu, contentSub, contentPop) {
       irecommend: " | mogę polecić",
       404: " | błąd 404 - nie znaleziono",
     };
-    document.title = "rpuszkin.pl" + subpageHtmlTitle[window.menuOk];
-    if (window.subOk === "krs") {
+    document.title = "rpuszkin.pl" + subpageHtmlTitle[window.appState.menuOk];
+    if (window.appState.subOk === "krs") {
       document.title += " →	1,5% podatku";
-    } else if (window.subOk === "foundation") {
+    } else if (window.appState.subOk === "foundation") {
       document.title += " → fundacja";
     }
   }
   function setUrlState(nopush) {
     let newUrl;
-    if (window.subOk && window.subOk !== window.menuOk)
-      newUrl = `/${window.menuOk}/${window.subOk}`;
-    else newUrl = `/${window.menuOk}`;
+    if (
+      window.appState.subOk &&
+      window.appState.subOk !== window.appState.menuOk
+    )
+      newUrl = `/${window.appState.menuOk}/${window.appState.subOk}`;
+    else newUrl = `/${window.appState.menuOk}`;
 
     if (!nopush && !doubleLoad) {
-      if (window.subOk) window.history.pushState({}, "", newUrl);
+      if (window.appState.subOk) window.history.pushState({}, "", newUrl);
       else window.history.pushState({}, "", newUrl);
     }
   }
   setTitle();
   if (
     contentPop === "pop" ||
-    window.menuOk === "404" ||
-    window.menuOk === "home" ||
+    window.appState.menuOk === "404" ||
+    window.appState.menuOk === "home" ||
     doubleLoad === true
   )
     setUrlState(true);
@@ -124,10 +127,17 @@ function loadContent(contentMenu, contentSub, contentPop) {
   if (contentPop === "pop") return loadFile(file);
   else
     return loadFile(file).then(() =>
-      scrollIt(window.subOk, 7500).then(ga_script),
+      scrollIt(window.appState.subOk, 7500).then(ga_script),
     );
 }
 function goTo(menuGo, subGo, popGo) {
+  if (!window.appState)
+    window.appState = {
+      menuOk: null,
+      subOk: null,
+      previousMenu: null,
+      previousSub: null,
+    };
   const supportmeCheckbox = document.getElementById("supportme-checkbox");
   if (supportmeCheckbox.checked) supportmeCheckbox.checked = false;
   const fadeElements = document.querySelectorAll(".main, .header");
@@ -194,7 +204,7 @@ function goTo(menuGo, subGo, popGo) {
 
     function jumpToTarget() {
       let targetSection;
-      targetSection = document.getElementById(window.subOk);
+      targetSection = document.getElementById(window.appState.subOk);
       return new Promise((resolve, reject) => {
         if (targetSection) {
           window.scrollTo(0, targetSection.offsetTop);
@@ -206,7 +216,9 @@ function goTo(menuGo, subGo, popGo) {
           requestAnimationFrame(checkTop);
         } else {
           reject(
-            "jumpToSection(): element o id " + window.subOk + " nie istnieje!",
+            "jumpToSection(): element o id " +
+              window.appState.subOk +
+              " nie istnieje!",
           );
         }
       });
