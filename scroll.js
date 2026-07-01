@@ -88,5 +88,5 @@ function skipScrolling() {
   setTimeout(() => {
     window.stopScrollNow = false;
   }, 400);
-  scrollIt(window.appState.subOk, 1250);
+  scrollIt(window.appState.subOk, 1150);
 }
