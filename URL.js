@@ -1,11 +1,19 @@
-function updateUrlParams() {
+function init_appState() {
   if (!window.appState)
     window.appState = {
       menuOk: null,
       subOk: null,
       previousMenu: null,
       previousSub: null,
+      scroll: {
+        isScrolling: false,
+        skipScrolling: false,
+        stopScrollNow: false,
+      },
     };
+}
+function updateUrlParams() {
+  if (!window.appState) init_appState();
   const valid_menu = [
     "home",
     "news",
