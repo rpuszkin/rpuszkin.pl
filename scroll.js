@@ -13,16 +13,16 @@ function scrollIt(targetId, duration) {
   };
   const showScrollbar = () => (document.body.style.overflowY = "scroll");
   const showScrollLoader = () => {
-    window.isScrolling = true;
+    window.appState.scroll.isScrolling = true;
     loader.classList.remove("invisible");
     skipAnimationBtn.classList.remove("invisible");
     hideScrollbar();
   };
   const hideScrollLoader = () => {
-    window.isScrolling = false;
+    window.appState.scroll.isScrolling = false;
     loader.classList.add("invisible");
     skipAnimationBtn.classList.add("invisible");
-    if (duration < 2000) showScrollbar();
+    if (!window.appState.scroll.skipScrolling) showScrollbar();
     return;
   };
   return new Promise((resolve, reject) => {
@@ -30,7 +30,7 @@ function scrollIt(targetId, duration) {
       setTimeout(() => {
         showScrollLoader();
 
-        window.stopScrollNow = false;
+        window.appState.scroll.stopScrollNow = false;
         var target = document.getElementById(targetId);
 
         if (!target) {
@@ -51,7 +51,7 @@ function scrollIt(targetId, duration) {
           var startPosition = window.pageYOffset;
           var startTime = null;
           function scrollToTarget(currentTime) {
-            if (window.stopScrollNow) {
+            if (window.appState.scroll.stopScrollNow) {
               resolve();
               hideScrollLoader();
               return;
@@ -84,9 +84,13 @@ function scrollIt(targetId, duration) {
 }
 
 function skipScrolling() {
-  window.stopScrollNow = true;
+  window.appState.scroll.skipScrolling = true;
+  window.appState.scroll.stopScrollNow = true;
   setTimeout(() => {
-    window.stopScrollNow = false;
+    window.appState.scroll.stopScrollNow = false;
+    window.appState.scroll.skipScrolling = false;
   }, 400);
-  scrollIt(window.appState.subOk, 1150);
+  scrollIt(window.appState.subOk, 1150).then(() => {
+    window.appState.scroll.skipScrolling = false;
+  });
 }
