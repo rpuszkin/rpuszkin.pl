@@ -10,12 +10,9 @@ document.getElementById("main-content").addEventListener("click", (event) => {
 
 function loadContent(contentMenu, contentSub, contentPop) {
   let file;
-  let doubleLoad = false;
+  let isLoadedOrDoubleClick = false;
   window.appState.previousMenu = window.appState.menuOk;
   window.appState.previousSub = window.appState.subOk;
-  window.appState.menuOk = null;
-  window.appState.subOk = null;
-
   if ((!contentMenu && !contentSub) || contentPop === "pop") updateUrlParams();
   else {
     if (contentMenu) window.appState.menuOk = contentMenu;
@@ -24,10 +21,10 @@ function loadContent(contentMenu, contentSub, contentPop) {
   }
   if (window.appState.menuOk) file = `/menu/${window.appState.menuOk}.html`;
   else {
-    throw new Error(
+    alert(
       "loadContent(): menuOk nie jest ustawione. Nie można załadować pliku.",
     );
-    alert(
+    throw new Error(
       "loadContent(): menuOk nie jest ustawione. Nie można załadować pliku.",
     );
   }
@@ -35,7 +32,7 @@ function loadContent(contentMenu, contentSub, contentPop) {
     window.appState.menuOk === window.appState.previousMenu &&
     window.appState.subOk === window.appState.previousSub
   )
-    doubleLoad = true;
+    isLoadedOrDoubleClick = true;
   function loadFile(url) {
     return fetch(url)
       .then((response) => {
@@ -113,17 +110,16 @@ function loadContent(contentMenu, contentSub, contentPop) {
       newUrl = `/${window.appState.menuOk}/${window.appState.subOk}`;
     else newUrl = `/${window.appState.menuOk}`;
 
-    if (!nopush && !doubleLoad) {
-      if (window.appState.subOk) window.history.pushState({}, "", newUrl);
-      else window.history.pushState({}, "", newUrl);
-    }
+    if (!nopush && !isLoadedOrDoubleClick) 
+       window.history.pushState({}, "", newUrl);
+    
   }
   setTitle();
   if (
     contentPop === "pop" ||
     window.appState.menuOk === "404" ||
     window.appState.menuOk === "home" ||
-    doubleLoad === true
+    isLoadedOrDoubleClick === true
   )
     setUrlState(true);
   else setUrlState();
@@ -135,13 +131,7 @@ function loadContent(contentMenu, contentSub, contentPop) {
     );
 }
 function goTo(menuGo, subGo, popGo) {
-  if (!window.appState)
-    window.appState = {
-      menuOk: null,
-      subOk: null,
-      previousMenu: null,
-      previousSub: null,
-    };
+  if (!window.appState) init_appState();
   const supportmeCheckbox = document.getElementById("supportme-checkbox");
   if (supportmeCheckbox.checked) supportmeCheckbox.checked = false;
   const fadeElements = document.querySelectorAll(".main, .header");
@@ -193,10 +183,10 @@ function goTo(menuGo, subGo, popGo) {
   function loadSmoothly(smoothMenu, smoothSub, smoothPop) {
     function stopScrolling(delay = 400) {
       return new Promise((resolve) => {
-        if (window.isScrolling) {
-          window.stopScrollNow = true;
+        if (window.appState.scroll.isScrolling) {
+          window.appState.scroll.stopScrollNow = true;
           setTimeout(() => {
-            window.stopScrollNow = false;
+            window.appState.scroll.stopScrollNow = false;
             resolve();
           }, delay);
         } else resolve();
