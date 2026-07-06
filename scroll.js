@@ -15,7 +15,7 @@ function scrollIt(targetId, duration) {
   const showScrollLoader = () => {
     window.appState.scroll.isScrolling = true;
     loader.classList.remove("invisible");
-    skipAnimationBtn.classList.remove("invisible");
+    if (duration > 2000) skipAnimationBtn.classList.remove("invisible");
     hideScrollbar();
   };
   const hideScrollLoader = () => {
