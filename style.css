@@ -310,7 +310,7 @@ nav:has(#supportme-checkbox:checked) .supportme-arrow {
 .hugeArticle {
   text-align: center;
 }
-.hugeArticle .paragraph {
+.hugeArticle .pharagraph {
   margin: 15px 0;
   margin-right: 50px;
   text-align: justify;
@@ -375,6 +375,12 @@ nav:has(#supportme-checkbox:checked) .supportme-arrow {
   display: flex;
   height: 50px;
   align-items: center;
+}
+.myprojectsFacts-list {
+  list-style-type: disc;
+  padding-left: 20px;
+  text-align: left;
+  font-family: "Roboto Serif";
 }
 a.contact-icon {
   text-decoration: none;
