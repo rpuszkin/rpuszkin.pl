@@ -310,7 +310,7 @@ nav:has(#supportme-checkbox:checked) .supportme-arrow {
 .hugeArticle {
   text-align: center;
 }
-.hugeArticle .pharagraph {
+.hugeArticle .paragraph {
   margin: 15px 0;
   margin-right: 50px;
   text-align: justify;
