@@ -256,7 +256,7 @@ nav:has(#supportme-checkbox:checked) .supportme-arrow {
   font-size: 22px;
   margin: 15px 0;
 }
-.myprojects-h2Subtitle,
+.myprojects-h2Small,
 .myhistory-h3_solo {
   text-align: center;
   font-weight: 700;
