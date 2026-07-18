@@ -1,10 +1,3 @@
-function ga_script() {
-  console.log(`Google Analytics:
-      tytuł: ${document.title}
-      URL:
-       ${window.location.href}
-      `);
-}
 function scrollIt(targetId, duration) {
   const loader = document.getElementById("loader");
   const skipAnimationBtn = document.getElementById("skip-animation-btn");
