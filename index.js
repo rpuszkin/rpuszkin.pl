@@ -223,5 +223,6 @@ window.addEventListener("popstate", (event) => {
   goTo(null, null, "pop").then(ga_script);
 });
 window.addEventListener("load", function () {
+  init_appState();
   goTo();
 });
