@@ -80,27 +80,7 @@ function loadContent(contentMenu, contentSub, contentPop) {
     link.rel = "stylesheet";
     document.head.appendChild(link);
   }
-  function setTitle() {
-    const subpageHtmlTitle = {
-      home: "",
-      news: " | nowości/wydarzenia",
-      supportme: " | wesprzyj mnie",
-      mygallery: " | galeria",
-      aboutme: " | o mnie",
-      myhistory: " | moja historia",
-      myprogress: " | moje postępy",
-      reallife: " | z życia wzięte",
-      myprojects: " | WWW",
-      irecommend: " | mogę polecić",
-      404: " | błąd 404 - nie znaleziono",
-    };
-    document.title = "rpuszkin.pl" + subpageHtmlTitle[window.appState.menuOk];
-    if (window.appState.subOk === "krs") {
-      document.title += " →	1,5% podatku";
-    } else if (window.appState.subOk === "foundation") {
-      document.title += " → fundacja";
-    }
-  }
+
   function setUrlState(nopush) {
     let newUrl;
     if (
@@ -110,9 +90,8 @@ function loadContent(contentMenu, contentSub, contentPop) {
       newUrl = `/${window.appState.menuOk}/${window.appState.subOk}`;
     else newUrl = `/${window.appState.menuOk}`;
 
-    if (!nopush && !isLoadedOrDoubleClick) 
-       window.history.pushState({}, "", newUrl);
-    
+    if (!nopush && !isLoadedOrDoubleClick)
+      window.history.pushState({}, "", newUrl);
   }
   setTitle();
   if (
