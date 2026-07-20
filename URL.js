@@ -1,5 +1,4 @@
 function updateUrlParams() {
-  init_appState();
   const valid_menu = [
     "home",
     "news",
