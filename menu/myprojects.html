@@ -10,12 +10,13 @@
     </h2>
 
     <p class="paragraph">
-      W pewnym momencie moja historia z kodowaniem musiała po prostu wpasować
-      się w walkę o moje życie [<a
+      W pewnym momencie moja historia z kodowaniem musiała po prostu wpisać się
+      w walkę o moje życie [<a
         class="click-prevent"
         href="/myhistory"
         onclick="goTo('myhistory')"
         id="myprojects-myhistory"
+        aria-label="Przejdź do historii"
         >idź do historii</a
       >]
     </p>
@@ -40,7 +41,7 @@
       Kiedyś pisałem wszystko w Notatniku, dziś w Visual Studio Code – postęp,
       ale styl ten sam.
     </p>
-    <h3 class="myprojects-h3">
+    <h3 class="myprojects-h3_solo">
       PHP, MySQL i pizzeria (2007–2008) - backend w akcji
     </h3>
     <p class="paragraph">
@@ -49,19 +50,21 @@
       który zapłacono mi nie w kawałkach kodu, tylko w… kawałkach pizzy
       (dosłownie!🤣).
     </p>
-    <h3 class="myprojects-h3">Technikum i logika układów cyfrowych (2010)</h3>
+    <h3 class="myprojects-h3_solo">
+      Technikum i logika układów cyfrowych (2010)
+    </h3>
     <p class="paragraph">
       Wtedy chodziłem do technikum elektronicznego. W technikum na trudnych
-      zjęciach z układów cyfrowych nie miałem problemów, bo zauważyłem, że każda
-      bramka logiczna wygląda, jak warunek if z PHP, czyli układy elektroniczne
-      są podobne do kodu jakiegoś programu. Ta sama logika 😉!
+      zajęciach z układów cyfrowych nie miałem problemów, bo zauważyłem, że
+      każda bramka logiczna wygląda, jak warunek if z PHP, czyli układy
+      elektroniczne są podobne do kodu jakiegoś programu. Ta sama logika 😉!
     </p>
-    <h3 class="myprojects-h3">
+    <h3 class="myprojects-h3_solo">
       Przerwa — wypadek, śpiączka, rehabilitacja (2012–2023)
     </h3>
     <p class="paragraph">
       Potem, między 2012 a 2023 rokiem, miałem przymusową przerwę (wypadek,
-      rehbilitacja) – technologia pędziła jak szalona, ale ja wiedziałem, że
+      rehabilitacja) – technologia pędziła jak szalona, ale ja wiedziałem, że
       wrócę do kodu.
     </p>
     <h3 class="myprojects-h3_solo">
@@ -72,56 +75,68 @@
       z HTML + CSS, a w 2024 rozszerzyłem ją o JavaScript i React. W 2025 roku
       wróciłem do kodowania uzbrojony w nową wiedzę i umiejętności. Zacząłem
       robić tę stronę i od razu poczułem, że wracam w lepszej wersji siebie —
-      nic nie straciłem na jakości, a nawet może i zyskałem. 😄
+      nic nie straciłem na jakości, a nawet może i zyskałem. 😄 Dobrym
+      przykładem tego jest ta strona. Ne wierzysz? Zajrzyj do jej kodu, a się
+      przekonasz. SERIO! Nie użyłem tutaj żadnej gotowej biblioteki, frameworka
+      ani niczego podobnego i ciężkiego, zgodnie z moją zasadą. Wszystko pisane
+      od zera w czystym i lekkim JavaScript, HTML i CSS. A teraz wiesz, że nie
+      kłamię. I tylko jednym komentarzem w kodzie (to kolejna moja zasada) i
+      zdradzę Ci, że nie jest to takie proste, jakby się mogło wydawać. Ale ja
+      lubię wyzwania i nie boję się ich, gdy czuję się w czymś mocny! 😄
     </p>
     <h2 class="myprojects-h2Small">
-      Garść faktów - moja droga w świecie kodowania
+      Garść faktów - moja droga w świecie kodowania - podsumowanie
     </h2>
     <ul class="myprojectsFacts-list">
       <li>
-        <span class="weight-bold">1999.</span> Poznałem podstawy HTML3 i
-        zacząłem tworzyć proste strony "do szuflady" z pomocą mini kursu HTML z
-        dyskietki, świetnie się przy tym bawiąc.
+        <time datetime="1999"><span class="weight-bold">1999.</span></time>
+        Poznałem podstawy HTML3 i zacząłem tworzyć proste strony "do szuflady" z
+        pomocą mini kursu HTML z dyskietki, świetnie się przy tym bawiąc.
       </li>
       <li>
-        <span class="weight-bold">2007.</span> Kupiłem książkę o PHP i MySQL i
-        ogarnąłem backend na tyle, żeby zacząć tworzyć strony „które myślą”.
+        <time datetime="2007"><span class="weight-bold">2007.</span></time>
+        Kupiłem książkę o PHP i MySQL i ogarnąłem backend na tyle, żeby zacząć
+        tworzyć strony „które myślą”.
       </li>
       <li>
-        <span class="weight-bold">2008.</span> Stworzyłem stronę dla osiedlowej
-        pizzerii. Pierwsze duże komercyjne zlecenie. Frontend, backend i bazy
-        danych.
+        <time datetime="2008"><span class="weight-bold">2008.</span></time>
+        Stworzyłem stronę dla osiedlowej pizzerii. Pierwsze duże komercyjne
+        zlecenie. Frontend, backend i bazy danych.
       </li>
       <li>
-        <span class="weight-bold">2010.</span> Będąc w technikum bardzo dobrze
-        poznałem Assembler C oraz dobrze się wyszkoliłem w programowaniu
-        mikrokontrolerów i mikroprocesorów. Dzięki znajomości PHP nie miałem z
-        tym problemu, bo wszystko to oparte jest na tej samej logice. Układy
-        cyfrowe też.
+        <time datetime="2010"><span class="weight-bold">2010.</span></time>
+        Będąc w technikum bardzo dobrze poznałem Assembler C oraz dobrze się
+        wyszkoliłem w programowaniu mikrokontrolerów i mikroprocesorów. Dzięki
+        znajomości PHP nie miałem z tym problemu, bo wszystko to oparte jest na
+        tej samej logice. Układy cyfrowe też.
       </li>
       <li>
-        <span class="weight-bold">2012-2023.</span> Przymusowa przerwa w
-        kodowaniu. Wypadek, śpiączka, rehabilitacja. Inne priorytety.
+        <time datetime="2012/2023"
+          ><span class="weight-bold">2012-2023.</span></time
+        >
+        Przymusowa przerwa w kodowaniu. Wypadek, śpiączka, rehabilitacja. Inne
+        priorytety.
       </li>
       <li>
-        <span class="weight-bold">2023.</span> Odświeżyłem i zaktualizowałem
-        wiedzę na kursie z HTML + CSS.
+        <time datetime="2023"><span class="weight-bold">2023.</span></time>
+        Odświeżyłem i zaktualizowałem wiedzę na kursie z HTML + CSS.
       </li>
       <li>
-        <span class="weight-bold">2024.</span> Rozszerzyłem wiedzę na kursie
-        JavaScript i React o właśnie te technologie.
+        <time datetime="2024"><span class="weight-bold">2024.</span></time>
+        Rozszerzyłem wiedzę na kursie JavaScript i React o właśnie te
+        technologie.
       </li>
       <li>
-        <span class="weight-bold">2025.</span> Wróciłem do kodowania uzbrojony w
-        nową wiedzę i umiejętności. Zacząłem robić tę stronę i od razu poczułem,
-        że wracam w lepszej wersji siebie — nic nie straciłem na jakości, a
-        nawet zyskałem. 😄
+        <time datetime="2025"><span class="weight-bold">2025.</span></time>
+        Wróciłem do kodowania uzbrojony w nową wiedzę i umiejętności. Zacząłem
+        robić tę stronę i od razu poczułem, że wracam w lepszej wersji siebie —
+        nic nie straciłem na jakości, a nawet zyskałem. 😄
       </li>
     </ul>
     <h2 class="myprojects-h2">Powypadkowe projekty i certyfikaty</h2>
-    <p class="phargraph">
-      tutaj będą ułożone w formie kart, ułożone chronologicznie moje powypadkowe
-      projekty i zdobyte certyfikaty oraz wykonane projekty... 😄
+    <p class="paragraph">
+      tutaj pojawią się ułożone w formie kart, ułożone chronologicznie moje
+      powypadkowe projekty i zdobyte certyfikaty oraz wykonane projekty... 😄
     </p>
   </article>
 </section>
