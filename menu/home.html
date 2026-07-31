@@ -15,8 +15,7 @@
         href="/myprojects"
         onclick="goTo('myprojects')"
         id="home-myprojects"
-        aria-label="Przejdź do sekcji Strefa projektów WWW"
-        >obejrz strefę WWW</a
+        >obejrzyj strefę WWW</a
       >].
     </p>
     <p class="paragraph">
@@ -29,17 +28,15 @@
         href="/myhistory"
         onclick="goTo('myhistory')"
         id="home-myhistory"
-        aria-label="Przejdź do całej historii"
-        >poznaj całą moją historię</a
+        >poznaj całą moją historię teraz</a
       >], a jeśli chcesz wiedzieć więcej, kto za tym wszystkim stoi, zajrzyj do
       "o mnie" [<a
         href="/aboutme"
         class="click-prevent"
         id="home-aboutme"
         onclick="goTo('aboutme')"
-        aria-label="Przejdź do sekcji 'o mnie'"
       >
-        przeczytaj tekst "o mnie"</a
+        przejdź do "o mnie" teraz</a
       >]. Możesz też napisać do mnie. Stronę robiłem sam, więc jeżeli napotkasz
       na błąd lub dziwne zachowanie, to daj mi znać. Kontakt w prawym dolnym
       rogu lub menu na telefonie. Strona jest w ciągłej budowie, więc nie zdziw
@@ -51,13 +48,16 @@
   <div class="btns-container">
     <div class="btn-container">
       <p>Przekaż</p>
-      <a href="?/supportme/krs" onclick="goTo('supportme', 'krs')"
+      <a
+        href="?/supportme/krs"
+        onclick="goTo('supportme', 'krs')"
+        aria-label="Przekaż 1,5% podatku"
         ><img
           class="krs-btn click-prevent"
           src="media/krs-btn.webp"
           alt=" 1,5%"
       /></a>
-      <p class="color-krs weight-bold">podatku</p>
+      <p class="color-krs weight-bold" aria-hidden="true">podatku</p>
     </div>
     <div class="btn-container">
       <p>wesprzyj mnie</p>
@@ -66,8 +66,10 @@
         href="?/supportme/foundation"
         onclick="goTo('supportme', 'foundation')"
         class="foundation-btn click-prevent"
+        aria-label="Wesprzyj mnie przez fundację"
       >
-        <img src="media/menu-foundation.webp" alt="lo" /> fundację
+        <img src="media/menu-foundation.webp" alt="logo" aria-hidden="true" />
+        fundację
       </a>
     </div>
   </div>
