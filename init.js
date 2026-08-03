@@ -1,35 +1,33 @@
-function init_appState() {
+function initApp() {
+  window.sectionConfig = {
+    home: { title: "", serif: true },
+    news: { title: " | nowości/wydarzenia", serif: true },
+    supportme: { title: " | wesprzyj mnie", serif: false },
+    supportme_foundation: {
+      title: " | wesprzyj mnie → fundacja",
+      serif: false,
+    },
+    supportme_krs: { title: " | wesprzyj mnie → 1,5% podatku", serif: false },
+    mygallery: { title: " | galeria", serif: false },
+    aboutme: { title: " | o mnie", serif: true },
+    myhistory: { title: " | moja historia", serif: true },
+    myprogress: { title: " | moje postępy", serif: true },
+    reallife: { title: " | z życia wzięte", serif: true },
+    myprojects: { title: " | WWW", serif: true },
+    irecommend: { title: " | mogę polecić", serif: true },
+    404: { title: " | błąd 404 - nie znaleziono", serif: false },
+  };
   if (!window.appState)
     window.appState = {
       menuOk: null,
       subOk: null,
       previousMenu: null,
       previousSub: null,
+      serifLoaded: false,
       scroll: {
         isScrolling: false,
         skipScrolling: false,
         stopScrollNow: false,
       },
     };
-}
-function setTitle() {
-  const subpageHtmlTitle = {
-    home: "",
-    news: " | nowości/wydarzenia",
-    supportme: " | wesprzyj mnie",
-    mygallery: " | galeria",
-    aboutme: " | o mnie",
-    myhistory: " | moja historia",
-    myprogress: " | moje postępy",
-    reallife: " | z życia wzięte",
-    myprojects: " | WWW",
-    irecommend: " | mogę polecić",
-    404: " | błąd 404 - nie znaleziono",
-  };
-  document.title = "rpuszkin.pl" + subpageHtmlTitle[window.appState.menuOk];
-  if (window.appState.subOk === "krs") {
-    document.title += " →	1,5% podatku";
-  } else if (window.appState.subOk === "foundation") {
-    document.title += " → fundacja";
-  }
 }
