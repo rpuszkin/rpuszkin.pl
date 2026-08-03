@@ -56,21 +56,6 @@ function loadContent(contentMenu, contentSub, contentPop) {
           );
       });
   }
-  if (
-    (window.appState.menuOk === "aboutme" ||
-      window.appState.menuOk === "myhistory" ||
-      window.appState.menuOk === "myprojects" ||
-      window.appState.menuOk === "home" ||
-      window.appState.menuOk === "reallife") &&
-    !document.fonts.check("1em 'Roboto Serif'")
-  ) {
-    const link = document.createElement("link");
-    link.href =
-      "https://fonts.googleapis.com/css2?family=Roboto+Serif:wght@400;700&display=swap";
-    link.rel = "stylesheet";
-    document.head.appendChild(link);
-  }
-
   function setUrlState(nopush) {
     let newUrl;
     if (
@@ -84,6 +69,7 @@ function loadContent(contentMenu, contentSub, contentPop) {
       window.history.pushState({}, "", newUrl);
   }
   setTitle();
+  loadSerif();
   if (
     contentPop === "pop" ||
     window.appState.menuOk === "404" ||
