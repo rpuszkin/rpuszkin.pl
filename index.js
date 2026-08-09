@@ -1,7 +1,7 @@
 document.querySelectorAll("nav a.menu-link").forEach((link) => {
   link.addEventListener("click", (event) => event.preventDefault());
 });
-document.getElementById("main-content").addEventListener("click", (event) => {
+document.addEventListener("click", (event) => {
   const link = event.target.closest(".click-prevent");
   if (link) {
     event.preventDefault();
