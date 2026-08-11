@@ -79,7 +79,7 @@ function loadContent(contentMenu, contentSub, contentPop) {
     setUrlState(true);
   else setUrlState();
   if (contentPop === "noscroll") return loadFile(file).then(ga_script);
-  if (contentPop === "pop") return loadFile(file);
+  if (contentPop === "pop") return loadFile(file).then(ga_script);
   else
     return loadFile(file).then(() =>
       scrollIt(window.appState.subOk, 7500).then(ga_script),
@@ -184,6 +184,5 @@ function goTo(menuGo, subGo, popGo) {
   //choosing type of transition to new content
   if (window.scrollY === 0 && popGo !== "pop")
     return loadContent(menuGo, subGo, popGo);
-  else if (window.scrollY === 0) return loadContent(menuGo, subGo, popGo);
   else return loadSmoothly(menuGo, subGo, popGo);
 }
