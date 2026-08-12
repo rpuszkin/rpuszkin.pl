@@ -49,7 +49,7 @@ function loadContent(contentMenu, contentSub, contentPop) {
         }
       })
       .catch((error) => {
-        if (error === "fallback404") return goTo("404").then(ga_script);
+        if (error === "fallback404") return goTo("404");
         else
           throw new Error(
             "loadFile(): Błąd podczas ładowania pliku | " + error,
