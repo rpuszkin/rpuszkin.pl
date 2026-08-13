@@ -14,6 +14,11 @@ gtag("config", "G-VF1R248K06", {
 
 // Funkcja wywoływana po podmianie zawartości w SPA
 function ga_script() {
+  if (
+    window.location.hostname === "127.0.0.1" ||
+    window.location.hostname === "localhost"
+  )
+    return;
   if (typeof gtag === "function") {
     gtag("event", "page_view", {
       page_title: document.title,
