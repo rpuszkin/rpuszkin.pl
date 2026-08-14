@@ -50,10 +50,12 @@ function loadContent(contentMenu, contentSub, contentPop) {
       })
       .catch((error) => {
         if (error === "fallback404") return goTo("404");
-        else
+        else {
+          alert("loadFile(): Błąd podczas ładowania pliku | " + error);
           throw new Error(
             "loadFile(): Błąd podczas ładowania pliku | " + error,
           );
+        }
       });
   }
   function setUrlState(nopush) {
