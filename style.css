@@ -194,10 +194,15 @@ nav:has(#supportme-checkbox:checked) .supportme-arrow {
   color: #ee7202;
   text-decoration: none;
   border-radius: 9px;
-  transition-duration: 700ms;
+  transition-duration: 200ms;
 }
 .krs-btn:hover {
   background-color: #ee7202;
+  transform: scale(1.07);
+  box-shadow:
+    0 0 8px rgba(255, 138, 26, 0.65),
+    0 0 18px rgba(255, 179, 102, 0.45),
+    0 0 36px rgba(255, 212, 163, 0.35);
 }
 .foundation-btn {
   padding: 8px 5px;
@@ -210,11 +215,16 @@ nav:has(#supportme-checkbox:checked) .supportme-arrow {
   font-weight: 600;
   text-decoration: none;
   border-radius: 9px;
-  transition-duration: 1s;
+  transition-duration: 200ms;
 }
 .foundation-btn:hover {
   background-color: #00539f;
   color: #e5e5e5;
+  scale: 1.07;
+  box-shadow:
+    0 0 8px rgba(10, 111, 209, 0.65),
+    0 0 18px rgba(58, 140, 255, 0.45),
+    0 0 36px rgba(123, 184, 255, 0.35);
 }
 .main {
   transition: opacity 1s;
