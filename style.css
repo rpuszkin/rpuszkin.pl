@@ -200,9 +200,9 @@ nav:has(#supportme-checkbox:checked) .supportme-arrow {
   background-color: #ee7202;
   transform: scale(1.07);
   box-shadow:
-    0 0 4px rgba(255, 150, 60, 0.95),
-    0 0 10px rgba(255, 170, 90, 0.7),
-    0 0 18px rgba(255, 190, 120, 0.55);
+    0 0 2px rgba(255, 200, 120, 1),
+    0 0 6px rgba(255, 160, 60, 1),
+    0 0 14px rgba(255, 120, 20, 0.95);
 }
 .foundation-btn {
   padding: 8px 5px;
