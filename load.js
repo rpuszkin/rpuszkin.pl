@@ -74,9 +74,7 @@ function loadContent(contentMenu, contentSub, contentPop) {
   setTitle();
   loadSerif();
   if (
-    contentPop === "pop" ||
-    window.appState.menuOk === "404" ||
-    window.appState.menuOk === "home" ||
+    window.sectionConfig[window.appState.menuOk].changeUrl === false ||
     isLoadedOrDoubleClick === true
   )
     setUrlState(true);
