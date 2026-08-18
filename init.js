@@ -1,29 +1,29 @@
 function initApp() {
   window.sectionConfig = {
-    home: { title: "", serif: true, changeUrl: false },
-    news: { title: " | nowości/wydarzenia", serif: true, changeUrl: true },
-    supportme: { title: " | wesprzyj mnie", serif: false, changeUrl: true },
+    home: { title: "", serif: true, modifyUrl: false },
+    news: { title: " | nowości/wydarzenia", serif: true, modifyUrl: true },
+    supportme: { title: " | wesprzyj mnie", serif: false, modifyUrl: true },
     supportme_foundation: {
       title: " | wesprzyj mnie → fundacja",
       serif: false,
-      changeUrl: true,
+      modifyUrl: true,
     },
     supportme_krs: {
       title: " | wesprzyj mnie → 1,5% podatku",
       serif: false,
-      changeUrl: true,
+      modifyUrl: true,
     },
-    mygallery: { title: " | galeria", serif: false, changeUrl: true },
-    aboutme: { title: " | o mnie", serif: true, changeUrl: true },
-    myhistory: { title: " | moja historia", serif: true, changeUrl: true },
-    myprogress: { title: " | moje postępy", serif: true, changeUrl: true },
-    reallife: { title: " | z życia wzięte", serif: true, changeUrl: true },
-    myprojects: { title: " | WWW", serif: true, changeUrl: true },
-    irecommend: { title: " | mogę polecić", serif: true, changeUrl: true },
+    mygallery: { title: " | galeria", serif: false, modifyUrl: true },
+    aboutme: { title: " | o mnie", serif: true, modifyUrl: true },
+    myhistory: { title: " | moja historia", serif: true, modifyUrl: true },
+    myprogress: { title: " | moje postępy", serif: true, modifyUrl: true },
+    reallife: { title: " | z życia wzięte", serif: true, modifyUrl: true },
+    myprojects: { title: " | WWW", serif: true, modifyUrl: true },
+    irecommend: { title: " | mogę polecić", serif: true, modifyUrl: true },
     404: {
       title: " | błąd 404 - nie znaleziono",
       serif: false,
-      changeUrl: false,
+      modifyUrl: false,
     },
   };
   if (!window.appState)
