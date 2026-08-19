@@ -188,21 +188,32 @@ nav:has(#supportme-checkbox:checked) .supportme-arrow {
 .btn-container:nth-of-type(2) {
   margin-right: 40px;
 }
-.krs-btn {
-  cursor: pointer;
+
+
+.krs-btn_div {
   border: 5px solid #ee7202;
-  color: #ee7202;
-  text-decoration: none;
+  background-image: url(media/krs-btn.webp);
+  width: 118px;
+  height: 50px;
+  background-image: url(media/krs-btn.webp);
+  border: 5px solid #ee7202;
   border-radius: 9px;
   transition-duration: 200ms;
 }
-.krs-btn:hover {
+.krs-btn_div:hover {
   background-color: #ee7202;
   transform: scale(1.07);
   box-shadow:
     0 0 2px rgba(255, 200, 120, 1),
     0 0 6px rgba(255, 160, 60, 1),
     0 0 14px rgba(255, 120, 20, 0.95);
+
+  background-image: url(media/krs-btn_hover.webp);
+  scale: 1.07;
+  box-shadow:
+    0 0 8px rgba(255, 114, 2, 0.65),
+    0 0 18px rgba(255, 140, 58, 0.45),
+    0 0 36px rgba(255, 184, 123, 0.35);
 }
 .foundation-btn {
   padding: 8px 5px;
