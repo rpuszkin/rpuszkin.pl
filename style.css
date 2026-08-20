@@ -189,7 +189,6 @@ nav:has(#supportme-checkbox:checked) .supportme-arrow {
   margin-right: 40px;
 }
 
-
 .krs-btn_div {
   border: 5px solid #ee7202;
   background-image: url(media/krs-btn.webp);
@@ -209,7 +208,6 @@ nav:has(#supportme-checkbox:checked) .supportme-arrow {
     0 0 14px rgba(255, 120, 20, 0.95);
 
   background-image: url(media/krs-btn_hover.webp);
-  scale: 1.07;
   box-shadow:
     0 0 8px rgba(255, 114, 2, 0.65),
     0 0 18px rgba(255, 140, 58, 0.45),
