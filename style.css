@@ -60,6 +60,11 @@ body {
   white-space: nowrap;
   cursor: pointer;
 }
+.menu-link:hover,
+.menu-link:focus-visible {
+  text-shadow: 0 0 8px currentColor;
+  border-bottom: 3px solid currentColor;
+}
 .skip-animation-btn {
   height: 44px;
   width: 100px;
@@ -199,7 +204,8 @@ nav:has(#supportme-checkbox:checked) .supportme-arrow {
     box-shadow 300ms ease 150ms,
     background-color 300ms ease 300ms;
 }
-.krs-btn_div:hover {
+.krs-btn_div:hover,
+.krs-btn_a:focus-visible .krs-btn_div {
   background-color: #ee7202;
   transform: scale(1.07);
   box-shadow:
@@ -225,7 +231,8 @@ nav:has(#supportme-checkbox:checked) .supportme-arrow {
     background-color 300ms ease 300ms,
     color 300ms ease 300ms;
 }
-.foundation-btn:hover {
+.foundation-btn:hover,
+.foundation-btn:focus-visible {
   background-color: #00539f;
   color: #e5e5e5;
   transform: scale(1.07);
