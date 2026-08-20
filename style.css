@@ -51,6 +51,7 @@ body {
   box-shadow: 8px 8px 24px 0px rgba(0, 0, 0, 1);
 }
 .menu-link {
+  transition: all 200ms ease-in-out;
   text-decoration: none;
   color: lightgrey;
   display: flex;
