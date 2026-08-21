@@ -9,6 +9,16 @@ function setTitle() {
         .title;
   }
 }
+function reloadRoboto() {
+  if (!document.fonts.check("400 18px Roboto")) {
+    const link = document.createElement("link");
+    link.rel = "stylesheet";
+    link.href =
+      "https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;500;700;900&display=swap";
+
+    document.head.appendChild(link);
+  }
+}
 function loadSerif() {
   if (
     window.sectionConfig[window.appState.menuOk].serif &&
