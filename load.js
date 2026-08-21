@@ -87,7 +87,6 @@ function loadContent(contentMenu, contentSub, contentPop) {
     );
 }
 function goTo(menuGo, subGo, popGo) {
-  reloadRoboto();
   const supportmeCheckbox = document.getElementById("supportme-checkbox");
   if (supportmeCheckbox.checked) supportmeCheckbox.checked = false;
   const fadeElements = document.querySelectorAll(".main, .header");
