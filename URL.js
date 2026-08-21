@@ -11,6 +11,7 @@ function updateUrlParams() {
     "irecommend",
     "myprojects",
     "404",
+    "contact",
   ];
   const path = window.location.pathname;
   const pathSegments = path.split("/");

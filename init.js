@@ -20,6 +20,7 @@ function initApp() {
     reallife: { title: " | z życia wzięte", serif: true, modifyUrl: true },
     myprojects: { title: " | WWW", serif: true, modifyUrl: true },
     irecommend: { title: " | mogę polecić", serif: true, modifyUrl: true },
+    contact: { title: " | kontakt", serif: true, modifyUrl: true },
     404: {
       title: " | błąd 404 - nie znaleziono",
       serif: false,
