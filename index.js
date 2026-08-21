@@ -18,6 +18,9 @@ window.addEventListener("popstate", (event) => {
   goTo(null, null, "pop").then(ga_script);
 });
 window.addEventListener("load", function () {
+  setTimeout(() => {
+    reloadRoboto();
+  }, 10000);
   initApp();
   goTo();
 });
