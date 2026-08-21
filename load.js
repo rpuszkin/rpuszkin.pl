@@ -181,9 +181,15 @@ function goTo(menuGo, subGo, popGo) {
         .then(() => fadeIn(fadeElements))
         .then(() => resolve());
     });
+    if (document.body.style.overflowY !== "scroll")
+      document.body.style.overflowY = "scroll";
   }
   //choosing type of transition to new content
-  if (window.scrollY === 0 && popGo !== "pop")
+  if (
+    window.scrollY === 0 &&
+    popGo !== "pop" &&
+    window.appState.subOk !== "404"
+  )
     return loadContent(menuGo, subGo, popGo);
   else return loadSmoothly(menuGo, subGo, popGo);
 }
