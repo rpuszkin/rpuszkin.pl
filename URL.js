@@ -26,8 +26,8 @@ function updateUrlParams() {
   if (menuURL && valid_menu.includes(menuURL)) window.appState.menuOk = menuURL;
   else {
     window.appState.menuOk = "404";
-    window.appState.subOk = "404";
-    return;
+    window.appState.subOk = window.appState.menuOk;
+    goTo("404", "404", "noscroll");
   }
   if (!subURL) {
     window.appState.subOk = window.appState.menuOk;
