@@ -3,7 +3,7 @@ function loadContent(contentMenu, contentSub, contentPop) {
   let isLoadedOrDoubleClick = false;
   window.appState.previousMenu = window.appState.menuOk;
   window.appState.previousSub = window.appState.subOk;
-  if ((!contentMenu && !contentSub) || contentPop === "pop") {updateUrlParams(); goTo(window.appState.menuOk, window.appState.subOk, contentPop);}
+  if ((!contentMenu && !contentSub) || contentPop === "pop") updateUrlParams();
   else {
     if (contentMenu) window.appState.menuOk = contentMenu;
     if (contentSub) window.appState.subOk = contentSub;
@@ -87,6 +87,9 @@ function loadContent(contentMenu, contentSub, contentPop) {
     );
 }
 function goTo(menuGo, subGo, popGo) {
+  if (document.body.style.overflowY !== "scroll")
+    document.body.style.overflowY = "scroll";
+
   const supportmeCheckbox = document.getElementById("supportme-checkbox");
   if (supportmeCheckbox.checked) supportmeCheckbox.checked = false;
   const fadeElements = document.querySelectorAll(".main, .header");
@@ -181,8 +184,6 @@ function goTo(menuGo, subGo, popGo) {
         .then(() => fadeIn(fadeElements))
         .then(() => resolve());
     });
-    if (document.body.style.overflowY !== "scroll")
-      document.body.style.overflowY = "scroll";
   }
   //choosing type of transition to new content
   if (
