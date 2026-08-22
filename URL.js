@@ -25,9 +25,7 @@ function updateUrlParams() {
   }
   if (menuURL && valid_menu.includes(menuURL)) window.appState.menuOk = menuURL;
   else {
-    window.appState.menuOk = "404";
-    window.appState.subOk = "404";
-    goTo("404", "404", "noscroll");
+    goTo("404", "404");
   }
   if (!subURL) {
     window.appState.subOk = window.appState.menuOk;
@@ -37,8 +35,6 @@ function updateUrlParams() {
   ) {
     window.appState.subOk = subURL;
   } else if (subURL) {
-    window.appState.menuOk = "404";
-    window.appState.subOk = "404";
-    goTo("404", "404", "noscroll");
+    goTo("404");
   }
 }
