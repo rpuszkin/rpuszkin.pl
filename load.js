@@ -3,7 +3,7 @@ function loadContent(contentMenu, contentSub, contentPop) {
   let isLoadedOrDoubleClick = false;
   window.appState.previousMenu = window.appState.menuOk;
   window.appState.previousSub = window.appState.subOk;
-  if ((!contentMenu && !contentSub) || contentPop === "pop") updateUrlParams();
+  if ((!contentMenu && !contentSub) || contentPop === "pop") {updateUrlParams(); goTo(window.appState.menuOk, window.appState.subOk, contentPop);}
   else {
     if (contentMenu) window.appState.menuOk = contentMenu;
     if (contentSub) window.appState.subOk = contentSub;
