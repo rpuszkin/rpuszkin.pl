@@ -185,7 +185,12 @@ function goTo(menuGo, subGo, popGo) {
       document.body.style.overflowY = "scroll";
   }
   //choosing type of transition to new content
-  if (window.scrollY === 0 && popGo !== "pop" && menuGo !== "404")
+  if (
+    window.scrollY === 0 &&
+    popGo !== "pop" &&
+    menuGo !== "404" &&
+    window.appState.menuOk !== "404"
+  )
     return loadContent(menuGo, subGo, popGo);
   else return loadSmoothly(menuGo, subGo, popGo);
 }
