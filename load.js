@@ -50,7 +50,7 @@ function loadContent(contentMenu, contentSub, contentPop) {
       })
       .catch((error) => {
         if (error === "fallback404")
-          return goTo("404", "404", "noscroll").then(() =>
+          return goTo("404", "404").then(() =>
             Promise.reject("redirectedTo404"),
           );
         else {
