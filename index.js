@@ -1,4 +1,4 @@
-document.querySelectorAll("nav a.menu-link").forEach((link) => {
+document.querySelectorAll("a.menu-link").forEach((link) => {
   link.addEventListener("click", (event) => event.preventDefault());
 });
 document.addEventListener("click", (event) => {
@@ -20,7 +20,7 @@ window.addEventListener("popstate", (event) => {
 window.addEventListener("load", function () {
   setTimeout(() => {
     reloadRoboto();
-  }, 5000);
+  }, 3000);
   initApp();
   goTo();
 });
