@@ -93,7 +93,8 @@ function goTo(menuGo, subGo, popGo) {
     document.body.style.overflowY = "scroll";
 
   const supportmeCheckbox = document.getElementById("supportme-checkbox");
-  if (supportmeCheckbox.checked) supportmeCheckbox.checked = false;
+  if (supportmeCheckbox && supportmeCheckbox.checked)
+    supportmeCheckbox.checked = false;
   const fadeElements = document.querySelectorAll(".main, .header");
   function waitForTransitions(elements, { timeout = 700 } = {}) {
     return new Promise((resolve) => {
