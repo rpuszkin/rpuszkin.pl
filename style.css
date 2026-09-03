@@ -355,7 +355,7 @@ nav:has(#supportme-checkbox:checked) .supportme-arrow {
   padding-left: 0;
 }
 .article-photo {
-  width: 75vw;
+  width: 45vw;
   border-radius: 3vw;
 }
 .error404-text {
