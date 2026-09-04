@@ -20,7 +20,7 @@ window.addEventListener("popstate", (event) => {
 window.addEventListener("load", function () {
   setTimeout(() => {
     reloadRoboto();
-  }, 1800);
+  }, 400);
   initApp();
   goTo();
 });
