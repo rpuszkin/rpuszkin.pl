@@ -284,6 +284,7 @@ nav:has(#supportme-checkbox:checked) .supportme-arrow {
   margin: 15px 0;
 }
 .myprojects-h2Small,
+.myhistory-h2Small,
 .myhistory-h3_solo {
   text-align: center;
   font-weight: 700;
@@ -357,6 +358,12 @@ nav:has(#supportme-checkbox:checked) .supportme-arrow {
 .article-photo {
   width: 45vw;
   border-radius: 3vw;
+}
+.photo-description {
+  font-size: 14px;
+  font-style: italic;
+  font-weight: bold;
+  margin-bottom: 10px;
 }
 .error404-text {
   width: 65%;
