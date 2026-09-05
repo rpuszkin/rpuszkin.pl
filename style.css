@@ -360,7 +360,7 @@ nav:has(#supportme-checkbox:checked) .supportme-arrow {
   border-radius: 3vw;
 }
 .photo-description {
-  font-size: 14px;
+  font-size: clamp(12px, 1vw, 18px);
   font-style: italic;
   font-weight: bold;
   margin-bottom: 10px;
