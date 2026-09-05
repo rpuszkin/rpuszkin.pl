@@ -343,7 +343,7 @@ nav:has(#supportme-checkbox:checked) .supportme-arrow {
   margin-right: 50px;
   text-align: justify;
   font-family: "Roboto Serif";
-  font-size: 17.5px;
+  font-size: clamp(15.5px, 0.91vw, 18px);
 }
 .error404-img {
   display: flex;
