@@ -1,15 +1,12 @@
 function loadContent(contentMenu, contentSub, contentPop) {
-  let file;
-  let isLoadedOrDoubleClick = false;
-  window.appState.previousMenu = window.appState.menuOk;
-  window.appState.previousSub = window.appState.subOk;
+  window.appState.menuOk = contentMenu;
+  window.appState.subOk = contentSub;
+  window.appState.isLoadedOrDoubleClick = false;
   if ((!contentMenu && !contentSub) || contentPop === "pop") updateUrlParams();
   else {
-    if (contentMenu) window.appState.menuOk = contentMenu;
-    if (contentSub) window.appState.subOk = contentSub;
-    if (contentMenu && !contentSub) window.appState.subOk = contentMenu;
   }
-  if (window.appState.menuOk) file = `/menu/${window.appState.menuOk}.html`;
+  if (window.appState.menuOk)
+    window.appState.file = `/menu/${window.appState.menuOk}.html`;
   else {
     alert(
       "loadContent(): menuOk nie jest ustawione. Nie można załadować pliku.",
@@ -22,24 +19,19 @@ function loadContent(contentMenu, contentSub, contentPop) {
     window.appState.menuOk === window.appState.previousMenu &&
     window.appState.subOk === window.appState.previousSub
   )
-    isLoadedOrDoubleClick = true;
+    window.appState.isLoadedOrDoubleClick = true;
   function loadFile(url) {
     return fetch(url)
       .then((response) => {
-        if (!response.ok) {
-          if (response.status === 404) {
-            if (window.appState.menuOk !== "404") {
-              return Promise.reject("fallback404");
-            } else
-              return Promise.reject(
-                "loadFile(): Błąd 404CR - strona nie została znaleziona, nie znaleziono również strony błędu.",
-              );
-          } else {
-            throw new Error(
-              `loadfile():Wystąpił błąd o numerze ${response.status}. Nie można załadować pliku.`,
-            );
-          }
+        if (!response.ok && response.status !== 404) {
+          alert(
+            `loadFile(): Wystąpił błąd o numerze ${response.status}. Nie można załadować pliku.`,
+          );
+          throw new Error(
+            `loadfile():Wystąpił błąd o numerze ${response.status}. Nie można załadować pliku.`,
+          );
         }
+
         return response.text();
       })
       .then((html) => {
@@ -49,11 +41,7 @@ function loadContent(contentMenu, contentSub, contentPop) {
         }
       })
       .catch((error) => {
-        if (error === "fallback404")
-          return goTo("404", "404").then(() =>
-            Promise.reject("redirectedTo404"),
-          );
-        else {
+        if (error) {
           alert("loadFile(): Błąd podczas ładowania pliku | " + error);
           throw new Error(
             "loadFile(): Błąd podczas ładowania pliku | " + error,
@@ -61,6 +49,15 @@ function loadContent(contentMenu, contentSub, contentPop) {
         }
       });
   }
+  loadSerif();
+  setTitle();
+  if (contentPop === "pop") return loadFile(window.appState.file);
+  else if (contentPop === "noscroll") return loadFile(window.appState.file);
+  return loadFile(window.appState.file).then(() =>
+    scrollIt(window.appState.subOk, 7500),
+  );
+}
+function goTo(menuGo, subGo, popGo) {
   function setUrlState(nopush) {
     let newUrl;
     if (
@@ -70,25 +67,37 @@ function loadContent(contentMenu, contentSub, contentPop) {
       newUrl = `/${window.appState.menuOk}/${window.appState.subOk}`;
     else newUrl = `/${window.appState.menuOk}`;
 
-    if (!nopush && !isLoadedOrDoubleClick)
+    if (!nopush && !window.appState.isLoadedOrDoubleClick)
       window.history.pushState({}, "", newUrl);
   }
-  setTitle();
-  loadSerif();
+  function decideUrlState() {
+    if (popGo === "pop") return "pop";
+    if (
+      !window.sectionConfig[window.appState.menuOk].modifyUrl &&
+      !window.appState.isLoadedOrDoubleClick
+    )
+      setUrlState(true);
+    else setUrlState();
+  }
+  const body = document.body;
+
+  window.appState.isLoadedOrDoubleClick = false;
   if (
-    window.sectionConfig[window.appState.menuOk].modifyUrl === false ||
-    isLoadedOrDoubleClick === true
+    window.appState.previousMenu === menuGo &&
+    window.appState.previousSub === subGo
   )
-    setUrlState(true);
-  else setUrlState();
-  if (contentPop === "noscroll") return loadFile(file).then(ga_script);
-  if (contentPop === "pop") return loadFile(file).then(ga_script);
-  else
-    return loadFile(file).then(() =>
-      scrollIt(window.appState.subOk, 7500).then(ga_script),
-    );
-}
-function goTo(menuGo, subGo, popGo) {
+    window.appState.isLoadedOrDoubleClick = true;
+  else window.appState.isLoadedOrDoubleClick = false;
+  window.appState.previousMenu = window.appState.menuOk;
+  window.appState.previousSub = window.appState.subOk;
+  if (menuGo) window.appState.menuOk = menuGo;
+  if (subGo) {
+    window.appState.subOk = subGo;
+  } else if (menuGo) window.appState.subOk = menuGo;
+
+  if ((!menuGo && !subGo) || popGo === "pop") updateUrlParams();
+
+  window.appState.file = `/menu/${window.appState.menuOk}.html`;
   if (document.body.style.overflowY !== "scroll")
     document.body.style.overflowY = "scroll";
 
@@ -154,7 +163,7 @@ function goTo(menuGo, subGo, popGo) {
       });
     }
     let noscrollOrPop;
-    if (smoothPop === "pop") noscrollOrPop = "pop";
+    if (popGo === "pop") noscrollOrPop = "pop";
     else noscrollOrPop = "noscroll";
 
     function jumpToTarget() {
@@ -182,14 +191,52 @@ function goTo(menuGo, subGo, popGo) {
     return new Promise((resolve, reject) => {
       fadeOut(fadeElements)
         .then(() => stopScrolling())
-        .then(() => loadContent(smoothMenu, smoothSub, noscrollOrPop))
+        .then(() => loadContent(smoothMenu, smoothSub, "noscroll"))
         .then(() => jumpToTarget())
         .then(() => fadeIn(fadeElements))
-        .then(() => resolve());
+        .then(() => {
+          if (body.style.overflowY !== "scroll")
+            body.style.overflowY = "scroll";
+
+          resolve();
+        });
     });
   }
-  //choosing type of transition to new content
-  if (window.scrollY === 0 && popGo !== "pop")
-    return loadContent(menuGo, subGo, popGo);
-  else return loadSmoothly(menuGo, subGo, popGo);
+  return fetch(window.appState.file, { method: "HEAD" }).then((response) => {
+    if (response.status === 404) {
+      if (window.appState.menuOk === "404") {
+        alert(
+          "wystąpił błąd 404CR - strona nie została znaleziona, nie znaleziono również strony błędu.",
+        );
+        throw new Error(
+          "wystąpił błąd 404CR - strona nie została znaleziona, nie znaleziono również strony błędu.",
+        );
+      }
+      {
+        decideUrlState();
+        console.log("Ścieżka 404 + GA");
+
+        if (scrollY === 0 && popGo !== "pop")
+          return loadContent("404", "404", popGo).then(ga_script);
+        else return loadSmoothly("404", "404", popGo).then(ga_script);
+      }
+    } else {
+      console.log("Ścieżka normalna + GA");
+
+      if (window.scrollY === 0 && popGo !== "pop")
+        return loadContent(window.appState.menuOk, window.appState.subOk, popGo)
+          .then(decideUrlState)
+          .then(ga_script);
+      else
+        return loadSmoothly(
+          window.appState.menuOk,
+          window.appState.subOk,
+          popGo,
+        )
+          .then(decideUrlState)
+          .then(ga_script);
+    }
+  });
+
+  window.appState.isLoadedOrDoubleClick = false;
 }
