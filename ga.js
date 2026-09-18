@@ -14,6 +14,7 @@ if (
 }
 
 function ga_script() {
+  console.log("GA_script");
   if (
     window.location.hostname === "127.0.0.1" ||
     window.location.hostname === "localhost"
