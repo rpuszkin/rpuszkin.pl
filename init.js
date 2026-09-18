@@ -40,4 +40,14 @@ function initApp() {
         stopScrollNow: false,
       },
     };
+  window.appState.file = null;
+  window.appState.previousMenu = null;
+  window.appState.previousSub = null;
+  window.appState.serifLoaded = false;
+  window.appState.isLoadedOrDoubleClick = false;
+  window.appState.scroll = {
+    isScrolling: false,
+    skipScrolling: false,
+    stopScrollNow: false,
+  };
 }
