@@ -69,6 +69,7 @@ function goTo(menuGo, subGo, popGo) {
 
     if (!nopush && !window.appState.isLoadedOrDoubleClick)
       window.history.pushState({}, "", newUrl);
+    return Promise.resolve();
   }
   function decideUrlState() {
     if (popGo === "pop") return "pop";
@@ -76,8 +77,8 @@ function goTo(menuGo, subGo, popGo) {
       !window.sectionConfig[window.appState.menuOk].modifyUrl &&
       !window.appState.isLoadedOrDoubleClick
     )
-      setUrlState(true);
-    else setUrlState();
+      return setUrlState(true);
+    else return setUrlState();
   }
   const body = document.body;
 
@@ -162,10 +163,6 @@ function goTo(menuGo, subGo, popGo) {
         } else resolve();
       });
     }
-    let noscrollOrPop;
-    if (popGo === "pop") noscrollOrPop = "pop";
-    else noscrollOrPop = "noscroll";
-
     function jumpToTarget() {
       let targetSection;
       targetSection = document.getElementById(window.appState.subOk);
