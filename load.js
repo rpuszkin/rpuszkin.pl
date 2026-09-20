@@ -234,6 +234,4 @@ function goTo(menuGo, subGo, popGo) {
           .then(ga_script);
     }
   });
-
-  window.appState.isLoadedOrDoubleClick = false;
 }
