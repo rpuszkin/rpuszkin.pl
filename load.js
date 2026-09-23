@@ -28,7 +28,7 @@ function loadContent(contentMenu, contentSub, contentPop) {
             `loadFile(): Wystąpił błąd o numerze ${response.status}. Nie można załadować pliku.`,
           );
           throw new Error(
-            `loadfile():Wystąpił błąd o numerze ${response.status}. Nie można załadować pliku.`,
+            `loadFile():Wystąpił błąd o numerze ${response.status}. Nie można załadować pliku.`,
           );
         }
 
@@ -176,8 +176,13 @@ function goTo(menuGo, subGo, popGo) {
           }
           requestAnimationFrame(checkTop);
         } else {
+          alert(
+            "jumpToTarget(): element o id " +
+              window.appState.subOk +
+              " nie istnieje!",
+          );
           reject(
-            "jumpToSection(): element o id " +
+            "jumpToTarget(): element o id " +
               window.appState.subOk +
               " nie istnieje!",
           );
