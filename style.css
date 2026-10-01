@@ -261,11 +261,13 @@ nav:has(#supportme-checkbox:checked) .supportme-arrow {
   border-left: 20px solid #00539f;
   min-height: calc(100vh - 60px);
 }
-.title-h1 {
+.title-h1,
+.error404-title {
   font-size: 36px;
   font-weight: 700;
   color: #404040;
   margin-bottom: 70px;
+  margin-top: 12px;
 }
 .myhistory-h2,
 .myprojects-h2,
@@ -328,11 +330,7 @@ nav:has(#supportme-checkbox:checked) .supportme-arrow {
   color: #00539f;
 }
 .error404-title {
-  margin-left: 50px;
-  font-size: 36px;
-  font-weight: 700;
   color: red;
-  margin-bottom: 70px;
 }
 .hugeArticle {
   text-align: center;
