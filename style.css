@@ -247,10 +247,9 @@ nav:has(#supportme-checkbox:checked) .supportme-arrow {
   transition: opacity 1s;
 }
 .content {
-  width: calc(100% - 50px);
+  width: 100%;
   min-height: 200vh;
-  padding-left: 50px;
-  padding-top: 60px;
+  padding: 50px;
 }
 .krs-content {
   padding-left: 30px;
@@ -340,7 +339,6 @@ nav:has(#supportme-checkbox:checked) .supportme-arrow {
 }
 .hugeArticle .paragraph {
   margin: 15px 0;
-  margin-right: 50px;
   text-align: justify;
   font-family: "Roboto Serif";
   font-size: clamp(15.5px, 0.91vw, 18px);
