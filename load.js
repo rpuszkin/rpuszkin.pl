@@ -3,8 +3,6 @@ function loadContent(contentMenu, contentSub, contentPop) {
   window.appState.subOk = contentSub;
   window.appState.isLoadedOrDoubleClick = false;
   if ((!contentMenu && !contentSub) || contentPop === "pop") updateUrlParams();
-  else {
-  }
   if (window.appState.menuOk)
     window.appState.file = `/menu/${window.appState.menuOk}.html`;
   else {
@@ -23,12 +21,12 @@ function loadContent(contentMenu, contentSub, contentPop) {
   function loadFile(url) {
     return fetch(url)
       .then((response) => {
-        if (!response.ok && response.status !== 404) {
+        if (!response.ok) {
           alert(
-            `loadFile(): Wystąpił błąd o numerze ${response.status}. Nie można załadować pliku.`,
+            `loadFile(): Wystąpił błąd o numerze ${response.status}. Nie można załadować pliku. Zgłoś mi to, proszę!`,
           );
           throw new Error(
-            `loadFile():Wystąpił błąd o numerze ${response.status}. Nie można załadować pliku.`,
+            `loadFile(): błąd  ${response.status}. Nie można załadować pliku.`,
           );
         }
 
@@ -58,18 +56,11 @@ function loadContent(contentMenu, contentSub, contentPop) {
   );
 }
 function goTo(menuGo, subGo, popGo) {
-  function setUrlState(nopush) {
-    let newUrl;
-    if (
-      window.appState.subOk &&
-      window.appState.subOk !== window.appState.menuOk
-    )
-      newUrl = `/${window.appState.menuOk}/${window.appState.subOk}`;
-    else newUrl = `/${window.appState.menuOk}`;
-
-    if (!nopush && !window.appState.isLoadedOrDoubleClick)
-      window.history.pushState({}, "", newUrl);
-    return Promise.resolve();
+  function showHideSupportmeMore() {
+    const supportmeCheckbox = document.getElementById("supportme-checkbox");
+    if (supportmeCheckbox) {
+      supportmeCheckbox.checked = !supportmeCheckbox.checked;
+    }
   }
   function decideUrlState() {
     if (popGo === "pop") return "pop";
@@ -222,7 +213,7 @@ function goTo(menuGo, subGo, popGo) {
           return loadContent("404", "404", popGo).then(ga_script);
         else return loadSmoothly("404", "404", popGo).then(ga_script);
       }
-    } else {
+    } else if (response.status === 200) {
       console.log("Ścieżka normalna + GA");
 
       if (window.scrollY === 0 && popGo !== "pop")
@@ -237,6 +228,9 @@ function goTo(menuGo, subGo, popGo) {
         )
           .then(decideUrlState)
           .then(ga_script);
+    } else {
+      alert("Wystąpił nieoczekiwany błąd.");
+      throw new Error("Wystąpił nieoczekiwany błąd.");
     }
   });
 }
