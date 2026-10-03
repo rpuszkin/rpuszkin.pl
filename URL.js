@@ -18,9 +18,9 @@ function updateUrlParams() {
   const menuURL = pathSegments.length > 0 ? pathSegments[1] : null;
   const subURL = pathSegments.length > 1 ? pathSegments[2] : null;
 
-  if (!menuURL && !subURL) {
+  if ((!menuURL && !subURL) || menuURL === "index.html") {
     window.appState.menuOk = "home";
-    window.appState.subOk = window.appState.menuOk;
+    window.appState.subOk = "home";
     return;
   }
   if (menuURL && valid_menu.includes(menuURL)) window.appState.menuOk = menuURL;
