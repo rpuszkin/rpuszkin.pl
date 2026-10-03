@@ -181,7 +181,7 @@ nav:has(#supportme-checkbox:checked) .supportme-arrow {
   background-position: center;
 }
 .btns-container {
-  width: 100%;
+  width: calc(100vw - 100px);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -192,9 +192,7 @@ nav:has(#supportme-checkbox:checked) .supportme-arrow {
   align-items: center;
   gap: 15px;
 }
-.btn-container:nth-of-type(2) {
-  margin-right: 40px;
-}
+
 .krs-btn_div {
   border: 5px solid #ee7202;
   background-image: url(media/krs-btn.webp);
@@ -247,19 +245,19 @@ nav:has(#supportme-checkbox:checked) .supportme-arrow {
   transition: opacity 1s;
 }
 .content {
-  width: 100%;
+  width: calc(100vw - 100px);
   min-height: 200vh;
   padding: 50px;
 }
 .krs-content {
   padding-left: 30px;
   border-left: 20px solid #ee7202;
-  min-height: calc(100vh - 60px);
+  min-height: calc(100vh - 100px);
 }
 .foundation-content {
   padding-left: 30px;
   border-left: 20px solid #00539f;
-  min-height: calc(100vh - 60px);
+  min-height: calc(100vh - 100px);
 }
 .title-h1,
 .error404-title {
