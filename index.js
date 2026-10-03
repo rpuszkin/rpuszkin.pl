@@ -7,16 +7,12 @@ document.addEventListener("click", (event) => {
     event.preventDefault();
   }
 });
-
 function showHideSupportmeMore() {
   const supportmeCheckbox = document.getElementById("supportme-checkbox");
   if (supportmeCheckbox) {
     supportmeCheckbox.checked = !supportmeCheckbox.checked;
   }
 }
-window.addEventListener("popstate", (event) => {
-  goTo(null, null, "pop").then(ga_script);
-});
 window.addEventListener("load", function () {
   setTimeout(() => {
     reloadRoboto();
