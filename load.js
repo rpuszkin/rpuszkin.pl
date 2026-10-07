@@ -22,12 +22,14 @@ function loadContent(contentMenu, contentSub, contentPop) {
     return fetch(url)
       .then((response) => {
         if (!response.ok) {
-          alert(
-            `loadFile(): Wystąpił błąd o numerze ${response.status}. Nie można załadować pliku. Zgłoś mi to, proszę!`,
-          );
-          throw new Error(
-            `loadFile(): błąd  ${response.status}. Nie można załadować pliku.`,
-          );
+          if (response.status !== 404) {
+            alert(
+              `loadFile(): Wystąpił błąd o numerze ${response.status}. Nie można załadować pliku. Zgłoś mi to, proszę!`,
+            );
+            throw new Error(
+              `loadFile(): błąd  ${response.status}. Nie można załadować pliku.`,
+            );
+          }
         }
 
         return response.text();
@@ -41,8 +43,8 @@ function loadContent(contentMenu, contentSub, contentPop) {
       .catch((error) => {
         if (error) {
           alert(`loadFile(): Błąd podczas ładowania pliku | ${error}.
-            Zgłoś mi to, proszę! Naciśnij OK by przejść na stronę główną. Jeśli problem będzie się powtarzał, zgłoś mi to, proszę!`);
-          location.href = "/";
+              Zgłoś mi to, proszę! Naciśnij OK by przejść na stronę główną. Jeśli problem będzie się powtarzał, zgłoś mi to, proszę!`);
+          goTo("home");
         }
       });
   }
@@ -196,20 +198,19 @@ function goTo(menuGo, subGo, popGo) {
   }
   return fetch(window.appState.file, { method: "HEAD" }).then((response) => {
     if (response.status === 404) {
-      if (window.appState.menuOk === "404") {
+      if (menuGo === "404") {
         alert(
           `goTo()-soft_fetch: wystąpił błąd 404CR - strona nie została znaleziona, nie znaleziono również strony błędu. Zgłoś mi to, proszę! Nie znaleziono pliku: ${window.appState.file}.
-          Naciśnij OK by przejść na stronę główną. Jeśli problem będzie się powtarzał, zgłoś mi to, proszę!`,
+            Naciśnij OK by przejść na stronę główną. 
+            Naciśnij OK by przejść na stronę główną. Jeśli problem będzie się powtarzał, zgłoś mi to, proszę!`,
         );
-        location.href = "/";
+        return goTo("home");
       }
       {
         decideUrlState();
         console.log("Ładowanie cieżką 404 + GA");
 
-        if (scrollY === 0 && popGo !== "pop")
-          return loadContent("404", "404", popGo).then(ga_script);
-        else return loadSmoothly("404", "404", popGo).then(ga_script);
+        return goTo("404", "404", popGo);
       }
     } else if (response.status === 200) {
       console.log("Ładowanie cieżką normalną + GA");
@@ -230,7 +231,7 @@ function goTo(menuGo, subGo, popGo) {
       alert(
         "goTo()-soft_fetch: Wystąpił nieoczekiwany błąd. Zgłoś mi to, proszę! Naciśnij OK by przejść na stronę główną. Jeśli problem będzie się powtarzał, zgłoś mi to, proszę!",
       );
-      location.href = "/";
+      goTo("home");
     }
   });
 }
