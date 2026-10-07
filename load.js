@@ -40,10 +40,9 @@ function loadContent(contentMenu, contentSub, contentPop) {
       })
       .catch((error) => {
         if (error) {
-          alert("loadFile(): Błąd podczas ładowania pliku | " + error);
-          throw new Error(
-            "loadFile(): Błąd podczas ładowania pliku | " + error,
-          );
+          alert(`loadFile(): Błąd podczas ładowania pliku | ${error}.
+            Zgłoś mi to, proszę! Naciśnij OK by przejść na stronę główną. Jeśli problem będzie się powtarzał, zgłoś mi to, proszę!`);
+          location.href = "/";
         }
       });
   }
@@ -199,22 +198,21 @@ function goTo(menuGo, subGo, popGo) {
     if (response.status === 404) {
       if (window.appState.menuOk === "404") {
         alert(
-          "wystąpił błąd 404CR - strona nie została znaleziona, nie znaleziono również strony błędu.",
+          `goTo()-soft_fetch: wystąpił błąd 404CR - strona nie została znaleziona, nie znaleziono również strony błędu. Zgłoś mi to, proszę! Nie znaleziono pliku: ${window.appState.file}.
+          Naciśnij OK by przejść na stronę główną. Jeśli problem będzie się powtarzał, zgłoś mi to, proszę!`,
         );
-        throw new Error(
-          "wystąpił błąd 404CR - strona nie została znaleziona, nie znaleziono również strony błędu.",
-        );
+        location.href = "/";
       }
       {
         decideUrlState();
-        console.log("Ścieżka 404 + GA");
+        console.log("Ładowanie cieżką 404 + GA");
 
         if (scrollY === 0 && popGo !== "pop")
           return loadContent("404", "404", popGo).then(ga_script);
         else return loadSmoothly("404", "404", popGo).then(ga_script);
       }
     } else if (response.status === 200) {
-      console.log("Ścieżka normalna + GA");
+      console.log("Ładowanie cieżką normalną + GA");
 
       if (window.scrollY === 0 && popGo !== "pop")
         return loadContent(window.appState.menuOk, window.appState.subOk, popGo)
@@ -229,8 +227,10 @@ function goTo(menuGo, subGo, popGo) {
           .then(decideUrlState)
           .then(ga_script);
     } else {
-      alert("Wystąpił nieoczekiwany błąd.");
-      throw new Error("Wystąpił nieoczekiwany błąd.");
+      alert(
+        "goTo()-soft_fetch: Wystąpił nieoczekiwany błąd. Zgłoś mi to, proszę! Naciśnij OK by przejść na stronę główną. Jeśli problem będzie się powtarzał, zgłoś mi to, proszę!",
+      );
+      location.href = "/";
     }
   });
 }
