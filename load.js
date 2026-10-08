@@ -7,11 +7,11 @@ function loadContent(contentMenu, contentSub, contentPop) {
     window.appState.file = `/menu/${window.appState.menuOk}.html`;
   else {
     alert(
-      "loadContent(): menuOk nie jest ustawione. Nie można załadować pliku.",
+      `loadContent(): menuOk nie jest ustawione. Nie można załadować pliku.
+          Zgłoś mi to, proszę! Naciśnij OK by przejść na stronę główną. Jeśli problem będzie się powtarzał, zgłoś mi to, proszę!
+          Po kliknięciu OK zostaniesz przeniesiony na stronę główną.`,
     );
-    throw new Error(
-      "loadContent(): menuOk nie jest ustawione. Nie można załadować pliku.",
-    );
+    goTo("home");
   }
   if (
     window.appState.menuOk === window.appState.previousMenu &&
