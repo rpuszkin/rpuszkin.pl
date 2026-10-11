@@ -186,6 +186,14 @@ nav:has(#supportme-checkbox:checked) .supportme-arrow {
   justify-content: space-between;
   align-items: center;
 }
+.btns-container_supportme {
+  width: calc(100vw - 100px - 600px);
+  margin-left: 300px;
+  padding: 0 0px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 .btn-container {
   display: flex;
   flex-direction: column;
