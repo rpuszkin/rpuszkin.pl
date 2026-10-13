@@ -135,7 +135,7 @@ body {
 .fa-angle-down {
   transition: all 0.18s ease-in-out;
 }
-nav:has(#supportme-checkbox:checked) .supportme-arrow {
+body:has(#supportme-checkbox:checked) .menu-nav .supportme-arrow {
   transition: all 0.18s ease-in-out;
   transform: rotate(180deg);
 }
@@ -143,7 +143,7 @@ nav:has(#supportme-checkbox:checked) .supportme-arrow {
   opacity: 0;
   pointer-events: none;
   padding: 0 5px;
-  z-index: 9999;
+  z-index: 1000;
   display: flex;
   flex-direction: column;
   position: fixed;
