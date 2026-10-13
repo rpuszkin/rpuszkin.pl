@@ -196,42 +196,41 @@ function goTo(menuGo, subGo, popGo) {
         });
     });
   }
-  return fetch(window.appState.file, { method: "HEAD" }).then((response) => {
-    if (response.status === 404) {
-      if (menuGo === "404") {
+  if (menuGo === "404" && subGo === "404" && popGo === "pop")
+    loadSmoothly("404", "404", popGo);
+  else
+    return fetch(window.appState.file, { method: "HEAD" }).then((response) => {
+      if (response.status === 404) {
+        {
+          decideUrlState();
+          console.log("Ładowanie cieżką 404 + GA");
+
+          return goTo("404", "404", popGo);
+        }
+      } else if (response.status === 200) {
+        console.log("Ładowanie cieżką normalną + GA");
+
+        if (window.scrollY === 0 && popGo !== "pop")
+          return loadContent(
+            window.appState.menuOk,
+            window.appState.subOk,
+            popGo,
+          )
+            .then(decideUrlState)
+            .then(ga_script);
+        else
+          return loadSmoothly(
+            window.appState.menuOk,
+            window.appState.subOk,
+            popGo,
+          )
+            .then(decideUrlState)
+            .then(ga_script);
+      } else {
         alert(
-          `goTo()-soft_fetch: wystąpił błąd 404CR - strona nie została znaleziona, nie znaleziono również strony błędu. Zgłoś mi to, proszę! Nie znaleziono pliku: ${window.appState.file}.
-            Naciśnij OK by przejść na stronę główną. 
-            Naciśnij OK by przejść na stronę główną. Jeśli problem będzie się powtarzał, zgłoś mi to, proszę!`,
+          "goTo()-soft_fetch: Wystąpił nieoczekiwany błąd. Zgłoś mi to, proszę! Naciśnij OK by przejść na stronę główną. Jeśli problem będzie się powtarzał, zgłoś mi to, proszę!",
         );
-        return goTo("home");
+        goTo("home");
       }
-      {
-        decideUrlState();
-        console.log("Ładowanie cieżką 404 + GA");
-
-        return goTo("404", "404", popGo);
-      }
-    } else if (response.status === 200) {
-      console.log("Ładowanie cieżką normalną + GA");
-
-      if (window.scrollY === 0 && popGo !== "pop")
-        return loadContent(window.appState.menuOk, window.appState.subOk, popGo)
-          .then(decideUrlState)
-          .then(ga_script);
-      else
-        return loadSmoothly(
-          window.appState.menuOk,
-          window.appState.subOk,
-          popGo,
-        )
-          .then(decideUrlState)
-          .then(ga_script);
-    } else {
-      alert(
-        "goTo()-soft_fetch: Wystąpił nieoczekiwany błąd. Zgłoś mi to, proszę! Naciśnij OK by przejść na stronę główną. Jeśli problem będzie się powtarzał, zgłoś mi to, proszę!",
-      );
-      goTo("home");
-    }
-  });
+    });
 }
