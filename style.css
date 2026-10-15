@@ -392,6 +392,9 @@ body:has(#supportme-checkbox:checked) .menu-nav .supportme-arrow {
 .technology_github {
   color: #fff;
 }
+.technology_react {
+  color: #61dafb;
+}
 .credits {
   display: flex;
   align-items: center;
