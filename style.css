@@ -140,9 +140,8 @@ body:has(#supportme-checkbox:checked) .menu-nav .supportme-arrow {
   transform: rotate(180deg);
 }
 .supportme-more {
-  opacity: 0;
-  pointer-events: none;
-  padding: 0 5px;
+  overflow: hidden;
+  max-height: 0;
   z-index: 1000;
   display: flex;
   flex-direction: column;
@@ -159,8 +158,7 @@ body:has(#supportme-checkbox:checked) .menu-nav .supportme-arrow {
   transition: all 0.18s ease-in-out;
 }
 #supportme-checkbox:checked ~ .supportme-more {
-  opacity: 1;
-  pointer-events: all;
+  max-height: 100px;
 }
 
 .supportme-more .color-foundation {
