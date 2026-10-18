@@ -148,6 +148,7 @@ body:has(#supportme-checkbox:checked) .menu-nav .supportme-arrow {
   position: fixed;
   top: 50px;
   left: 200px;
+  padding: 0 5px;
   backdrop-filter: blur(3px);
   -webkit-backdrop-filter: blur(3px);
   background-color: rgba(64, 64, 64, 0.9);
