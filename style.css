@@ -179,7 +179,7 @@ body:has(#supportme-checkbox:checked) .menu-nav .supportme-arrow {
   background-position: center;
 }
 .btns-container {
-  width: calc(100vw - 100px);
+  width: calc(100% - 100px);
   display: flex;
   justify-content: space-between;
   align-items: center;
