@@ -252,7 +252,6 @@ body:has(#supportme-checkbox:checked) .menu-nav .supportme-arrow {
   transition: opacity 1s;
 }
 .content {
-  width: calc(100vw - 100px);
   min-height: 200vh;
   padding: 50px;
 }
