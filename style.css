@@ -2,7 +2,6 @@ html {
   box-sizing: border-box;
 }
 body {
-  overflow-y: hidden;
   padding: 0;
   padding-bottom: 60px;
   margin: 0;
