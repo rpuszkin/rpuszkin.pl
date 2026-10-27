@@ -57,6 +57,7 @@ body {
   gap: 10px;
   height: 50px;
   align-items: center;
+  justify-content: center;
   white-space: nowrap;
   cursor: pointer;
 }
