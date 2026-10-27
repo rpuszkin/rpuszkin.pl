@@ -139,7 +139,7 @@ body:has(#supportme-checkbox:checked) .menu-nav .supportme-arrow {
   transition: all 0.18s ease-in-out;
   transform: rotate(180deg);
 }
-.supportme-more {
+.supportme-menu {
   overflow: hidden;
   max-height: 0;
   z-index: 1000;
@@ -158,11 +158,11 @@ body:has(#supportme-checkbox:checked) .menu-nav .supportme-arrow {
   border-radius: 0 0 5px 5px;
   transition: all 0.18s ease-in-out;
 }
-#supportme-checkbox:checked ~ .supportme-more {
+#supportme-checkbox:checked ~ .supportme-menu {
   max-height: 100px;
 }
 
-.supportme-more .color-foundation {
+.supportme-menu .color-foundation {
   text-shadow:
     -1px -1px 0 rgba(211, 211, 211, 0.5),
     1px -1px 0 rgba(211, 211, 211, 0.5),
