@@ -7,7 +7,7 @@ document.addEventListener("click", (event) => {
     event.preventDefault();
   }
 });
-function showHideSupportmeMore() {
+function showHideSupportmeMenu() {
   const supportmeCheckbox = document.getElementById("supportme-checkbox");
   if (supportmeCheckbox) {
     supportmeCheckbox.checked = !supportmeCheckbox.checked;
